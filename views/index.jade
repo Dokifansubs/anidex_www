@@ -12,21 +12,20 @@ block content
                 tbody
                     tr
                         th.tor
-                        th.tor Group
                         th.tor Name
-                        th.tor Download
-                        th.tor.tor-s S
                         th.tor
-                        th.tor.tor-l L
-                        th.tor.tor-c Completed
+                        th.tor.tor-d Download
                     each torrent, i in torrents
-                        tr
-                            td.tor.tor-cat #{torrent.cat}
-                            td.tor.tor-group #{torrent.group}
+                        tr(class=(i % 2 == 0) ? 'odd' : 'even')
+                            td.tor.tor-cat(rowspan="2") #{torrent.cat}
                             td.tor.tor-name #{torrent.name}
-                            td.tor
-                                a(href='http://anidex.moe/') Download
-                            td.tor.tor-s #{torrent.seeders}
-                            td.tor.tor-separator /
-                            td.tor.tor-l #{torrent.leechers}
+                            td.tor.tor-c #{torrent.seeders} / #{torrent.leechers}
+                            td.tor.tor-d(rowspan="2")
+                                a(href='http://anidex.moe/') Torrent
+                                span &nbsp;/&nbsp;
+                                a(href='http://anidex.moe/') Magnet
+                        tr(class=(i % 2 == 0) ? 'odd' : 'even')
+                            td.tor.tor-group Group:&nbsp;
+                                a(href='http://doki.co') #{torrent.group}
                             td.tor.tor-c #{torrent.completed}
+

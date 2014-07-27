@@ -78,6 +78,14 @@ body {
     margin: 0px;
 }
 
+tr.odd {
+    background-color: #DDD;
+}
+
+tr.even {
+    background-color: #FFF;
+}
+
 table {
     overflow: auto;
     width: 100%;
@@ -120,8 +128,15 @@ th.tor {
 .tor .tor-c {
     text-align: right;
     padding-right: 5px;
-    max-width: 74px;
+    min-width: 74px;
     width: 74px;
+}
+
+.tor .tor-d {
+    text-align: right;
+    padding-right: 5px;
+    width: 120px;
+    min-width: 64px;
 }
 
 .tor .tor-cat {
