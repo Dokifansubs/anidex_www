@@ -102,6 +102,7 @@ table {
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     border: 0px none;
+    padding-left: 5px;
 }
 
 th.tor {
@@ -119,10 +120,14 @@ th.tor {
 
 .tor .tor-s {
     text-align: right;
+    color: green;
 }
 
 .tor .tor-l {
     text-align: left;
+    width: 60px;
+    min-width: 60px;
+    color: red;
 }
 
 .tor .tor-c {
@@ -133,10 +138,11 @@ th.tor {
 }
 
 .tor .tor-d {
-    text-align: right;
+    text-align: center;
     padding-right: 5px;
     width: 120px;
     min-width: 64px;
+    /*border-right: 2px solid #AAA;*/
 }
 
 .tor .tor-cat {
