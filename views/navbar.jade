@@ -1,0 +1,31 @@
+.navbar(class=['navbar-inverse', 'navbar-fixed-top'])
+    .container
+        .nabar-header
+            button.navbar-toggle
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(href='/') #{title}
+        .navbar-collapse
+            ul(class=['nav', 'navbar-nav'])
+                li#groups
+                    a(href='/groups') Groups
+                li#categories
+                    a(href='/categories') Categories
+                li#hentai
+                    a(href='/hentai') Hentai
+                li#tutorial
+                    a(href='/tutorial') Tutorial
+            .pull-right
+                ul(class=['nav', 'navbar-nav'])
+                    li#login
+                        a(href='/login') Login
+            .col-sm-3.col-md-3.pull-right
+                form.navbar-form(role='search')
+                    .input-group
+                        input.form-control(placeholder='Search', name='srch-term', id='srch-term', type='text')
+                        .input-group-btn
+                            button.btn.btn-default(type='submit')
+                                i.glyphicon.glyphicon-search
+
+

@@ -1,0 +1,32 @@
+extends layout
+block content
+    .container
+        .box
+            .header
+                h5 News
+            .panel-body #{news}
+        .box
+            .header
+                h5 Releases
+            table.tor
+                tbody
+                    tr
+                        th.tor
+                        th.tor Group
+                        th.tor Name
+                        th.tor Download
+                        th.tor.tor-s S
+                        th.tor
+                        th.tor.tor-l L
+                        th.tor.tor-c Completed
+                    each torrent, i in torrents
+                        tr
+                            td.tor.tor-cat #{torrent.cat}
+                            td.tor.tor-group #{torrent.group}
+                            td.tor.tor-name #{torrent.name}
+                            td.tor
+                                a(href='http://anidex.moe/') Download
+                            td.tor.tor-s #{torrent.seeders}
+                            td.tor.tor-separator /
+                            td.tor.tor-l #{torrent.leechers}
+                            td.tor.tor-c #{torrent.completed}
