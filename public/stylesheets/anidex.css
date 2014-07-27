@@ -97,10 +97,11 @@ table {
 
 .tor {
     margin: 0px;
-    padding: 0px;
     line-height: 18px;
     border: 0px none;
-    padding: 1px;
+    padding: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .tor .tor-cat {
@@ -119,27 +120,35 @@ table {
 
 .tor .tor-s {
     text-align: right;
+    width: 50px;
+    min-width: 30px;
     color: green;
 }
 
 .tor .tor-l {
     text-align: left;
-    width: 60px;
-    min-width: 60px;
+    width: 50px;
+    min-width: 30px;
     color: red;
 }
 
 .tor .tor-c {
     text-align: right;
     padding-right: 5px;
-    min-width: 74px;
+    min-width: 70px;
+    width: 70px;
+}
+
+.tor .tor-age {
+    text-align: right;
     width: 74px;
+    min-width: 74px;
 }
 
 .tor .tor-d {
     text-align: center;
     padding-right: 5px;
-    width: 120px;
+    width: 64px;
     min-width: 64px;
     /*border-right: 2px solid #AAA;*/
 }

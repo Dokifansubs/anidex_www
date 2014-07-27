@@ -15,26 +15,25 @@ block content
                         th.tor
                         th.tor.tor-d Download
                         th.tor Name
+                        th.tor.tor-age Age
                         th.tor.tor-s S
                         th.tor
                         th.tor.tor-l L
                         th.tor.tor-c Completed
                     each torrent, i in torrents
                         tr(class=(i % 2 == 0) ? 'odd' : 'even')
-                            td.tor.tor-cat(rowspan="2") #{torrent.cat}
-                            td.tor.tor-d(rowspan="2")
-                                a(href='http://anidex.moe/') Torrent
+                            td.tor.tor-cat #{torrent.cat}
+                            td.tor.tor-d
+                                a(href='http://anidex.moe/') Tor
                                 span &nbsp;/&nbsp;
-                                a(href='http://anidex.moe/') Magnet
+                                a(href='http://anidex.moe/') Mag
                             td.tor.tor-name #{torrent.name}
                                 span(style="color: brown;") &nbsp;900.1MB
-                                span.tor-comment Added: 01-01-1970
-                            td.tor.tor-s(rowspan="2") #{torrent.seeders}
-                            td.tor.tor-separator(rowspan="2") /
-                            td.tor.tor-l(rowspan="2") #{torrent.leechers}
-                            td.tor.tor-c(rowspan="2") #{torrent.completed}
-                        tr(class=(i % 2 == 0) ? 'odd' : 'even')
-                            td.tor.tor-group
-                                a(href='http://doki.co') #{torrent.group}
-                                span.tor-comment Comments: 0
+                                if torrent.comments > 0
+                                    span.badge.pull-right #{torrent.comments}
+                            td.tor.tor-age 0 Hours
+                            td.tor.tor-s #{torrent.seeders}
+                            td.tor.tor-separator /
+                            td.tor.tor-l #{torrent.leechers}
+                            td.tor.tor-c #{torrent.completed}
 

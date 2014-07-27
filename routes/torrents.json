@@ -5,7 +5,8 @@
         "name": "[Doki] Mahouka - 16 (1280x720 Hi10P AAC) [15D4F6A8].mkv",
         "seeders": 23,
         "leechers": 48,
-        "completed": 5981
+        "completed": 5981,
+        "comments": 0
     },
     {
         "cat": "Anime",
@@ -13,7 +14,8 @@
         "name": "[Chihiro]_Locodol_-_04_[1280x720_H.264_AAC][4A9AB2A6].mkv",
         "seeders": 26,
         "leechers": 98,
-        "completed": 9001
+        "completed": 9001,
+        "comments": 0
     },
     {
         "cat": "Anime",
@@ -21,7 +23,8 @@
         "name": "[ドキ] 魔法科 - 十六 (千二百八十x七百二十 高十ピー アアシー) [15D4F6A8].mkv",
         "seeders": 923,
         "leechers": 4818,
-        "completed": 55382
+        "completed": 55382,
+        "comments": 5
     },
     {
         "cat": "Anime",
@@ -29,7 +32,8 @@
         "name": "[Doki] Mahouka - 16 (1280x720 Hi10P AAC) [15D4F6A8].mkv",
         "seeders": 23,
         "leechers": 48,
-        "completed": 5981
+        "completed": 5981,
+        "comments": 0
     },
     {
         "cat": "Anime",
@@ -37,7 +41,17 @@
         "name": "[Doki] Mahouka - 16 (1280x720 Hi10P AAC) [15D4F6A8].mkv",
         "seeders": 23,
         "leechers": 48,
-        "completed": 5981
+        "completed": 5981,
+        "comments": 0
+    },
+    {
+        "cat": "Drama",
+        "group": "NFP",
+        "name": "[NFP] Chuck Norris Best Moments (4K Hi24P SFLAC).mkv",
+        "seeders": 23,
+        "leechers": 48,
+        "completed": 5981,
+        "comments": 0
     },
     {
         "cat": "Anime",
@@ -45,7 +59,8 @@
         "name": "[Doki] Mahouka - 16 (1280x720 Hi10P AAC) [15D4F6A8].mkv",
         "seeders": 23,
         "leechers": 48,
-        "completed": 5981
+        "completed": 5981,
+        "comments": 0
     },
     {
         "cat": "Anime",
@@ -53,7 +68,8 @@
         "name": "[Doki] Mahouka - 16 (1280x720 Hi10P AAC) [15D4F6A8].mkv",
         "seeders": 23,
         "leechers": 48,
-        "completed": 5981
+        "completed": 5981,
+        "comments": 0
     },
     {
         "cat": "Anime",
@@ -61,7 +77,8 @@
         "name": "[Doki] Mahouka - 16 (1280x720 Hi10P AAC) [15D4F6A8].mkv",
         "seeders": 23,
         "leechers": 48,
-        "completed": 5981
+        "completed": 5981,
+        "comments": 0
     },
     {
         "cat": "Anime",
@@ -69,14 +86,7 @@
         "name": "[Doki] Mahouka - 16 (1280x720 Hi10P AAC) [15D4F6A8].mkv",
         "seeders": 23,
         "leechers": 48,
-        "completed": 5981
-    },
-    {
-        "cat": "Anime",
-        "group": "Doki Fansubs",
-        "name": "[Doki] Mahouka - 16 (1280x720 Hi10P AAC) [15D4F6A8].mkv",
-        "seeders": 23,
-        "leechers": 48,
-        "completed": 5981
+        "completed": 5981,
+        "comments": 0
     }
 ]
