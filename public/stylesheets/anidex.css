@@ -100,11 +100,7 @@ table {
     padding: 0px;
     line-height: 18px;
     border: 0px none;
-    padding-left: 5px;
-}
-
-th.tor {
-    border-bottom: 1px solid #DDD;
+    padding: 1px;
 }
 
 .tor .tor-cat {
@@ -114,6 +110,11 @@ th.tor {
     padding: 2px 5px !important;
     text-align: right;
     -moz-user-select: none;
+}
+
+.tor-comment {
+    float: right;
+    text-align: right;
 }
 
 .tor .tor-s {

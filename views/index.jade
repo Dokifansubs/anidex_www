@@ -5,6 +5,7 @@ block content
             .header
                 h5 News
             .panel-body #{news}
+        hr
         .box
             .header
                 h5 Releases
@@ -26,11 +27,14 @@ block content
                                 span &nbsp;/&nbsp;
                                 a(href='http://anidex.moe/') Magnet
                             td.tor.tor-name #{torrent.name}
+                                span(style="color: brown;") &nbsp;900.1MB
+                                span.tor-comment Added: 01-01-1970
                             td.tor.tor-s(rowspan="2") #{torrent.seeders}
                             td.tor.tor-separator(rowspan="2") /
                             td.tor.tor-l(rowspan="2") #{torrent.leechers}
                             td.tor.tor-c(rowspan="2") #{torrent.completed}
                         tr(class=(i % 2 == 0) ? 'odd' : 'even')
-                            td.tor.tor-group Group:&nbsp;
+                            td.tor.tor-group
                                 a(href='http://doki.co') #{torrent.group}
+                                span.tor-comment Comments: 0
 
