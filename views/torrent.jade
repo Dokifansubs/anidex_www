@@ -12,8 +12,20 @@ block content
             table.tor
                 tbody
                     tr
-                        td.tor-details #{torrent.name}
-                        td.tor-details #{torrent.info_hash}
+                        td.tor-details 
+                            table
+                                tbody
+                                    tr
+                                        td Name:
+                                        td #{torrent.name}
+                                    tr
+                                        td Uploader:
+                                        td #{torrent.uploader}
+                                    tr
+                                        td Group:
+                                        td #{torrent.group}
+                                        
+                        td.tor-details 
 
-
+                        
     include modals/login
