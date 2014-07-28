@@ -162,6 +162,7 @@ table.tor {
     text-align: right;
     width: 74px;
     min-width: 74px;
+    text-align: center;
 }
 
 .tor-size {
@@ -169,6 +170,7 @@ table.tor {
     width: 74px;
     min-width: 74px;
     color: brown;
+    text-align: center;
 }
 
 .tor-d {
