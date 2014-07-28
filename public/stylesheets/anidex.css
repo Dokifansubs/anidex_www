@@ -125,6 +125,13 @@ table.tor {
     text-align: center;
 }
 
+.tor .tor-cat-title {
+    width: 64px;
+    min-width: 64px;
+    padding-left: 13px !important;
+    text-align: left;
+}
+
 .tor-comment {
     float: right;
     text-align: right;
