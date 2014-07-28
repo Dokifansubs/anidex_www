@@ -30,7 +30,7 @@ block content
                                         th.tor-details Website:
                                         td.tor-details 
                                             a(href='#{torrent.website}') #{torrent.website}
-                                    var d = new Date(#{torrent.timestamp})
+                                    - var d = new Date(#{torrent.timestamp})
                                     tr
                                         th.tor-details Date:
                                         td.tor-details d
