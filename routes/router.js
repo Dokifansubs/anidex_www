@@ -9,7 +9,7 @@ module.exports = function(app) {
         res.render('index', {title: 'AniDex', torrents: torrents});
     })
     app.get('/torrent', function(req, res) {
-        res.render('torrent', {title: 'AniDex', torrents: torrents});
+        res.render('torrent', {title: 'AniDex', torrent: data});
     })
     /*
     app.get('/', function(req, res) {
