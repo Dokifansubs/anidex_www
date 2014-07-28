@@ -178,6 +178,10 @@ table.tor {
     text-align: center;
 }
 
+.tor-details {
+    padding: 2px 5px;
+}
+
 .tor > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
