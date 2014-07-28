@@ -8,6 +8,9 @@ module.exports = function(app) {
     app.get('/', function(req, res) {
         res.render('index', {title: 'AniDex', torrents: torrents});
     })
+    app.get('/torrent', function(req, res) {
+        res.render('torrent', {title: 'AniDex', torrents: torrents});
+    })
     /*
     app.get('/', function(req, res) {
         // Use a key instead of user password.
