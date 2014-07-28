@@ -48,8 +48,36 @@ block content
                                     tr
                                         th.tor-details Hash:
                                         td.tor-details #{torrent.info_hash}
-                                            
-                                            
+                                    tr
+                                        th.tor-details AniDB:
+                                        td.tor-details #{torrent.anidb_url}                                        
+
+
+            .header
+                h5 Files (Show/Hide button)
+            table.tor
+                tbody
+                    tr
+                        td.tor-details 
+                            table
+                                tbody
+                                    tr
+                                        td.tor-details File xyz
+                                        td.tor-details #{torrent.filelist}
+                                    tr
+                                    
+            .header
+                h5 Comments
+            table.tor
+                tbody
+                    tr
+                        td.tor-details 
+                            table
+                                tbody
+                                    tr
+                                        td.tor-details Comment xyz
+                                        td.tor-details #{torrent.comments}
+                                    tr                                            
                         td.tor-details 
 
                         
