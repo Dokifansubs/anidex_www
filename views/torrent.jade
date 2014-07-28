@@ -32,8 +32,22 @@ block content
                                             a(href='#{torrent.website}') #{torrent.website}
                                     tr
                                         th.tor-details Date:
-                                        - var d = new Date(#{torrent.timestamp})
-                                        td.tor-details d
+                                        td.tor-details #{torrent.timestamp}
+                                    tr
+                                        th.tor-details Date:
+                                        td.tor-details #{torrent.file_size}
+                                    tr
+                                        th.tor-details Seeders:
+                                        td.tor-details #{torrent.seeders}
+                                    tr
+                                        th.tor-details Leechers:
+                                        td.tor-details #{torrent.leechers}
+                                    tr
+                                        th.tor-details Completed:
+                                        td.tor-details #{torrent.completed}
+                                    tr
+                                        th.tor-details Hash:
+                                        td.tor-details #{torrent.info_hash}
                                             
                                             
                         td.tor-details 
