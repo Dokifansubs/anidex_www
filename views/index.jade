@@ -12,28 +12,32 @@ block content
             table.tor
                 tbody
                     tr
-                        th.tor
-                        th.tor.tor-d Download
-                        th.tor Name
-                        th.tor.tor-age Age
-                        th.tor.tor-s S
-                        th.tor
-                        th.tor.tor-l L
-                        th.tor.tor-c Completed
+                        th
+                        th.tor-d Download
+                        th Name
+                        th.tor-size Size
+                        th.tor-age Age
+                        th.tor-s S
+                        th
+                        th.tor-l L
+                        th.tor-c Completed
                     each torrent, i in torrents
                         tr(class=(i % 2 == 0) ? 'odd' : 'even')
-                            td.tor.tor-cat #{torrent.cat}
-                            td.tor.tor-d
+                            td.tor-cat #{torrent.cat}
+                            td.tor-d
                                 a(href='http://anidex.moe/') Tor
                                 span &nbsp;/&nbsp;
                                 a(href='http://anidex.moe/') Mag
-                            td.tor.tor-name #{torrent.name}
-                                span(style="color: brown;") &nbsp;900.1MB
+                            td.tor-name #{torrent.name}
+                                span(style="color: brown;")
                                 if torrent.comments > 0
                                     span.badge.pull-right(rel="tooltip" title="Comments") #{torrent.comments}
-                            td.tor.tor-age 0 Hours
-                            td.tor.tor-s #{torrent.seeders}
-                            td.tor.tor-separator /
-                            td.tor.tor-l #{torrent.leechers}
-                            td.tor.tor-c #{torrent.completed}
+                            td.tor-size 900.1MB
+                            td.tor-age 2983 Days
+                            td.tor-s #{torrent.seeders}
+                            td.tor-separator /
+                            td.tor-l #{torrent.leechers}
+                            td.tor-c #{torrent.completed}
+
+    include modals/login
 
