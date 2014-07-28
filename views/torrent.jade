@@ -51,11 +51,13 @@ block content
                                     tr
                                         th.tor-details AniDB:
                                         td.tor-details #{torrent.anidb_url}                                        
-
-
+        hr
+        .box
             .header
-                h5 Files (Show/Hide button)
-            table.tor
+                button.btn.btn-default(onclick="hide();" style="float: right;") Hide
+                h5 Files
+                
+            table.tor#files
                 tbody
                     tr
                         td.tor-details 
@@ -65,7 +67,8 @@ block content
                                         td.tor-details File xyz
                                         td.tor-details #{torrent.filelist}
                                     tr
-                                    
+        hr
+        .box                        
             .header
                 h5 Comments
             table.tor
@@ -82,3 +85,7 @@ block content
 
                         
     include modals/login
+    script.
+        function hide() {
+            $('#files').toggle();
+        }
