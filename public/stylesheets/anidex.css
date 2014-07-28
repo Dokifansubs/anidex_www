@@ -118,17 +118,17 @@ table.tor {
 }
 
 .tor .tor-cat {
-    color: #F00;
+    color: brown;
     width: 64px;
     min-width: 64px;
     padding: 2px 5px !important;
-    text-align: center;
+    text-align: left;
 }
 
 .tor .tor-cat-title {
     width: 64px;
     min-width: 64px;
-    padding-left: 13px !important;
+	padding-left: 5px !important;
     text-align: left;
 }
 
