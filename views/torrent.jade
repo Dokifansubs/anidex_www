@@ -30,10 +30,9 @@ block content
                                         th.tor-details Website:
                                         td.tor-details 
                                             a(href='#{torrent.website}') #{torrent.website}
-                                    - var d = new Date(#{torrent.timestamp})
                                     tr
                                         th.tor-details Date:
-                                        td.tor-details d
+                                        td.tor-details date!
                                     tr
                                         th.tor-details File size:
                                         td.tor-details #{torrent.file_size}
