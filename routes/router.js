@@ -3,6 +3,7 @@
 //var EM = require('./modules/email-dispatcher');
 
 var torrents = require('./torrents.json');
+var data = require('./torrent-details.json');
 
 module.exports = function(app) {
     app.get('/', function(req, res) {
