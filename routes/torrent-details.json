@@ -1,4 +1,15 @@
 { 
   "name": "[Doki] Mahouka - 16.mkv", 
-  "info_hash": "12345678" 
+  "uploader": "Holo",
+  "website": "http://doki.co",
+  "likes": "9001",
+  "timestamp": "1111111111",
+  "seeders": "10",
+  "leechers": "5",
+  "completed": "9001",
+  "file_size": "333 MB",
+  "info_hash": "123456789ABCDEF",
+  "description": "blablabla blablabla",
+  "file_in_torrent": "files",
+  "user_comments": "this rocks"
 }
