@@ -140,24 +140,24 @@ table.tor {
 .tor-s {
     text-align: center;
     color: green;
-    width: 14px;
-    min-width: 14px;
+    width: 45px;
+    min-width: 45px;
     color: green;
 }
 
 .tor-l {
     text-align: center;
     color: red;
-    width: 14px;
-    min-width: 14px;
+    width: 60px;
+    min-width: 60px;
 	color: red;
 }
 
 .tor-c {
     text-align: center;
     padding-right: 5px;
-    width: 14px;
-    min-width: 14px;
+    width: 60px;
+    min-width: 60px;
 }
 
 .tor-age {
