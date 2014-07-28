@@ -164,13 +164,6 @@ table.tor {
     color: brown;
 }
 
-
-.tor .tor-size {
-    text-align: right;
-    width: 74px;
-    min-width: 74px;
-}
-
 .tor .tor-d {
     text-align: center;
     padding-right: 5px;
