@@ -20,14 +20,13 @@ block content
                                         td.tor-details #{torrent.name}
                                     tr
                                         th.tor-details Uploader:
-                                        td.tor-details #{torrent.uploader}
+                                        td.tor-details a(href='/user?id=1') #{torrent.uploader}
                                     tr
                                         th.tor-details Group:
-                                        td.tor-details #{torrent.group}
+                                        td.tor-details a(href='/group?id=1') #{torrent.group}
                                     tr
                                         th.tor-details Website:
-                                        td.tor-details 
-                                            a(href='#{torrent.website}') #{torrent.website}
+                                        td.tor-details a(href='#{torrent.website}') #{torrent.website}
                                             
                         td.tor-details 
 
