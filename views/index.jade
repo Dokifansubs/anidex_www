@@ -26,11 +26,11 @@ block content
                             td.tor-cat #{torrent.cat}
                             td.tor-name #{torrent.name}
                                 if torrent.comments > 0
-                                    span.badge.pull-right(rel="tooltip" title="Comments") #{torrent.comments}
+                                    span.badge.pull-right(rel="tooltip" title="Comments" data-placement="left") #{torrent.comments}
                             td.tor-d
-                                a.glyphicon.glyphicon-magnet(href="http://anidex.moe/" rel="tooltip" title="Magnet link")
+                                a.glyphicon.glyphicon-magnet(href="http://anidex.moe/" rel="tooltip" title="Magnet link" data-placement="left")
                                 span &nbsp;
-                                a.glyphicon.glyphicon-save(href="http://anidex.moe/" rel="tooltip-r" title="Torrent file")
+                                a.glyphicon.glyphicon-save(href="http://anidex.moe/" rel="tooltip" title="Torrent file" data-placement="right")
                             td.tor-size 900.1MB
                             td.tor-age 2983 Days
                             td.tor-s #{torrent.seeders}
