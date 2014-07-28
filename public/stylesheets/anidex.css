@@ -138,39 +138,37 @@ table.tor {
 }
 
 .tor-s {
-    text-align: right;
-    width: 50px;
-    min-width: 30px;
+    text-align: center;
+    color: green;
+    width: 14px;
+    min-width: 14px;
     color: green;
 }
 
 .tor-l {
-    text-align: left;
-    width: 50px;
-    min-width: 30px;
+    text-align: center;
     color: red;
+    width: 14px;
+    min-width: 14px;
+	color: red;
 }
 
 .tor-c {
-    text-align: right;
+    text-align: center;
     padding-right: 5px;
-    min-width: 70px;
-    width: 70px;
+    width: 14px;
+    min-width: 14px;
 }
 
 .tor-age {
-    text-align: right;
-    width: 74px;
-    min-width: 74px;
     text-align: center;
+    width: 80px;
+    min-width: 80px;
 }
 
 .tor-size {
-    text-align: right;
-    width: 74px;
-    min-width: 74px;
-    color: brown;
     text-align: center;
+    color: brown;
 }
 
 .tor-d {
@@ -182,9 +180,9 @@ table.tor {
 }
 
 .tor-separator {
-    width: 20px;
-    min-width: 20px;
     text-align: center;
+    width: 14px;
+    min-width: 14px;
 }
 
 .tor-details {
