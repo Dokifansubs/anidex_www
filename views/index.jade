@@ -14,12 +14,12 @@ block content
                     tr
                         th.tor-cat-title Cat.
                         th Name
-                        th.tor-d Download
+                        th.tor-d DL
                         th.tor-size Size
                         th.tor-age Age
-                        th.tor-s Seeder
-                        th.tor-l Leecher
-                        th.tor-c Completed
+                        th.tor-s S
+                        th.tor-l L
+                        th.tor-c C
                     each torrent, i in torrents
                         tr(class=(i % 2 == 0) ? 'odd' : 'even')
                             td.tor-cat #{torrent.cat}
@@ -35,5 +35,5 @@ block content
                             td.tor-s #{torrent.seeders}
                             td.tor-l #{torrent.leechers}
                             td.tor-c #{torrent.completed}
-
+                           
     include modals/login

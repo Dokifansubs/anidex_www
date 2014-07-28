@@ -137,24 +137,23 @@ table.tor {
 .tor-s {
     text-align: center;
     color: green;
-    width: 45px;
-    min-width: 45px;
+    width: 50px;
+    min-width: 50px;
     color: green;
 }
 
 .tor-l {
     text-align: center;
     color: red;
-    width: 60px;
-    min-width: 60px;
+    width: 50px;
+    min-width: 50px;
 	color: red;
 }
 
 .tor-c {
     text-align: center;
-    padding-right: 5px;
-    width: 60px;
-    min-width: 60px;
+    width: 50px;
+    min-width: 50px;
 }
 
 .tor-age {
@@ -170,10 +169,11 @@ table.tor {
 
 .tor-d {
     text-align: center;
-    padding-right: 5px;
-    width: 64px;
-    min-width: 64px;
+    width: 50px;
+    min-width: 50px;
     /*border-right: 2px solid #AAA;*/
+}
+
 }
 
 .tor-separator {
