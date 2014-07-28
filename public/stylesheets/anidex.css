@@ -58,7 +58,8 @@ body {
 .box {
     border: 1px solid #CCC;
     margin: 0px 0px 16px;
-    border-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 .box > .header {
@@ -99,10 +100,6 @@ table.tor {
     border-radius: 7px;
     margin-top: 4px;
     padding-top: 2px;
-}
-
-.box {
-    border-radius: 6px;
 }
 
 .tor tr:last-child .tor-cat:first-child {

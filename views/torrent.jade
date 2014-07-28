@@ -53,11 +53,10 @@ block content
                                         td.tor-details #{torrent.anidb_url}                                        
         hr
         .box
-            .header
-                button.btn.btn-default(onclick="hide();" style="float: right;") Hide
+            .header                
                 h5 Files
-                
-            table.tor#files
+                a(onclick="hide();") show
+            table.tor#files(style="display: none;")
                 tbody
                     tr
                         td.tor-details 
@@ -88,4 +87,4 @@ block content
     script.
         function hide() {
             $('#files').toggle();
-        }
+        }       
