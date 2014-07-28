@@ -25,9 +25,9 @@ block content
                         tr(class=(i % 2 == 0) ? 'odd' : 'even')
                             td.tor-cat #{torrent.cat}
                             td.tor-d
-                                a.glyphicon.glyphicon-magnet(href='http://anidex.moe/')
+                                a.glyphicon.glyphicon-magnet(href="http://anidex.moe/" rel="tooltip" title="Magnet link")
                                 span &nbsp;
-                                a.glyphicon.glyphicon-save(href='http://anidex.moe/')
+                                a.glyphicon.glyphicon-save(href="http://anidex.moe/" rel="tooltip-r" title="Torrent file")
                             td.tor-name #{torrent.name}
                                 span(style="color: brown;")
                                 if torrent.comments > 0
