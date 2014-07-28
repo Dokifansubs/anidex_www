@@ -117,7 +117,7 @@ table.tor {
     padding-bottom: 5px;
 }
 
-.tor .tor-cat {
+.tor-cat {
     color: brown;
     width: 64px;
     min-width: 64px;
@@ -125,7 +125,7 @@ table.tor {
     text-align: left;
 }
 
-.tor .tor-cat-title {
+.tor-cat-title {
     width: 64px;
     min-width: 64px;
 	padding-left: 5px !important;
@@ -171,7 +171,7 @@ table.tor {
     color: brown;
 }
 
-.tor .tor-d {
+.tor-d {
     text-align: center;
     padding-right: 5px;
     width: 64px;
