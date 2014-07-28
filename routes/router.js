@@ -1,16 +1,18 @@
 //var CT = require('./modules/country-list');
 //var AM = require('./modules/account-manager');
 //var EM = require('./modules/email-dispatcher');
-
-var torrents = require('./torrents.json');
+var fs = require('fs');
 
 module.exports = function(app) {
     app.get('/', function(req, res) {
+        var torrents = JSON.parse(fs.readFileSync(__dirname + '/torrents.json'));
         res.render('index', {title: 'AniDex', torrents: torrents});
-    })
+    });
+
     app.get('/torrent', function(req, res) {
+        var data = JSON.parse(fs.readFileSync(__dirname + '/torrent-details.json'));
         res.render('torrent', {title: 'AniDex', torrent: data});
-    })
+    });
     /*
     app.get('/', function(req, res) {
         // Use a key instead of user password.
