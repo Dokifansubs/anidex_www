@@ -82,6 +82,10 @@ tr.even {
     background-color: #FFF;
 }
 
+th, td {
+    padding: 2px 5px;
+}
+
 table.tor {
     overflow: auto;
     width: 100%;
