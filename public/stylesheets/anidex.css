@@ -70,9 +70,28 @@ body {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 }
+
 .box > .header > h5 {
     padding: 3px 10px 0px 13px !important;
     margin: 0px;
+}
+
+.box > .header-hentai {
+    background-color: #FFDDDD;
+    height: 37px;
+    border-bottom: 1px solid #CCC;
+    padding: 8px 7px 0px 0px !important;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.box > .header-hentai > h5 {
+    padding: 3px 10px 0px 13px !important;
+    margin: 0px;
+}
+
+tr.odd-hentai {
+    background-color: #FFDDDD;
 }
 
 tr.odd {
