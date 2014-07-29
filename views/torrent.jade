@@ -1,10 +1,6 @@
 extends layout
 block content
     .container
-        .box
-            .header
-                h5 News
-            .panel-body #{news}
         hr
         .box
             .header
@@ -54,8 +50,8 @@ block content
         hr
         .box
             .header                
-                h5 Files
-                a(onclick="hide();") show
+                h5 Files 
+                    a(onclick="hide();") (show/hide)
             table.tor#files(style="display: none;")
                 tbody
                     tr

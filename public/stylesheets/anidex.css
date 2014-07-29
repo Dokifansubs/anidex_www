@@ -63,7 +63,7 @@ body {
 }
 
 .box > .header {
-    background: linear-gradient(to bottom, #FFF 0%, #E5E5E5 100%) repeat scroll 0% 0% transparent;
+    background-color: #DDD;
     height: 37px;
     border-bottom: 1px solid #CCC;
     padding: 8px 7px 0px 0px !important;
