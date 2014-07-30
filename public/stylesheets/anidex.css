@@ -187,6 +187,16 @@ table.tor {
     padding: 2px 5px;
 }
 
+.tor-details-s {
+    padding: 2px 5px;
+    color: green;
+}
+
+.tor-details-l {
+    padding: 2px 5px;
+    color: red;
+}
+
 .tor > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
