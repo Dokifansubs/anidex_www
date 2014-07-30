@@ -188,14 +188,16 @@ table.tor {
     vertical-align: top;
 }
 
-.tor-details-s {
-    padding: 2px 5px;
+.green {
     color: green;
 }
 
-.tor-details-l {
-    padding: 2px 5px;
+.red {
     color: red;
+}
+
+.purple {
+    color: purple;
 }
 
 .tor > thead > tr > th {
