@@ -22,7 +22,7 @@ block content
                         tr(class=(i % 2 == 0) ? 'odd' : 'even')
                             td.tor-cat #{torrent.cat}
                             td.tor-name 
-                                a(href='/torrent?id=1') #{torrent.name}
+                                a(href='/torrent?id=1' style="color: black") #{torrent.name}
                                 if torrent.comments > 0
                                     span.badge.pull-right(rel="tooltip" title="Comments" data-placement="left") #{torrent.comments}
                             td.tor-d
