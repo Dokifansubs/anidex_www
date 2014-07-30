@@ -185,6 +185,7 @@ table.tor {
 
 .tor-details {
     padding: 2px 5px;
+    vertical-align: top;
 }
 
 .tor-details-s {
