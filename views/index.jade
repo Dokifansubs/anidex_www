@@ -15,9 +15,9 @@ block content
                         th.tor-d DL
                         th.tor-size Size
                         th.tor-age Age
-                        th.tor50.green.center S
-                        th.tor50.red.center L
-                        th.tor50.purple.center C
+                        th.tor-s S
+                        th.tor-l L
+                        th.tor-c C
                     each torrent, i in torrents
                         tr(class=(i % 2 == 0) ? 'odd' : 'even')
                             td.tor-cat #{torrent.cat}
@@ -30,8 +30,8 @@ block content
                                 a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
                             td.tor-size 900.1MB
                             td.tor-age 2983 Days
-                            td.tor.green.center #{torrent.seeders}
-                            td.tor.red.center #{torrent.leechers}
-                            td.tor.purple.center #{torrent.completed}
+                            td.tor-s #{torrent.seeders}
+                            td.tor-l #{torrent.leechers}
+                            td.tor-c #{torrent.completed}
                            
     include modals/login
