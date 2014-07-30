@@ -135,7 +135,23 @@ table.tor {
     text-align: right;
 }
 
-.tor50 {
+.tor-s {
+    text-align: center;
+    color: green;
+    width: 50px;
+    min-width: 50px;
+}
+
+.tor-l {
+    text-align: center;
+    color: red;
+    width: 50px;
+    min-width: 50px;
+}
+
+.tor-c {
+    colour: purple;
+    text-align: center;
     width: 50px;
     min-width: 50px;
 }
