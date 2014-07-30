@@ -4,7 +4,7 @@ block content
         hr
         .box
             .header
-                h5 Torrent Details
+                h5 #{torrent.name}
             table.tor
                 tbody
                     tr
@@ -12,8 +12,11 @@ block content
                             table
                                 tbody
                                     tr
-                                        th.tor-details Name:
-                                        td.tor-details #{torrent.name}
+                                        th.tor-details Download:
+                                        td.tor-details
+                                            a.glyphicon.glyphicon-save(href="http://anidex.moe/")
+                                            span &nbsp;
+                                            a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
                                     tr
                                         th.tor-details Uploader:
                                         td.tor-details 
@@ -44,12 +47,6 @@ block content
                                     tr
                                         th.tor-details Hash:
                                         td.tor-details #{torrent.info_hash}
-                                    tr
-                                        th.tor-details Download:
-                                        td.tor-details
-                                            a.glyphicon.glyphicon-save(href="http://anidex.moe/")
-                                            span &nbsp;
-                                            a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
                         td.tor-details(width='40%')
                             table
                                 tbody  
