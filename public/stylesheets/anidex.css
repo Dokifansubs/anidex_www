@@ -135,24 +135,7 @@ table.tor {
     text-align: right;
 }
 
-.tor-s {
-    text-align: center;
-    color: green;
-    width: 50px;
-    min-width: 50px;
-    color: green;
-}
-
-.tor-l {
-    text-align: center;
-    color: red;
-    width: 50px;
-    min-width: 50px;
-	color: red;
-}
-
-.tor-c {
-    text-align: center;
+.tor50 {
     width: 50px;
     min-width: 50px;
 }
@@ -175,8 +158,6 @@ table.tor {
     /*border-right: 2px solid #AAA;*/
 }
 
-}
-
 .tor-separator {
     text-align: center;
     width: 14px;
@@ -188,6 +169,11 @@ table.tor {
     vertical-align: top;
 }
 
+.center {
+    text-align: center;	
+}
+
+}
 .green {
     color: green;
 }
