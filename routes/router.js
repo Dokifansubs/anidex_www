@@ -12,7 +12,12 @@ module.exports = function(app) {
     app.get('/torrent', function(req, res) {
         var data = JSON.parse(fs.readFileSync(__dirname + '/torrent-details.json'));
         res.render('torrent', {title: 'AniDex', torrent: data});
-    });   
+    });
+    
+    app.get('/upload', function(req, res) {
+        var upload = JSON.parse(fs.readFileSync(__dirname + '/upload.json'));
+        res.render('upload', {title: 'AniDex', upload: upload});
+    }); 
     
     /*
     app.get('/', function(req, res) {
