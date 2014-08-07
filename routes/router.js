@@ -1,24 +1,38 @@
 //var CT = require('./modules/country-list');
 //var AM = require('./modules/account-manager');
 //var EM = require('./modules/email-dispatcher');
+
+// Native requires.
 var fs = require('fs');
+var moment = require('moment');
+var pretty = require('prettysize');
+
+// Local requires.
+var Database = require('./../database/database');
+
+var database = new Database();
 
 module.exports = function(app) {
     app.get('/', function(req, res) {
-        var torrents = JSON.parse(fs.readFileSync(__dirname + '/torrents.json'));
-        res.render('index', {title: 'AniDex', torrents: torrents});
+        database.getTorrents(0, 50, function(err, torrents) {
+            torrents.forEach(function(item) {
+                item.created = moment(item.created).fromNow();
+                item.size = pretty(item.size);
+            });
+            res.render('index', {title: 'AniDex', torrents: torrents});
+        });
     });
 
     app.get('/torrent', function(req, res) {
         var data = JSON.parse(fs.readFileSync(__dirname + '/torrent-details.json'));
         res.render('torrent', {title: 'AniDex', torrent: data});
     });
-    
+
     app.get('/upload', function(req, res) {
         var upload = JSON.parse(fs.readFileSync(__dirname + '/upload.json'));
         res.render('upload', {title: 'AniDex', upload: upload});
-    }); 
-    
+    });
+
     /*
     app.get('/', function(req, res) {
         // Use a key instead of user password.

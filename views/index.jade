@@ -2,11 +2,6 @@ extends layout
 block content
     .container
         .box
-            .header
-                h5 News
-            .panel-body #{news}
-        hr
-        .box
             table.tor
                 tbody
                     tr
@@ -20,19 +15,19 @@ block content
                         th.tor-c C
                     each torrent, i in torrents
                         tr(class=(i % 2 == 0) ? 'odd' : 'even')
-                            td.tor-cat #{torrent.cat}
-                            td.tor-name 
-                                a(href='/torrent?id=1' style="color: #2F4F70") #{torrent.name}
+                            td.tor-cat #{torrent.category_name}
+                            td.tor-name
+                                a(href='/torrent?id=#{torrent.torrent_id}' style="color: #2F4F70") #{torrent.filename}
                                 if torrent.comments > 0
                                     span.badge.pull-right(rel="tooltip" title="Comments" data-placement="left") #{torrent.comments}
                             td.tor-d
                                 a.glyphicon.glyphicon-save(href="http://anidex.moe/")
                                 span &nbsp;
                                 a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
-                            td.tor-size 900.1MB
-                            td.tor-age 2983 Days
-                            td.tor-s #{torrent.seeders}
-                            td.tor-l #{torrent.leechers}
-                            td.tor-c #{torrent.completed}
-                           
+                            td.tor-size #{torrent.size}
+                            td.tor-age #{torrent.created}
+                            td.tor-s #{torrent.complete}
+                            td.tor-l #{torrent.incomplete}
+                            td.tor-c #{torrent.downloaded}
+
     include modals/login
