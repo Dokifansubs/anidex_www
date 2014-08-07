@@ -27,7 +27,6 @@ Database.prototype.getTorrents = function(start, limit, callback) {
     }.bind(this));
 };
 
-
 // Handles disconnect events from server.
 Database.prototype.handleDisconnect = function() {
     this.connection.on('error', function(err) {
