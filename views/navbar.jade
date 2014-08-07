@@ -8,6 +8,8 @@
             a.navbar-brand(href='/') #{title}
         nav.navbar-collapse.bs-navbar-collapse.collapse(role="navigation")
             ul.nav.navbar-nav
+                li#upload
+                    a(href='/upload') Upload
                 li#groups
                     a(href='/groups') Groups
                 li#faq
@@ -25,7 +27,28 @@
                 .input-group
                     input.form-control(placeholder='Search', name='q', id='srch-term', type='text')
                     .input-group-btn
-                        button.btn.btn-default(type='submit')
-                            i.glyphicon.glyphicon-search
+                        div.dropdown
+                            button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                                | Categories
+                                span.caret
+                            ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu1')
+                                li(role='presentation')
+                                    a(role='menuitem', tabindex='-1', href='#') Anime
+                                li(role='presentation')
+                                    a(role='menuitem', tabindex='-1', href='#') Non-English Anime
+                                li(role='presentation')
+                                    a(role='menuitem', tabindex='-1', href='#') Anime Raws
+                                li(role='presentation')
+                                    a(role='menuitem', tabindex='-1', href='#') Manga
+                                li(role='presentation')
+                                    a(role='menuitem', tabindex='-1', href='#') Hentai
+                                li(role='presentation')
+                                    a(role='menuitem', tabindex='-1', href='#') Music Video
+                                li(role='presentation')
+                                    a(role='menuitem', tabindex='-1', href='#') Software
+                                li(role='presentation')
+                                    a(role='menuitem', tabindex='-1', href='#') Light Novels
+                            button.btn.btn-default(type='submit')
+                                i.glyphicon.glyphicon-search
 
 include modals/login
