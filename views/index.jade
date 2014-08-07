@@ -5,7 +5,7 @@ block content
             button.close(data-dismiss='alert', type='button')
                 span(aria-hidden='true') &times;
                 span.sr-only Close
-            strong Yo!
+            strong Yo!&nbsp;
             | Welcome to our new tracker. It's still a work in progress.
         .box
             table.tor
@@ -37,7 +37,7 @@ block content
                                 td.tor-l #{torrent.incomplete}
                                 td.tor-c #{torrent.downloaded}
                     else
-                        tr(class=(i % 2 == 0) ? 'odd' : 'even')
+                        tr.odd
                             td.tor-name(colspan="8" style="text-align: center;") No results found
 
     include modals/login
