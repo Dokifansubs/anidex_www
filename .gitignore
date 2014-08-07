@@ -30,3 +30,6 @@ conf/*.json
 # Exclude random testing crap
 cheatsheet
 .project
+
+# Do not include database files.
+*.sql
