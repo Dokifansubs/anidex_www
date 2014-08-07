@@ -65,6 +65,9 @@ Database.prototype.handleDisconnect = function() {
         this.connection = mysql.createConnection(mysqlconf);
         this.handleDisconnect();
         this.connection.connect();
+        this.connection.query('USE `nodetracker`', function(err, rows) {
+            // Can't go wrong!
+        });
     }.bind(this));
 };
 
