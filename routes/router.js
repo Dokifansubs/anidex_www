@@ -12,15 +12,27 @@ var Database = require('./../database/database');
 
 var database = new Database();
 
+function renderFront(res, torrents) {
+    torrents.forEach(function(item) {
+        item.created = moment(item.created).fromNow();
+        item.size = pretty(item.size);
+    });
+    res.render('index', {title: 'AniDex', torrents: torrents});
+};
+
 module.exports = function(app) {
     app.get('/', function(req, res) {
-        database.getTorrents(0, 50, function(err, torrents) {
-            torrents.forEach(function(item) {
-                item.created = moment(item.created).fromNow();
-                item.size = pretty(item.size);
+        if (req.query.q) {
+            database.findTorrents(req.query.q, 0, 50, function(err, torrents) {
+                renderFront(res, torrents);
             });
-            res.render('index', {title: 'AniDex', torrents: torrents});
-        });
+            console.log('searching: ' + req.query.q);
+        } else {
+            database.getTorrents(0, 50, function(err, torrents) {
+                renderFront(res, torrents);
+            });
+            console.log('listing all');
+        }
     });
 
     app.get('/torrent', function(req, res) {

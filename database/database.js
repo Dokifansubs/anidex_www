@@ -7,6 +7,28 @@ var mysql = require('mysql');
 // Local requires.
 var mysqlconf = require('./../conf/mysql.json');
 
+Database.prototype.findTorrents = function(name, start, limit, callback) {
+    var query = 'SELECT `torrent_id`, `category_name`, `filename`, `comments`, `size`, `created`, `complete`, `incomplete`, `downloaded` '
+        + 'FROM `torrent` '
+        + 'LEFT JOIN `ai_categories` '
+        + 'ON `ai_categories`.category_id = `torrent`.category_id '
+        + 'WHERE `filename` LIKE ?'
+        + 'ORDER BY `torrent_id` '
+        + 'DESC LIMIT ?, ?';
+    var arguments = ['%' + name + '%', start, limit];
+
+    console.log(query);
+    console.log(arguments);
+
+    this.connection.query(query, arguments, function(err, rows, fields) {
+        if (err) {
+            return callback(err, []);
+        } else {
+            return callback(undefined, rows);
+        }
+    });
+};
+
 Database.prototype.getTorrent = function(id, callback) {
     var query = 'SELECT `torrent_id`, `category_name`, `filename`, `size`, `created`, `complete`, `incomplete`, `downloaded`, `info_hash`, `ai_groups`.name as `group_name`, `torrent`.group_id as `group_id`, `username`, `torrent`.user_id as `user_id` '
         + 'FROM `torrent` '
