@@ -19,8 +19,6 @@ Database.prototype.getTorrent = function(id, callback) {
         + 'WHERE `torrent`.torrent_id = ?';
     var arguments = [id];
 
-    console.log(query);
-
     this.connection.query(query, arguments, function(err, rows, fields) {
         if (err) {
             return callback(err, []);

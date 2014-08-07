@@ -25,7 +25,6 @@ module.exports = function(app) {
 
     app.get('/torrent', function(req, res) {
         database.getTorrent(req.query.id, function(err, data) {
-            console.log(data);
             data.created = moment(data.created);
             data.size = pretty(data.size);
             res.render('torrent', {title: 'AniDex', torrent: data});
