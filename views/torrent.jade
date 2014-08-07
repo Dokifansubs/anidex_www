@@ -3,7 +3,7 @@ block content
     .container
         .box
             .header
-                h5 #{torrent.name}
+                h5 #{torrent.filename}
             table.tor
                 tbody
                     tr
@@ -12,31 +12,32 @@ block content
                                 tbody
                                     tr
                                         th.tor-details Uploader:
-                                        td.tor-details 
-                                            a(href='/user?id=1') #{torrent.uploader}
-                                    tr
-                                        th.tor-details Group:
-                                        td.tor-details 
-                                            a(href='/group?id=1') #{torrent.group}
-                                    tr
-                                        th.tor-details Website:
-                                        td.tor-details 
-                                            a(href='#{torrent.website}') #{torrent.website}
+                                        td.tor-details
+                                            a(href='/user?id=#{torrent.user_id}') #{torrent.username}
+                                    if torrent.group_id
+                                        tr
+                                            th.tor-details Group:
+                                            td.tor-details
+                                                a(href='/group?id=#{torrent.group_id}') #{torrent.group_name}
+                                        tr
+                                            th.tor-details Website:
+                                            td.tor-details
+                                                a(href='#{torrent.website}') #{torrent.website}
                                     tr
                                         th.tor-details Date:
-                                        td.tor-details date!
+                                        td.tor-details #{torrent.created}
                                     tr
                                         th.tor-details File size:
-                                        td.tor-details #{torrent.file_size}
+                                        td.tor-details #{torrent.size}
                                     tr
                                         th.tor-details Seeders:
-                                        td.tor-details.green #{torrent.seeders}
+                                        td.tor-details.green #{torrent.complete}
                                     tr
                                         th.tor-details Leechers:
-                                        td.tor-details.red #{torrent.leechers}
+                                        td.tor-details.red #{torrent.incomplete}
                                     tr
                                         th.tor-details Completed:
-                                        td.tor-details.purple #{torrent.completed}
+                                        td.tor-details.purple #{torrent.downloaded}
                                     tr
                                         th.tor-details Hash:
                                         td.tor-details #{torrent.info_hash}
@@ -48,67 +49,67 @@ block content
                                             a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
                         td.tor-details(width='40%')
                             table
-                                tbody  
+                                tbody
                                     tr
                                         th.tor-details Name:
-                                        td.tor-details Mahouka
+                                        td.tor-details ???
                                     tr
                                         th.tor-details Type:
-                                        td.tor-details Anime
+                                        td.tor-details #{torrent.category_name}
                                     tr
                                         th.tor-details Status:
-                                        td.tor-details Airing
+                                        td.tor-details ???
                                     tr
                                         th.tor-details Aired:
-                                        td.tor-details Spring 2014
+                                        td.tor-details ???
                                     tr
                                         th.tor-details Episodes:
-                                        td.tor-details 24
+                                        td.tor-details ???
                                     tr
                                         th.tor-details Genres:
-                                        td.tor-details Magic etc etc
+                                        td.tor-details ???
                                     tr
                                         th.tor-details Description:
-                                        td.tor-details blablablablablablablab
+                                        td.tor-details ???
                                     tr
                                         th.tor-details Ext. Link:
-                                        td.tor-details #{torrent.anidb_url}
-                                    
+                                        td.tor-details ???
+
                         td.tor-details(width='20%')
                             img(src='http://cdn.myanimelist.net/images/anime/11/61039.jpg')
-                                    
+
         .box
-            .header                
-                h5 Files 
+            .header
+                h5 Files
                     a(onclick="hide();") (show/hide)
             table.tor#files(style="display: none;")
                 tbody
                     tr
-                        td.tor-details 
+                        td.tor-details
                             table
                                 tbody
                                     tr
                                         td.tor-details File xyz
                                         td.tor-details #{torrent.filelist}
                                     tr
-        .box                        
+        .box
             .header
                 h5 Comments
             table.tor
                 tbody
                     tr
-                        td.tor-details 
+                        td.tor-details
                             table
                                 tbody
                                     tr
                                         td.tor-details Comment xyz
                                         td.tor-details #{torrent.comments}
-                                    tr                                            
-                        td.tor-details 
+                                    tr
+                        td.tor-details
 
-                        
+
     include modals/login
     script.
         function hide() {
             $('#files').toggle();
-        }       
+        }

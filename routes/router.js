@@ -24,8 +24,12 @@ module.exports = function(app) {
     });
 
     app.get('/torrent', function(req, res) {
-        var data = JSON.parse(fs.readFileSync(__dirname + '/torrent-details.json'));
-        res.render('torrent', {title: 'AniDex', torrent: data});
+        database.getTorrent(req.query.id, function(err, data) {
+            console.log(data);
+            data.created = moment(data.created);
+            data.size = pretty(data.size);
+            res.render('torrent', {title: 'AniDex', torrent: data});
+        });
     });
 
     app.get('/upload', function(req, res) {
