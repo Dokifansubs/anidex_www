@@ -36,6 +36,10 @@ module.exports = function(app) {
         res.render('upload', {title: 'AniDex', upload: upload});
     });
 
+    app.get('/register', function(req, res) {
+        res.render('register', {title: 'AniDex'});
+    });
+
     /*
     app.get('/', function(req, res) {
         // Use a key instead of user password.
