@@ -162,8 +162,8 @@ table.tor {
 
 .tor-age {
     text-align: center;
-    width: 80px;
-    min-width: 80px;
+    width: 100px;
+    min-width: 100px;
 }
 
 .tor-size {
