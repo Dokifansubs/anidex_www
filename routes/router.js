@@ -26,12 +26,10 @@ module.exports = function(app) {
             database.findTorrents(req.query.q, 0, 50, function(err, torrents) {
                 renderFront(res, torrents);
             });
-            console.log('searching: ' + req.query.q);
         } else {
             database.getTorrents(0, 50, function(err, torrents) {
                 renderFront(res, torrents);
             });
-            console.log('listing all');
         }
     });
 

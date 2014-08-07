@@ -17,9 +17,6 @@ Database.prototype.findTorrents = function(name, start, limit, callback) {
         + 'DESC LIMIT ?, ?';
     var arguments = ['%' + name + '%', start, limit];
 
-    console.log(query);
-    console.log(arguments);
-
     this.connection.query(query, arguments, function(err, rows, fields) {
         if (err) {
             return callback(err, []);

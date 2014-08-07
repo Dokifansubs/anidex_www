@@ -5,7 +5,7 @@ block content
             button.close(data-dismiss='alert', type='button')
                 span(aria-hidden='true') &times;
                 span.sr-only Close
-            strong Yo! 
+            strong Yo!
             | Welcome to our new tracker. It's still a work in progress.
         .box
             table.tor
@@ -19,21 +19,25 @@ block content
                         th.tor-s S
                         th.tor-l L
                         th.tor-c C
-                    each torrent, i in torrents
+                    if torrents.length > 0
+                        each torrent, i in torrents
+                            tr(class=(i % 2 == 0) ? 'odd' : 'even')
+                                td.tor-cat #{torrent.category_name}
+                                td.tor-name
+                                    a(href='/torrent?id=#{torrent.torrent_id}' style="color: #2F4F70") #{torrent.filename}
+                                    if torrent.comments > 0
+                                        span.badge.pull-right(rel="tooltip" title="Comments" data-placement="left") #{torrent.comments}
+                                td.tor-d
+                                    a.glyphicon.glyphicon-save(href="http://anidex.moe/")
+                                    span &nbsp;
+                                    a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
+                                td.tor-size #{torrent.size}
+                                td.tor-age #{torrent.created}
+                                td.tor-s #{torrent.complete}
+                                td.tor-l #{torrent.incomplete}
+                                td.tor-c #{torrent.downloaded}
+                    else
                         tr(class=(i % 2 == 0) ? 'odd' : 'even')
-                            td.tor-cat #{torrent.category_name}
-                            td.tor-name
-                                a(href='/torrent?id=#{torrent.torrent_id}' style="color: #2F4F70") #{torrent.filename}
-                                if torrent.comments > 0
-                                    span.badge.pull-right(rel="tooltip" title="Comments" data-placement="left") #{torrent.comments}
-                            td.tor-d
-                                a.glyphicon.glyphicon-save(href="http://anidex.moe/")
-                                span &nbsp;
-                                a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
-                            td.tor-size #{torrent.size}
-                            td.tor-age #{torrent.created}
-                            td.tor-s #{torrent.complete}
-                            td.tor-l #{torrent.incomplete}
-                            td.tor-c #{torrent.downloaded}
+                            td.tor-name(colspan="8" style="text-align: center;") No results found
 
     include modals/login
