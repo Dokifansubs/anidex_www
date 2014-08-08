@@ -240,3 +240,8 @@ h3 {
 .bright {
     border-bottom-right-radius: 5px;
 }
+
+.dropdown-menu > li > a {
+  padding: 0px 20px;
+
+}
