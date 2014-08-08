@@ -11,6 +11,7 @@ var pretty = require('prettysize');
 var Database = require('./../database/database');
 
 var database = new Database();
+moment.langData('en').relativeTime.s = "just now";
 
 function renderFront(res, torrents) {
     torrents.forEach(function(item) {

@@ -1,6 +1,5 @@
 extends layout
 block content
-    - var rowclass
     .container
         .alert.alert-info.alert-dismissible(role='alert')
             button.close(data-dismiss='alert', type='button')
@@ -9,36 +8,36 @@ block content
             strong Yo!&nbsp;
             | Welcome to our new tracker. It's still a work in progress.
         .box
-            .Table
-                .Heading
-                        .Cell.tor-cat-title.tleft Cat.
-                        .Cell Name
-                        .Cell.tor-d DL
-                        .Cell.tor-size Size
-                        .Cell.tor-age Age
-                        .Cell.tor-s S
-                        .Cell.tor-l L
-                        .Cell.tor-c.tright C
-                    if torrents.length > 0
-                        each torrent, i in torrents
-                            - var rowclass = (i % 2 == 0) ? 'odd' : 'even'
-                            .Row
-                                .Cell.tor-cat(class=rowclass)(class=(i === torrents.length - 1) ? 'bleft' : '') #{torrent.category_name}
-                                .Cell.tor-name(class=rowclass)
-                                    a(href='/torrent?id=#{torrent.torrent_id}' style="color: #2F4F70") #{torrent.filename}
-                                    if torrent.comments > 0
-                                        span.badge.pull-right(rel="tooltip" title="Comments" data-placement="left") #{torrent.comments}
-                                .Cell.tor-d(class=rowclass)
-                                    a.glyphicon.glyphicon-save(href="http://anidex.moe/")
-                                    span &nbsp;
-                                    a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
-                                .Cell.tor-size(class=rowclass) #{torrent.size}
-                                .Cell.tor-age(class=rowclass) #{torrent.created}
-                                .Cell.tor-s(class=rowclass) #{torrent.complete}
-                                .Cell.tor-l(class=rowclass) #{torrent.incomplete}
-                                .Cell.tor-c(class=rowclass)(class=(i === torrents.length - 1) ? 'bright' : '') #{torrent.downloaded}
-                    else
-                        .Row.odd
-                            .Cell.tor-name(colspan="8" style="text-align: center;") No results found
+            table.Table
+                tr.Header
+                    td.tor-cat-title.tleft Cat.
+                    th.tor-name Name
+                    th.tor-d DL
+                    th.tor-size Size
+                    th.tor-age Age
+                    th.tor-s S
+                    th.tor-l L
+                    th.tor-c.tright C
+                if torrents.length > 0
+                    each torrent, i in torrents
+                        - var rowclass = (i % 2 == 0) ? 'odd' : 'even'
+                        tr.Row
+                            td.tor-cat(class=rowclass)(class=(i === torrents.length - 1) ? 'bleft' : '') #{torrent.category_name}
+                            td.tor-name(class=rowclass)
+                                a(href='/torrent?id=#{torrent.torrent_id}' style="color: #2F4F70") #{torrent.filename}
+                                if torrent.comments > 0
+                                    span.badge.pull-right(rel="tooltip" title="Comments" data-placement="left") #{torrent.comments}
+                            td.tor-d(class=rowclass)
+                                a.glyphicon.glyphicon-save(href="http://anidex.moe/")
+                                span &nbsp;
+                                a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
+                            td.tor-size(class=rowclass) #{torrent.size}
+                            td.tor-age(class=rowclass) #{torrent.created}
+                            td.tor-s(class=rowclass) #{torrent.complete}
+                            td.tor-l(class=rowclass) #{torrent.incomplete}
+                            td.tor-c(class=rowclass)(class=(i === torrents.length - 1) ? 'bright' : '') #{torrent.downloaded}
+                else
+                    tr.Row
+                        td.tor-empty(colspan="8" style="text-align: center;") No results found
 
     include modals/login
