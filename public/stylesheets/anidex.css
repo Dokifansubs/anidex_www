@@ -165,14 +165,14 @@ td {
     min-width: 100px;
 }
 
+.table-hov > tbody > tr:hover > td {
+    background-color: #d9edf7;
+}
+
 .tor-d {
     text-align: center;
     width: 50px;
     min-width: 50px;
-}
-
-td.tor-d {
-    padding-top: 2px;
 }
 
 .tor-details {
