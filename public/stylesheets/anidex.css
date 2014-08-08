@@ -214,7 +214,7 @@ h3 {
     display: table;
     width: 100%;
     margin: 0px;
-    padding: 6px 0px;
+    padding: 0px 0px;
 }
 
 .Title {
@@ -232,6 +232,7 @@ h3 {
 
 .Row {
     display: table-row;
+    border-radius: 6px;
 }
 
 .Cell {
@@ -239,4 +240,20 @@ h3 {
     padding-left: 5px;
     padding-right: 5px;
     margin: 0px auto;
+}
+
+.tright {
+    border-top-right-radius: 6px;
+}
+
+.tleft {
+    border-top-left-radius: 6px;
+}
+
+.bleft {
+    border-bottom-left-radius: 6px;
+}
+
+.bright {
+    border-bottom-right-radius: 6px;
 }
