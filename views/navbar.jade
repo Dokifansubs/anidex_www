@@ -29,14 +29,14 @@
                         a(href='/register') Register
                     li#login
                         a.login(data-toggle="modal" data-target="#loginModal") Login
-            form.navbar-right.navbar-form(role='search')
+            form.navbar-right.navbar-form(role='search' action="/")
                 .input-group
                     input.form-control(placeholder='Search', name='q', id='srch-term', type='text')
                     .input-group-btn
                         div.btn-group
                                 div.btn-group
                                     button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
-                                        | Categories
+                                        | Categories&nbsp;
                                         span.caret
                                     ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu1')
                                         li.dropdown-header(role='presentation') Anime
