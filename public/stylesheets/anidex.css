@@ -105,6 +105,12 @@ body {
     width: auto;
 }
 
+/* Please to not write it like this in final release */
+td {
+    padding-top: 2px;
+    padding-bottom: 3px;
+}
+
 .tor-cat {
     color: brown;
     width: 64px;
