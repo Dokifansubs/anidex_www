@@ -1,114 +1,115 @@
 extends layout
 block content
-    .container
-        .box
-            .header
-                h5 #{torrent.filename}
-            table.tor
-                tbody
-                    tr
-                        td.tor-details(width='400px;')
-                            table
-                                tbody
-                                    tr
-                                        th.tor-details Uploader:
-                                        td.tor-details
-                                            a(href='/user?id=#{torrent.user_id}') #{torrent.username}
-                                    if torrent.group_id
+    if torrent
+        .container
+            .box
+                .header
+                    h5 #{torrent.filename}
+                table.tor
+                    tbody
+                        tr
+                            td.tor-details(width='400px;')
+                                table
+                                    tbody
                                         tr
-                                            th.tor-details Group:
+                                            th.tor-details Uploader:
                                             td.tor-details
-                                                a(href='/group?id=#{torrent.group_id}') #{torrent.group_name}
+                                                a(href='/user?id=#{torrent.user_id}') #{torrent.username}
+                                        if torrent.group_id
+                                            tr
+                                                th.tor-details Group:
+                                                td.tor-details
+                                                    a(href='/group?id=#{torrent.group_id}') #{torrent.group_name}
+                                            tr
+                                                th.tor-details Website:
+                                                td.tor-details
+                                                    a(href='#{torrent.website}') #{torrent.website}
                                         tr
-                                            th.tor-details Website:
+                                            th.tor-details Date:
+                                            td.tor-details #{torrent.created}
+                                        tr
+                                            th.tor-details File size:
+                                            td.tor-details #{torrent.size}
+                                        tr
+                                            th.tor-details Seeders:
+                                            td.tor-details.green #{torrent.complete}
+                                        tr
+                                            th.tor-details Leechers:
+                                            td.tor-details.red #{torrent.incomplete}
+                                        tr
+                                            th.tor-details Completed:
+                                            td.tor-details.purple #{torrent.downloaded}
+                                        tr
+                                            th.tor-details Hash:
+                                            td.tor-details #{torrent.info_hash}
+                                        tr
+                                            th.tor-details Download:
                                             td.tor-details
-                                                a(href='#{torrent.website}') #{torrent.website}
-                                    tr
-                                        th.tor-details Date:
-                                        td.tor-details #{torrent.created}
-                                    tr
-                                        th.tor-details File size:
-                                        td.tor-details #{torrent.size}
-                                    tr
-                                        th.tor-details Seeders:
-                                        td.tor-details.green #{torrent.complete}
-                                    tr
-                                        th.tor-details Leechers:
-                                        td.tor-details.red #{torrent.incomplete}
-                                    tr
-                                        th.tor-details Completed:
-                                        td.tor-details.purple #{torrent.downloaded}
-                                    tr
-                                        th.tor-details Hash:
-                                        td.tor-details #{torrent.info_hash}
-                                    tr
-                                        th.tor-details Download:
-                                        td.tor-details
-                                            a.glyphicon.glyphicon-save(href="http://anidex.moe/")
-                                            span &nbsp;
-                                            a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
-                        td.tor-details(width='400px;')
-                            table
-                                tbody
-                                    tr
-                                        th.tor-details Name:
-                                        td.tor-details ???
-                                    tr
-                                        th.tor-details Type:
-                                        td.tor-details #{torrent.category_name}
-                                    tr
-                                        th.tor-details Status:
-                                        td.tor-details ???
-                                    tr
-                                        th.tor-details Aired:
-                                        td.tor-details ???
-                                    tr
-                                        th.tor-details Episodes:
-                                        td.tor-details ???
-                                    tr
-                                        th.tor-details Genres:
-                                        td.tor-details ???
-                                    tr
-                                        th.tor-details Description:
-                                        td.tor-details ???
-                                    tr
-                                        th.tor-details Ext. Link:
-                                        td.tor-details ???
+                                                a.glyphicon.glyphicon-save(href="http://anidex.moe/")
+                                                span &nbsp;
+                                                a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
+                            td.tor-details(width='400px;')
+                                table
+                                    tbody
+                                        tr
+                                            th.tor-details Name:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Type:
+                                            td.tor-details #{torrent.category_name}
+                                        tr
+                                            th.tor-details Status:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Aired:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Episodes:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Genres:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Description:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Ext. Link:
+                                            td.tor-details ???
 
-                        td.tor-details(width='*')
-                            img(src='http://cdn.myanimelist.net/images/anime/11/61039.jpg')
+                            td.tor-details(width='*')
+                                img(src='http://cdn.myanimelist.net/images/anime/11/61039.jpg')
 
-        .box
-            .header
-                h5 Files
-                    a(onclick="hide();") (show/hide)
-            table.tor#files(style="display: none;")
-                tbody
-                    tr
-                        td.tor-details
-                            table
-                                tbody
-                                    tr
-                                        td.tor-details File xyz
-                                        td.tor-details #{torrent.filelist}
-                                    tr
-        .box
-            .header
-                h5 Comments
-            table.tor
-                tbody
-                    tr
-                        td.tor-details
-                            table
-                                tbody
-                                    tr
-                                        td.tor-details Comment xyz
-                                        td.tor-details #{torrent.comments}
-                                    tr
-                        td.tor-details
-
-
-    include modals/login
+            .box
+                .header
+                    h5 Files
+                        a(onclick="hide();") (show/hide)
+                table.tor#files(style="display: none;")
+                    tbody
+                        tr
+                            td.tor-details
+                                table
+                                    tbody
+                                        tr
+                                            td.tor-details File xyz
+                                            td.tor-details #{torrent.filelist}
+                                        tr
+            .box
+                .header
+                    h5 Comments
+                table.tor
+                    tbody
+                        tr
+                            td.tor-details
+                                table
+                                    tbody
+                                        tr
+                                            td.tor-details Comment xyz
+                                            td.tor-details #{torrent.comments}
+                                        tr
+                            td.tor-details
+    else
+        .container
+            p invalid ID.
     script.
         function hide() {
             $('#files').toggle();
