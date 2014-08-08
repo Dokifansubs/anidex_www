@@ -1,9 +1,89 @@
 extends layout
 block content
-    .container
-        .alert.alert-info(role='alert')
-            strong Tracker announce url:
-            | http://anidex.moe:6969/announce
-        hr
-        .box#dropzone(style="height: 500px;")
+    .container.center
+            .alert.alert-success.alert(role='alert')
+                strong Upload
+                table
+                    tbody
+                        tr
+                            td
+                                .input-group
+                                    input.form-control(type='text' placeholder='File name (optional)')
+                                    span.input-group-btn
+                                        button.btn.btn-default(type='button') Select Torrent
+                        tr
+                            td
+                                .input-group
+                                    input.form-control(placeholder='Category', name='q', id='srch-term', type='text')
+                                    .input-group-btn
+                                        div.btn-group
+                                                div.btn-group
+                                                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                                                        | Select&nbsp;Category&nbsp;
+                                                        span.caret
+                                                    ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu1')
+                                                        li.dropdown-header(role='presentation') Anime
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Anime (English)
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Anime (Non-English)
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Anime (Raws)
+                                                        li.divider(role='presentation')
+                                                        li.dropdown-header(role='presentation') Manga
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Manga (English)
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Manga (Non-English)
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Manga (Raws)
+                                                        li.divider(role='presentation')
+                                                        li.dropdown-header(role='presentation') Hentai
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Hentai (English)
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Hentai (Non-English)
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Hentai (Raws)
+                                                        li.divider(role='presentation')
+                                                        li.dropdown-header(role='presentation') Music
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Music (Lossy)
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Music (Lossless)
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Music Videos
+                                                        li.divider(role='presentation')
+                                                        li.dropdown-header(role='presentation') Other
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Live Action
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Software
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Literature
+                                                        li(role='presentation')
+                                                            a(role='menuitem', tabindex='-1', href='#') Other
+                        tr
+                            td
+                                .input-group
+                                  input.form-control(type='text', placeholder='Hidden?')
+                                  span.input-group-addon
+                                    input(type='checkbox')
+                        tr
+                            td
+                                .input-group
+                                  input.form-control(type='text', placeholder='Anonymous?')
+                                  span.input-group-addon
+                                    input(type='checkbox')
+                        tr
+                            td
+                                .input-group
+                                  input.form-control(type='text', placeholder='Remake?')
+                                  span.input-group-addon
+                                    input(type='checkbox')
+                        tr
+                            td
+                                .form-group
+                                   input.form-control(type='text', placeholder='Description')
+
     script(src='/js/upload.js')
