@@ -22,7 +22,7 @@ block content
                     each torrent, i in torrents
                         - var rowclass = (i % 2 == 0) ? 'odd' : 'even'
                         tr.Row
-                            td.tor-cat(class=rowclass)(class=(i === torrents.length - 1) ? 'bleft' : '') #{torrent.category_name}
+                            td.tor-cat(class=[(i === torrents.length - 1) ? 'bleft' : '', rowclass]) #{torrent.category_name}
                             td.tor-name(class=rowclass)
                                 a(href='/torrent?id=#{torrent.torrent_id}' style="color: #2F4F70") #{torrent.filename}
                                 if torrent.comments > 0
@@ -35,7 +35,7 @@ block content
                             td.tor-age(class=rowclass) #{torrent.created}
                             td.tor-s(class=rowclass) #{torrent.complete}
                             td.tor-l(class=rowclass) #{torrent.incomplete}
-                            td.tor-c(class=rowclass)(class=(i === torrents.length - 1) ? 'bright' : '') #{torrent.downloaded}
+                            td.tor-c(class=[(i === torrents.length - 1) ? 'bright' : '', rowclass]) #{torrent.downloaded}
                 else
                     tr.Row
                         td.tor-empty(colspan="8" style="text-align: center;") No results found
