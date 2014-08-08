@@ -5,11 +5,11 @@
                 button.close(data-dismiss="modal") x
                 h3 Enter credentials
             .modal-body
-                form
-                    input.form-control(type="text" placeholder="Username")
-                    input.form-control(type="password" placeholder="Password")
+                form(action="/login" method="post")
+                    input.form-control(type="text" placeholder="Username" name="username")
+                    input.form-control(type="password" placeholder="Password" name="password")
                     p
                         label(for="remember-me")
-                            input#remember-me(type="checkbox" value="remember-me")
+                            input#remember-me(type="checkbox" name="rememberme")
                             | Remember me
                         button(type="submit")#login.btn.btn-primary.pull-right Login

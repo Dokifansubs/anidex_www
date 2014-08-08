@@ -6,6 +6,35 @@ var mysql = require('mysql');
 
 // Local requires.
 var mysqlconf = require('./../conf/mysql.json');
+var User = require('./user');
+
+Database.prototype.findUserId = function(id, callback) {
+    var query = 'SELECT `user_id`, `username`, `password` '
+        + 'FROM `ai_users` '
+        + 'WHERE `user_id` = ?';
+    var arguments = [id];
+
+    this.connection.query(query, arguments, function(err, rows, fields) {
+        if (err) { return callback(err); }
+        if (rows.length == 0) {return callback(null, null); }
+        var user = new User(rows[0].user_id, rows[0].username, rows[0].password);
+        return callback(null, user);
+    });
+};
+
+Database.prototype.findUser = function(username, callback) {
+    var query = 'SELECT `user_id`, `username`, `password` '
+        + 'FROM `ai_users` '
+        + 'WHERE `username` = ?';
+    var arguments = [username];
+
+    this.connection.query(query, arguments, function(err, rows, fields) {
+        if (err) { return callback(err); }
+        if (rows.length == 0) { return callback(null, null); }
+        var user = new User(rows[0].user_id, rows[0].username, rows[0].password);
+        return callback(null, user);
+    });
+};
 
 Database.prototype.findTorrents = function(name, start, limit, callback) {
     var query = 'SELECT `torrent_id`, `category_name`, `filename`, `comments`, `size`, `created`, `complete`, `incomplete`, `downloaded` '

@@ -1,9 +1,9 @@
 extends layout
 block content
     .container
-        div.alert.alert-info(role='alert') 
-            strong Tracker announce url: 
+        .alert.alert-info(role='alert')
+            strong Tracker announce url:
             | http://anidex.moe:6969/announce
-            table.tor
-                tbody
-                    tr
+        hr
+        .box#dropzone(style="height: 500px;")
+    script(src='/js/upload.js')

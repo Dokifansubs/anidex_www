@@ -19,10 +19,16 @@
                 li#rss
                     a(href='/rss') RSS
             ul.navbar-right(class=['nav', 'navbar-nav'])
-                li#signup
-                    a(href='/register') Register
-                li#login
-                    a.login(data-toggle="modal" data-target="#loginModal") Login
+                if user
+                    li#account
+                        a(href='/account') #{user.username}
+                    li#logout
+                        a.login(href='/logout') Logout
+                else
+                    li#signup
+                        a(href='/register') Register
+                    li#login
+                        a.login(data-toggle="modal" data-target="#loginModal") Login
             form.navbar-right.navbar-form(role='search')
                 .input-group
                     input.form-control(placeholder='Search', name='q', id='srch-term', type='text')
