@@ -25,33 +25,33 @@
 @font-face {
     font-weight:300;
     font-style:normal;
-    font-family:'Titillium Web';
-    src:url(/fonts/TitilliumWeb-Light.ttf);
+    font-family:'Ubuntu';
+    src:url(/fonts/Ubuntu-L.ttf);
 }
 
 @font-face {
     font-weight:400;
     font-style:normal;
-    font-family:'Titillium Web';
-    src:url(/fonts/TitilliumWeb-Regular.ttf);
+    font-family:'Ubuntu';
+    src:url(/fonts/Ubuntu-R.ttf);
 }
 
 @font-face {
     font-weight:600;
     font-style:normal;
-    font-family:'Titillium Web';
-    src:url(/fonts/TitilliumWeb-SemiBold.ttf);
+    font-family:'Ubuntu';
+    src:url(/fonts/Ubuntu-M.ttf);
 }
 
 @font-face {
     font-weight:700;
     font-style:bold;
-    font-family:'Titillium Web';
-    src:url(/fonts/TitilliumWeb-Bold.ttf);
+    font-family:'Ubuntu';
+    src:url(/fonts/Ubuntu-B.ttf);
 }
 
 body {
-    font-family: "Titillium Web", sans-serif;
+    font-family: "Ubuntu", sans-serif;
     padding-top: 70px;
 }
 
@@ -122,7 +122,7 @@ td {
 .tor-cat-title {
     width: 64px;
     min-width: 64px;
-	padding-left: 5px !important;
+    padding-left: 5px !important;
     text-align: left;
 }
 
