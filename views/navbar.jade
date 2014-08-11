@@ -28,7 +28,7 @@
                     li#signup
                         a(href='/register') Register
                     li#login
-                        a.login(data-toggle="modal" data-target="#loginModal") Login
+                        a.login(href='/login') Login
             form.navbar-right.navbar-form(role='search' action="/")
                 .input-group
                     input.form-control(placeholder='Search', name='q', id='srch-term', type='text')
@@ -82,5 +82,3 @@
                                             a(role='menuitem', tabindex='-1', href='#') Other
                             button.btn.btn-default(type='submit')
                                 i.glyphicon.glyphicon-search
-
-include modals/login

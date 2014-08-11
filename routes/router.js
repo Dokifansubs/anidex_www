@@ -59,6 +59,10 @@ module.exports = function(app) {
         res.render('register', {title: 'AniDex', user: req.user});
     });
 
+    app.get('/login', function(req, res) {
+        res.render('login', {title: 'AniDex', user: req.user});
+    });
+
     app.post('/login', passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/login' })
