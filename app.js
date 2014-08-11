@@ -8,6 +8,7 @@ var http = require('http');
 var sessionConfig = require('./conf/session.json');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var colors = require('colors');
 
 var Database = require('./database/database');
 
@@ -40,6 +41,9 @@ app.configure('development', function() {
             if (!user.validPassword(password)) {
                 return done(null, false, { message: 'Incorrect password.' });
             }
+            if (!user.verified()) {
+                return done(null, false, { message: 'Account not verified.' });
+            }
             return done(null, user);
         });
     }));
@@ -59,4 +63,5 @@ require('./routes/router')(app);
 
 http.createServer(app).listen(app.get('port'), function() {
     console.log("Express server listening on port " + app.get('port'));
+    console.log("UPDATE EMAIL SYSTEM IN FINAL VERSION".red);
 });

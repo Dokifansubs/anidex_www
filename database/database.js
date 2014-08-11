@@ -9,7 +9,7 @@ var mysqlconf = require('./../conf/mysql.json');
 var User = require('./user');
 
 Database.prototype.findUserId = function(id, callback) {
-    var query = 'SELECT `user_id`, `username`, `password` '
+    var query = 'SELECT `user_id`, `username`, `password`, `verified` '
         + 'FROM `ai_users` '
         + 'WHERE `user_id` = ?';
     var arguments = [id];
@@ -17,13 +17,13 @@ Database.prototype.findUserId = function(id, callback) {
     this.connection.query(query, arguments, function(err, rows, fields) {
         if (err) { return callback(err); }
         if (rows.length == 0) {return callback(null, null); }
-        var user = new User(rows[0].user_id, rows[0].username, rows[0].password);
+        var user = new User(rows[0].user_id, rows[0].username, rows[0].password, rows[0].verified);
         return callback(null, user);
     });
 };
 
 Database.prototype.findUser = function(username, callback) {
-    var query = 'SELECT `user_id`, `username`, `password` '
+    var query = 'SELECT `user_id`, `username`, `password`, `verified` '
         + 'FROM `ai_users` '
         + 'WHERE `username` = ?';
     var arguments = [username];
@@ -31,7 +31,7 @@ Database.prototype.findUser = function(username, callback) {
     this.connection.query(query, arguments, function(err, rows, fields) {
         if (err) { return callback(err); }
         if (rows.length == 0) { return callback(null, null); }
-        var user = new User(rows[0].user_id, rows[0].username, rows[0].password);
+        var user = new User(rows[0].user_id, rows[0].username, rows[0].password, rows[0].verified);
         return callback(null, user);
     });
 };
