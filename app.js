@@ -9,6 +9,7 @@ var sessionConfig = require('./conf/session.json');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var colors = require('colors');
+var flash = require('connect-flash');
 
 var Database = require('./database/database');
 
@@ -25,6 +26,7 @@ app.configure(function() {
     app.use(express.methodOverride());
     app.use(passport.initialize());
     app.use(passport.session());
+    app.use(flash());
     app.use(require('stylus').middleware({ src: __dirname + '/public' }));
     app.use(express.static(__dirname + '/public'));
 });
@@ -36,13 +38,13 @@ app.configure('development', function() {
         database.findUser(username, function(err, user) {
             if (err) { return done(err) }
             if (!user) {
-                return done(null, false, { message: 'Incorrect username.' });
-            }
-            if (!user.validPassword(password)) {
-                return done(null, false, { message: 'Incorrect password.' });
+                return done(null, false, { message: 'Incorrect username or password.' });
             }
             if (!user.verified()) {
-                return done(null, false, { message: 'Account not verified.' });
+                return done(null, false, { message: 'Account not verified. Please check your email.' });
+            }
+            if (!user.validPassword(password)) {
+                return done(null, false, { message: 'Incorrect username or password.' });
             }
             return done(null, user);
         });

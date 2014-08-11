@@ -60,12 +60,18 @@ module.exports = function(app) {
     });
 
     app.get('/login', function(req, res) {
-        res.render('login', {title: 'AniDex', user: req.user});
+        var errmsg = req.flash().error;
+        if (errmsg !== undefined) {
+            res.render('login', {title: 'AniDex', user: req.user, error: errmsg });
+        } else {
+            res.render('login', {title: 'AniDex', user: req.user});
+        }
     });
 
     app.post('/login', passport.authenticate('local', {
         successRedirect: '/',
-        failureRedirect: '/login' })
+        failureRedirect: '/login',
+        failureFlash: true })
     );
 
     app.get('/logout', function(req, res) {

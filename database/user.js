@@ -3,14 +3,14 @@ User.prototype.validPassword = function(password) {
 };
 
 User.prototype.verified = function() {
-    return this.verified;
+    return this.ver;
 }
 
 function User(id, username, password, verified) {
 	this.id = id;
 	this.username = username;
 	this.password = password;
-    this.verified = verified === 1 ? true : false;
+    this.ver = verified === 1 ? true : false;
 };
 
 module.exports = User;

@@ -26,7 +26,8 @@
         "passport": "0.2.0",
         "passport-local": "1.0.0",
         "bcrypt": "0.8.0",
-        "colors": "*"
+        "colors": "*",
+        "connect-flash": "0.1.1"
     },
     "engines": {
         "node": "0.10.22",
