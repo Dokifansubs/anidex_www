@@ -56,7 +56,7 @@ app.get('/torrent', torrent.single);
 app.get('/upload', torrent.upload);
 
 var profile = require('./lib/request-handlers/profile');
-//profile.init(database);
+profile.init(database);
 app.get('/register', profile.register);
 app.get('/login', profile.login);
 app.get('/logout', profile.logout);
@@ -66,6 +66,8 @@ app.post('/login', passport.authenticate('local', {
     failureRedirect: '/login',
     failureFlash: true })
 );
+
+app.post('/register', profile.registerForm);
 
 
 // Start the server

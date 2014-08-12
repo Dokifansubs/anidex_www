@@ -27,7 +27,8 @@
         "passport-local": "1.0.0",
         "bcrypt": "0.8.0",
         "colors": "*",
-        "connect-flash": "0.1.1"
+        "connect-flash": "0.1.1",
+        "validator": "3.17.0"
     },
     "engines": {
         "node": "0.10.22",

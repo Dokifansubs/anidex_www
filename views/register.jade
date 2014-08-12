@@ -1,9 +1,16 @@
 extends layout
 block content
     .container
-        form
-            input.form-control(type="text" placeholder="Username")
-            input.form-control(type="text" placeholder="E-Mail")
-            input.form-control(type="password" placeholder="Password")
-            input.form-control(type="password" placeholder="Confirm Password")
+        if message
+            .alert.alert-danger.alert-dismissible(role='alert')
+                button.close(data-dismiss='alert', type='button')
+                    span(aria-hidden='true') &times;
+                    span.sr-only Close
+                strong Error!&nbsp;
+                | #{message}
+        form(action="/register" method="post")
+            input.form-control(type="text" placeholder="Username" name="username")
+            input.form-control(type="text" placeholder="E-Mail" name="email")
+            input.form-control(type="password" placeholder="Password" name="password")
+            input.form-control(type="password" placeholder="Confirm Password" name="cpassword")
             button(type="submit").btn.btn-primary Register
