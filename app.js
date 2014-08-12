@@ -11,7 +11,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var colors = require('colors');
 var flash = require('connect-flash');
 
-var Database = require('./database/database');
+var Database = require('./lib/repositories/database');
 
 var app = module.exports = express();
 var database = new Database();
@@ -36,6 +36,7 @@ if (app.get('env') === 'development') {
 
 // Configure passport handling
 var passHandler = require('./lib/helpers/passport');
+passHandler.init(database);
 passport.use(new LocalStrategy(passHandler.login));
 passport.serializeUser(passHandler.serialize);
 passport.deserializeUser(passHandler.deserialize)
@@ -46,15 +47,18 @@ passport.deserializeUser(passHandler.deserialize)
  */
 
 var home = require('./lib/request-handlers/home')
+home.init(database);
 app.get('/', home.index);
 
 var torrent = require('./lib/request-handlers/torrent');
+torrent.init(database);
 app.get('/torrent', torrent.single);
 app.get('/upload', torrent.upload);
 
 var profile = require('./lib/request-handlers/profile');
+//profile.init(database);
 app.get('/register', profile.register);
-app.get('/login', profile.loginForm);
+app.get('/login', profile.login);
 app.get('/logout', profile.logout);
 
 app.post('/login', passport.authenticate('local', {
