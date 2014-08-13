@@ -12,11 +12,12 @@ block content
                     th Founded
                     th RSS
                     each group, i in data
+                        - var rowclass = (i % 2 == 0) ? 'odd' : 'even'
                         tr.Row
-                            td #{group.name}
-                            td #{group.short_name}
-                            td #{group.language}
-                            td #{group.website}
-                            td #{group.irc}
-                            td #{group.founded_timestamp}
-                            td RSS
+                            td(class=rowclass) #{group.name}
+                            td(class=rowclass) #{group.short_name}
+                            td(class=rowclass) #{group.language}
+                            td(class=rowclass) #{group.website}
+                            td(class=rowclass) #{group.irc}
+                            td(class=rowclass) #{group.founded_timestamp}
+                            td(class=rowclass) RSS
