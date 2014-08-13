@@ -106,9 +106,13 @@ body {
 }
 
 /* Please to not write it like this in final release */
+/* Agreed - This shit is confusing as hell. We need some kind of standardized CSS to be used across all tables -Holo */
+th {
+    padding: 3px 2px;
+}
+
 td {
-    padding-top: 2px;
-    padding-bottom: 3px;
+    padding: 3px 2px;
 }
 
 .tor-cat {
