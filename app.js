@@ -11,10 +11,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var colors = require('colors');
 var flash = require('connect-flash');
 
-var Database = require('./lib/repositories/database');
+var database = require('./lib/repositories/database');
 
 var app = module.exports = express();
-var database = new Database();
 
 app.set('port', 8008);
 app.set('views', __dirname + '/views');
@@ -60,6 +59,7 @@ profile.init(database);
 app.get('/register', profile.register);
 app.get('/login', profile.login);
 app.get('/logout', profile.logout);
+app.get('/verify-account', profile.verify);
 
 app.post('/login', passport.authenticate('local', {
     successRedirect: '/',
