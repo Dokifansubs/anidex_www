@@ -31,11 +31,11 @@ block content
                                 a.glyphicon.glyphicon-save(href="http://anidex.moe/")
                                 span &nbsp;
                                 a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
-                            td.tor-size(class=rowclass) #{torrent.size}
-                            td.tor-age(class=rowclass) #{torrent.created}
+                            td.center(class=rowclass) #{torrent.size}
+                            td.center(class=rowclass) #{torrent.created}
                             td.green.center(class=rowclass) #{torrent.complete}
-                            td.tor-l(class=rowclass) #{torrent.incomplete}
-                            td.tor-c(class=[(i === torrents.length - 1) ? 'bright' : '', rowclass]) #{torrent.downloaded}
+                            td.red.center(class=rowclass) #{torrent.incomplete}
+                            td.purple.center(class=[(i === torrents.length - 1) ? 'bright' : '', rowclass]) #{torrent.downloaded}
                 else
                     tr.Row
                         td.tor-empty(colspan="8" style="text-align: center;") No results found
