@@ -1,9 +1,12 @@
 extends layout
 block content
-    .container.center
-            .alert.alert-success.alert(role='alert')
+    .container
+            .alert.alert-warning.alert(role='alert').center
+                strong Tracker Announce URL
+                .br http://anidex.moe:6969/announce
+            .alert.alert-success.alert(role='alert').center
                 strong Upload
-                table
+                table.upload-box
                     tbody
                         tr
                             td
@@ -66,24 +69,28 @@ block content
                         tr
                             td
                                 .input-group
-                                  input.form-control(type='text', placeholder='Hidden?').prop('disabled', true)
+                                  input.form-control(type='text', placeholder='Hidden?', disabled='true')
                                   span.input-group-addon
                                     input(type='checkbox')
                         tr
                             td
                                 .input-group
-                                  input.form-control(type='text', placeholder='Anonymous?').prop('disabled', true)
+                                  input.form-control(type='text', placeholder='Anonymous?', disabled='true')
                                   span.input-group-addon
                                     input(type='checkbox')
                         tr
                             td
                                 .input-group
-                                  input.form-control(type='text', placeholder='Remake?').prop('disabled', true)
+                                  input.form-control(type='text', placeholder='Remake?', disabled='true')
                                   span.input-group-addon
                                     input(type='checkbox')
                         tr
                             td
                                 .form-group
-                                   input.form-control(type='text', placeholder='Description')
+                                   input.form-control(type='text', placeholder='Description').description-input
+                        tr
+                            td
+                                    span.input-group-btn
+                                        button.btn.btn-default(type='button') Submit
 
     script(src='/js/upload.js')
