@@ -54,6 +54,10 @@ torrent.init(database);
 app.get('/torrent', torrent.single);
 app.get('/upload', torrent.upload);
 
+var group = require('./lib/request-handlers/group');
+group.init(database);
+app.get('/group', group.group);
+
 var profile = require('./lib/request-handlers/profile');
 profile.init(database);
 app.get('/register', profile.register);
