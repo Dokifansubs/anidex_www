@@ -22,7 +22,7 @@ block content
                     each torrent, i in torrents
                         - var rowclass = (i % 2 == 0) ? 'odd' : 'even'
                         tr.Row
-                            td.tor-cat(class=[(i === torrents.length - 1) ? 'bleft' : '', rowclass]) #{torrent.category_name}
+                            td.brown(class=[(i === torrents.length - 1) ? 'bleft' : '', rowclass]) #{torrent.category_name}
                             td.tor-name(class=rowclass)
                                 a(href='/torrents/#{torrent.torrent_id}' style="color: #2F4F70") #{torrent.filename}
                                 if torrent.comments > 0
