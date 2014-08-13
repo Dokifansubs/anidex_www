@@ -68,6 +68,10 @@ block content
                                                             a(role='menuitem', tabindex='-1', href='#') Other
                         tr
                             td
+                                .input-group.col-lg-12
+                                    input.form-control(type='text' placeholder='AniDB URL (optional)')
+                        tr
+                            td
                                 .input-group
                                   input.form-control(type='text', placeholder='Hidden?', disabled='true')
                                   span.input-group-addon
@@ -87,7 +91,7 @@ block content
                         tr
                             td
                                 .form-group
-                                   textarea.form-control(type='text', placeholder='Description').description-input
+                                   textarea.form-control(type='text', placeholder='Description').description-textarea
                         tr
                             td
                                     span.input-group-btn

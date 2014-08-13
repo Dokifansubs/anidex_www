@@ -384,8 +384,8 @@ h3 {
     margin-left: auto;
 }
 
-.description-input {
-    min-height: 260px;
-    resize: vertical;
+.description-textarea {
+    min-height: 180px;
+    resize: none;
 }
 
