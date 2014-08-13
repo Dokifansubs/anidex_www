@@ -211,6 +211,10 @@ td {
     color: purple;
 }
 
+img.banner {
+    margin: 0 auto;
+}
+
 .tor > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
