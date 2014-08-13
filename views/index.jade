@@ -24,7 +24,7 @@ block content
                         tr.Row
                             td.tor-cat(class=[(i === torrents.length - 1) ? 'bleft' : '', rowclass]) #{torrent.category_name}
                             td.tor-name(class=rowclass)
-                                a(href='/torrent?id=#{torrent.torrent_id}' style="color: #2F4F70") #{torrent.filename}
+                                a(href='/torrents/#{torrent.torrent_id}' style="color: #2F4F70") #{torrent.filename}
                                 if torrent.comments > 0
                                     span.badge.pull-right(rel="tooltip" title="Comments" data-placement="left") #{torrent.comments}
                             td.tor-d(class=rowclass)

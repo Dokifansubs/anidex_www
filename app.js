@@ -49,15 +49,15 @@ var home = require('./lib/request-handlers/home')
 home.init(database);
 app.get('/', home.index);
 
-var torrent = require('./lib/request-handlers/torrent');
-torrent.init(database);
-app.get('/torrent', torrent.single);
-app.get('/upload', torrent.upload);
+var torrents = require('./lib/request-handlers/torrents');
+torrents.init(database);
+app.get('/torrents/:id', torrents.single);
+app.get('/upload', torrents.upload);
 
-var group = require('./lib/request-handlers/group');
-group.init(database);
-app.get('/group', group.list);
-app.get('/group/:id', group.detail);
+var groups = require('./lib/request-handlers/groups');
+groups.init(database);
+app.get('/groups', groups.list);
+app.get('/groups/:id', groups.detail);
 
 var profile = require('./lib/request-handlers/profile');
 profile.init(database);
