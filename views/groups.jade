@@ -14,7 +14,8 @@ block content
                     each group, i in data
                         - var rowclass = (i % 2 == 0) ? 'odd' : 'even'
                         tr.Row
-                            td(class=rowclass) #{group.name}
+                            td(class=rowclass) 
+                                a(href='/groups/#{group.group_id}') #{group.name}
                             td(class=rowclass) #{group.short_name}
                             td(class=rowclass) #{group.language}
                             td(class=rowclass) #{group.website}
