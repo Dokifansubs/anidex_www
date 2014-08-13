@@ -21,5 +21,6 @@ block content
                             td(class=rowclass) 
                                 a(target='_blank', href='#{group.website}') #{group.website}
                             td(class=rowclass) #{group.irc}
-                            td(class=rowclass) moment(#{group.founded_timestamp}).format('MMM Do YYYY')
+                            - var founded = moment(#{group.founded_timestamp}).format('MMM Do YYYY')
+                            td(class=rowclass) founded
                             td(class=rowclass) RSS
