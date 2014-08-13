@@ -386,6 +386,6 @@ h3 {
 
 .description-input {
     height: 200px;
-    resize: both;
+    resize: vertical;
 }
 
