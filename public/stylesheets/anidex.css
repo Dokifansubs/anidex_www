@@ -400,3 +400,10 @@ h3 {
     min-width: 500px;
 }
 
+ul.dropdown-menu-form {
+    padding: 5px 10px 10px;
+}
+.checkbox {
+    padding-left: 10px;
+}
+
