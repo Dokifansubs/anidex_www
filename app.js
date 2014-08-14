@@ -53,6 +53,8 @@ var torrents = require('./lib/request-handlers/torrents');
 torrents.init(database);
 app.get('/torrents/:id', torrents.single);
 app.get('/upload', torrents.upload);
+app.post('/upload', torrents.uploadFile);
+app.get('/advupload', torrents.advUpload);
 
 var groups = require('./lib/request-handlers/groups');
 groups.init(database);
