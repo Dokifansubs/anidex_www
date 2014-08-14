@@ -395,3 +395,8 @@ h3 {
     resize: none;
 }
 
+.upload-inputs {
+    max-width: 900px;
+    min-width: 500px;
+}
+

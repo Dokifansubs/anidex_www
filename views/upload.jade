@@ -1,6 +1,6 @@
 extends layout
 block content
-    .container
+    .container.upload-inputs
             .alert.alert-warning.alert(role='alert').center
                 strong Tracker Announce URL
                 .br http://anidex.moe:6969/announce
@@ -68,7 +68,7 @@ block content
                                                             a(role='menuitem', tabindex='-1', href='#') Other
                         tr
                             td
-                                .input-group.col-lg-12
+                                .input-group.upload-inputs
                                     input.form-control(type='text' placeholder='AniDB URL (optional)')
                         tr
                             td
