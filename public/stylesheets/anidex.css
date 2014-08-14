@@ -430,4 +430,7 @@ ul.dropdown-menu-form {
 
 label {
     font-weight: normal;
+    display: inline;
+    vertical-align: baseline;
+
 }
