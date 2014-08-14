@@ -5,6 +5,7 @@ var dndSupported = function() {
 
 document.body.id += 'dropzone';
 console.log(document.body);
+console.log(location.hostname);
 
 var reader = new FileReader();
 
@@ -15,7 +16,7 @@ doc.ondragleave = function() { this.classList.remove('hover'); return false };
 doc.ondrop = function(event) {
     event.preventDefault && event.preventDefault();
     this.classList.remove('hover');
-    var url = 'http://localhost:8008/upload';
+    var url = 'http://' + location.hostname + ':8008/upload';
     var files = event.dataTransfer.files;
     var formData = new FormData();
     console.log('Dropped files: ');
