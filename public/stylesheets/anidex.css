@@ -423,7 +423,7 @@ ul.dropdown-menu-form {
     padding: 5px 10px 10px;
 }
 
-.torrent-list-width {
+.container-width {
     max-width: 1300px;
     min-width: 900px;
 }
