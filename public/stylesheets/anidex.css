@@ -211,6 +211,12 @@ td {
     color: purple;
 }
 
+img.banner {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .tor > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
@@ -407,4 +413,15 @@ h3 {
     background: white;
     cursor: inherit;
     display: block;
+}
+.upload-inputs {
+    max-width: 900px;
+    min-width: 500px;
+}
+
+ul.dropdown-menu-form {
+    padding: 5px 10px 10px;
+}
+.checkbox {
+    padding-left: 10px;
 }

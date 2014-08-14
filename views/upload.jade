@@ -1,6 +1,6 @@
 extends layout
 block content
-    .container
+    .container.upload-inputs
             .alert.alert-warning.alert(role='alert').center
                 strong Tracker Announce URL
                 .br http://anidex.moe:6969/announce
@@ -22,54 +22,60 @@ block content
                                     .input-group-btn
                                         div.btn-group
                                                 div.btn-group
-                                                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                                                    button.btn.btn-default.dropdown-toggle.btn(type='button', data-toggle='dropdown')
                                                         | Select&nbsp;Category&nbsp;
-                                                        span.caret
-                                                    ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu1')
-                                                        li.dropdown-header(role='presentation') Anime
+                                                        b.caret
+                                                    ul.dropdown-menu.dropdown-menu-form(role='menu')
+                                                        li.dropdown-header(role='presentation') Type
                                                         li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Anime (English)
+                                                            checkbox
+                                                                input(type='checkbox')
+                                                                |&nbsp;&nbsp; Anime
                                                         li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Anime (Non-English)
+                                                            checkbox
+                                                                input(type='checkbox')
+                                                                |&nbsp;&nbsp; Manga
                                                         li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Anime (Raws)
+                                                            checkbox
+                                                                input(type='checkbox')
+                                                                |&nbsp;&nbsp; Music
+                                                        li(role='presentation')
+                                                            checkbox
+                                                                input(type='checkbox')
+                                                                |&nbsp;&nbsp; Literature
+                                                        li(role='presentation')
+                                                            checkbox
+                                                                input(type='checkbox')
+                                                                |&nbsp;&nbsp; Live Action
+                                                        li(role='presentation')
+                                                            checkbox
+                                                                input(type='checkbox')
+                                                                |&nbsp;&nbsp; Software
+                                                        li(role='presentation')
+                                                            checkbox
+                                                                input(type='checkbox')
+                                                                |&nbsp;&nbsp; R18+
+                                                        li(role='presentation')
+                                                            checkbox
+                                                                input(type='checkbox')
+                                                                |&nbsp;&nbsp; Other
                                                         li.divider(role='presentation')
-                                                        li.dropdown-header(role='presentation') Manga
+                                                        li.dropdown-header(role='presentation') Language
                                                         li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Manga (English)
+                                                            checkbox
+                                                                input(type='checkbox')
+                                                                |&nbsp;&nbsp; English
                                                         li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Manga (Non-English)
+                                                            checkbox
+                                                                input(type='checkbox')
+                                                                |&nbsp;&nbsp; Non-English
                                                         li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Manga (Raws)
-                                                        li.divider(role='presentation')
-                                                        li.dropdown-header(role='presentation') Hentai
-                                                        li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Hentai (English)
-                                                        li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Hentai (Non-English)
-                                                        li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Hentai (Raws)
-                                                        li.divider(role='presentation')
-                                                        li.dropdown-header(role='presentation') Music
-                                                        li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Music (Lossy)
-                                                        li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Music (Lossless)
-                                                        li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Music Videos
-                                                        li.divider(role='presentation')
-                                                        li.dropdown-header(role='presentation') Other
-                                                        li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Live Action
-                                                        li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Software
-                                                        li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Literature
-                                                        li(role='presentation')
-                                                            a(role='menuitem', tabindex='-1', href='#') Other
+                                                            checkbox
+                                                                input(type='checkbox')
+                                                                |&nbsp;&nbsp; Raws
                         tr
                             td
-                                .input-group.col-lg-12
+                                .input-group.upload-inputs
                                     input.form-control(type='text' placeholder='AniDB URL (optional)')
                         tr
                             td
@@ -86,7 +92,7 @@ block content
                         tr
                             td
                                 .input-group
-                                  input.form-control(type='text', placeholder='Remake?', disabled='true')
+                                  input.form-control(type='text', placeholder='Re-encode?', disabled='true')
                                   span.input-group-addon
                                     input(type='checkbox')
                         tr
