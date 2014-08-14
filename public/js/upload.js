@@ -3,6 +3,7 @@ var dndSupported = function() {
 	return ('draggable' in div) || ('ondragstart' in div && 'ondrop' in div);
 };
 
+/*
 var doc = document.getElementById('dropzone');
 doc.ondragover = function() { this.classList.add('hover'); return false; };
 doc.ondragend = function() { this.classList.remove('hover'); return false; };
@@ -16,3 +17,8 @@ doc.ondrop = function(event) {
 
 	return false;
 };
+*/
+
+$(document).on('click', '.dropdown-menu.dropdown-menu-form', function(e) {
+    e.stopPropagation();
+});
