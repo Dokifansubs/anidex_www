@@ -15,9 +15,9 @@ doc.ondragend = function() { this.classList.remove('hover'); return false; };
 doc.ondragleave = function() { this.classList.remove('hover'); return false };
 doc.ondrop = function(event) {
     var files = event.dataTransfer.files;
+    event.preventDefault && event.preventDefault();
+    this.classList.remove('hover');
     if (files[0].type === 'application/x-bittorrent') {
-        event.preventDefault && event.preventDefault();
-        this.classList.remove('hover');
         var url = 'http://' + location.hostname + ':8008/upload';
         var formData = new FormData();
         console.log('Dropped files: ');
