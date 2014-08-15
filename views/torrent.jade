@@ -14,7 +14,7 @@ block content
                                         tr
                                             th.tor-details Uploader:
                                             td.tor-details
-                                                a(href='/user?id=#{torrent.user_id}') #{torrent.username}
+                                                a(href='/users/#{torrent.user_id}') #{torrent.username}
                                         if torrent.group_id
                                             tr
                                                 th.tor-details Group:
