@@ -262,9 +262,6 @@ h3 {
     border-bottom-right-radius: 5px;
 }
 
-.hover {
-    background-color: #F00;
-}
 .dropdown-menu > li > a {
     padding: 0px 20px;
 }

@@ -9,8 +9,20 @@ console.log(location.hostname);
 
 var reader = new FileReader();
 
-var createDiv = function() {
-    return document.createElement("div");
+var createDiv = function(classes) {
+    if (Array.isArray(classes)) {
+        classes = classes.join(' ');
+    }
+
+    var element = document.createElement("div");
+
+    element.className += classes;
+    return element;
+}
+
+var removeTorrentElement = function(element) {
+    var list = document.getElementById('torrent-list');
+    list.removeChild(element);
 }
 
 var addTorrentElement = function(element) {
@@ -19,51 +31,49 @@ var addTorrentElement = function(element) {
 }
 
 var createTorrentElement = function(torrent) {
-    var container = createDiv();
-    container.setAttribute('class', 'torrent-container');
+    var container = createDiv('torrent-container');
+    var category = createDiv('torrent-block');
+    var catLogo = createDiv('torrent-category');
+    var deleteBlock = createDiv(['torrent-block','torrent-right'])
+    var deleteButton = createDiv('torrent-delete');
+    var topBar = createDiv('torrent-bar');
+    var bottomBar = createDiv('torrent-bar');
+    var nameField = createDiv('torrent-name');
+    var sizeField = createDiv('torrent-size');
+    var langField = createDiv('torrent-lang');
+    var hentaiField = createDiv('torrent-hentai');
+    var filesButton = createDiv('torrent-files');
+    var infoField = createDiv('torrent-infoField');
+
     container.id = torrent.infoHash;
-
-    var category = createDiv();
-    category.setAttribute('class', 'torrent-category');
-
-    var deleteButton = createDiv();
-    deleteButton.setAttribute('class', 'torrent-delete');
-
-    var nameField = createDiv();
-    nameField.setAttribute('class', 'torrent-name');
-    nameField.innerHTML = torrent.name;
-
-    var sizeField = createDiv();
-    sizeField.setAttribute('class', 'torrent-size');
-    sizeField.innerHTML = torrent.size;
-
-    var langField = createDiv();
-    langField.setAttribute('class', 'torrent-lang');
+    nameField.innerHTML = 'File name: ' + torrent.name;
+    sizeField.innerHTML = 'File size: ' + torrent.size;
     langField.innerHTML = 'English';
+    filesButton.innerHTML = 'V';
+    hentaiField.innerHTML = '18+';
 
-    var hentaiField = createDiv();
-    hentaiField.setAttribute('class', 'torrent-hentai');
+    category.appendChild(catLogo);
+    deleteBlock.appendChild(deleteButton);
+    topBar.appendChild(nameField);
+    bottomBar.appendChild(sizeField);
+    bottomBar.appendChild(filesButton);
+    bottomBar.appendChild(hentaiField);
+    bottomBar.appendChild(langField);
 
-
-    var filesButton = createDiv();
-    filesButton.setAttribute('class', 'torrent-files');
-
-
-    var infoField = createDiv();
-    infoField.setAttribute('class', 'torrent-infoField');
-
-
-    sizeField.appendChild(filesButton);
-    sizeField.appendChild(hentaiField);
-    sizeField.appendChild(langField);
     container.appendChild(category);
-    container.appendChild(deleteButton);
-    container.appendChild(nameField);
-    container.appendChild(sizeField);
+    container.appendChild(deleteBlock);
+    container.appendChild(topBar);
+    container.appendChild(bottomBar);
     //container.appendChild(infoField);
+
+    deleteButton.onclick = function() {
+        removeTorrentElement(container);
+    }
 
     return container;
 }
+
+addTorrentElement(createTorrentElement({}));
 
 var doc = document.getElementById('dropzone');
 doc.ondragover = function() { this.classList.add('hover'); return false; };
@@ -83,14 +93,14 @@ doc.ondrop = function(event) {
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4) {
                 var torrents = JSON.parse(xhr.response);
-                for (torrent of torrents) {
-                    addTorrentElement(createTorrentElement(torrent));
+                for (i in torrents) {
+                    addTorrentElement(createTorrentElement(torrents[i]));
                 }
             }
         }
 
-        for (file of files) {
-            formData.append('torrent', file);
+        for (i in files) {
+            formData.append('torrent', files[i]);
         }
 
         xhr.open('post', url, true);
