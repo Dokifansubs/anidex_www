@@ -1,13 +1,13 @@
 extends layout
 block content
-    if data
+    if group
         .container.container-width
             .box
-                img.banner(src='#{data.banner}')
+                img.banner(src='#{group.banner}')
             
             .box
                 .header
-                    h5 #{data.name}
+                    h5 #{group.name}
                 table.tor
                     tbody
                         tr
