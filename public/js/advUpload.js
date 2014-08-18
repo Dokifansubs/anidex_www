@@ -14,10 +14,60 @@ var createDiv = function(classes) {
         classes = classes.join(' ');
     }
 
-    var element = document.createElement("div");
+    var element = document.createElement('div');
 
     element.className += classes;
     return element;
+}
+
+var changeCategory = function(element, classes) {
+    element.className = classes.join(' ');
+}
+
+var openDropdown = function(element) {
+    element.style.visibility = 'visible';
+}
+
+var closeDropdown = function(element) {
+    element.style.visibility = 'hidden';
+}
+
+var createItem = function(button, list, category) {
+    var item = createDiv('torrent-list-item');
+    var catclasses = category.split('-');
+    var catname = createDiv('torrent-list-name');
+    catclasses.push('torrent-list-block');
+    var caticon = createDiv(catclasses);
+    catname.innerHTML = category;
+    item.onclick = function() {
+        var array = category.split('-');
+        array.push('torrent-category');
+        changeCategory(button, array);
+    }
+    item.appendChild(caticon);
+    item.appendChild(catname);
+    list.appendChild(item);
+}
+
+var createDropdown = function(classes, infoHash) {
+    if (Array.isArray(classes)) {
+        classes = classes.join(' ');
+    }
+
+    var button = document.createElement('div');
+    var list = createDiv('torrent-list');
+
+    button.onmouseover = function() { openDropdown(list); }
+    button.onmouseout = function() { closeDropdown(list); }
+
+    for (i in categories) {
+        createItem(button, list, categories[i]);
+    }
+
+    button.appendChild(list);
+
+    button.className += classes;
+    return button;
 }
 
 var removeTorrentElement = function(element) {
@@ -33,7 +83,7 @@ var addTorrentElement = function(element) {
 var createTorrentElement = function(torrent) {
     var container = createDiv('torrent-container');
     var category = createDiv('torrent-block');
-    var catLogo = createDiv('torrent-category');
+    var catLogo = createDropdown(['torrent-category','anime','english'], torrent.infoHash);
     var deleteBlock = createDiv(['torrent-block','torrent-right'])
     var deleteButton = createDiv('torrent-delete');
     var topBar = createDiv('torrent-bar');
@@ -47,7 +97,7 @@ var createTorrentElement = function(torrent) {
 
     container.id = torrent.infoHash;
     nameField.innerHTML = 'File name: ' + torrent.name;
-    sizeField.innerHTML = 'File size: ' + torrent.size;
+    sizeField.innerHTML = 'File size: ' + torrent.length;
     langField.innerHTML = 'English';
     filesButton.innerHTML = 'V';
     hentaiField.innerHTML = '18+';
@@ -75,6 +125,35 @@ var createTorrentElement = function(torrent) {
 
 addTorrentElement(createTorrentElement({}));
 
+var processTorrent = function(torrent) {
+    if (torrent.type === 'application/x-bittorrent') {
+        var url = 'http://' + location.hostname + ':8008/upload';
+        var formData = new FormData();
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('post', url, true);
+        xhr.onreadystatechange = function(e) {
+            console.log(xhr.readyState);
+            if (xhr.readyState === 4) {
+                var t = JSON.parse(xhr.response);
+                var id = document.getElementById(t.infoHash);
+                if (id != null) {
+                    console.log('Duplicate entry');
+                } else {
+                    addTorrentElement(createTorrentElement(t));
+                }
+            }
+        }
+
+        formData.append('torrent', torrent);
+
+        xhr.send(formData);
+        console.log('Sent XHR');
+    } else {
+        //alert('Not a torrent file, stop trying to break it!');
+    }
+}
+
 var doc = document.getElementById('dropzone');
 doc.ondragover = function() { this.classList.add('hover'); return false; };
 doc.ondragend = function() { this.classList.remove('hover'); return false; };
@@ -83,32 +162,8 @@ doc.ondrop = function(event) {
     var files = event.dataTransfer.files;
     event.preventDefault && event.preventDefault();
     this.classList.remove('hover');
-    if (files[0].type === 'application/x-bittorrent') {
-        var url = 'http://' + location.hostname + ':8008/upload';
-        var formData = new FormData();
-        console.log('Dropped files: ');
-        console.log(files[0]);
-
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4) {
-                var torrents = JSON.parse(xhr.response);
-                for (i in torrents) {
-                    addTorrentElement(createTorrentElement(torrents[i]));
-                }
-            }
-        }
-
-        for (i in files) {
-            formData.append('torrent', files[i]);
-        }
-
-        xhr.open('post', url, true);
-        xhr.send(formData);
-
-        return false;
-    } else {
-        alert('Not a torrent file, stop trying to break it!');
-        return false;
+    console.log('Total files: ' + files.length);
+    for (i in files) {
+        processTorrent(files[i]);
     }
 };
