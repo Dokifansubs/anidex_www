@@ -1,6 +1,110 @@
 extends layout
 block content
-    .container
-        img.banner(src='#{data.banner}')
-        hr
-        .box
+    if torrent
+        .container.container-width
+            .box
+                .header
+                    h5 #{data.name}
+                table.tor
+                    tbody
+                        tr
+                            td.tor-details(width='400px;')
+                                table
+                                    tbody
+                                        tr
+                                            th.tor-details Uploader:
+                                            td.tor-details
+                                                
+                                        if torrent.group_id
+                                            tr
+                                                th.tor-details Group:
+                                                td.tor-details
+                                                    
+                                            tr
+                                                th.tor-details Website:
+                                                td.tor-details
+                                                    
+                                        tr
+                                            th.tor-details Date:
+                                            td.tor-details 
+                                        tr
+                                            th.tor-details File size:
+                                            td.tor-details 
+                                        tr
+                                            th.tor-details Seeders:
+                                            td.tor-details.green 
+                                        tr
+                                            th.tor-details Leechers:
+                                            td.tor-details.red 
+                                        tr
+                                            th.tor-details Completed:
+                                            td.tor-details.purple 
+                                        tr
+                                            th.tor-details Hash:
+                                            td.tor-details 
+                                        tr
+                                            th.tor-details Download:
+                                            td.tor-details
+                                                
+                            td.tor-details(width='400px;')
+                                table
+                                    tbody
+                                        tr
+                                            th.tor-details Name:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Type:
+                                            td.tor-details 
+                                        tr
+                                            th.tor-details Status:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Aired:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Episodes:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Genres:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Description:
+                                            td.tor-details ???
+                                        tr
+                                            th.tor-details Ext. Link:
+                                            td.tor-details ???
+
+                            td.tor-details(width='*')
+                                
+
+            .box
+                .header
+                    h5 Torrents
+                        a(onclick="hide();") (show/hide)
+                table.tor#files(style="display: none;")
+                    tbody
+                        tr
+                            td.tor-details
+                                table
+                                    tbody
+                                        tr
+                                            td.tor-details File xyz
+                                            td.tor-details 
+                                        tr
+            .box
+                .header
+                    h5 Comments
+                table.tor
+                    tbody
+                        tr
+                            td.tor-details
+                                table
+                                    tbody
+                                        tr
+                                            td.tor-details Comment xyz
+                                            td.tor-details 
+                                        tr
+                            td.tor-details
+    else
+        .container
+            p invalid ID.
