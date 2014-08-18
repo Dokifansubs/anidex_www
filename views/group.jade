@@ -15,65 +15,44 @@ block content
                                 table
                                     tbody
                                         tr
-                                            th.tor-details Uploader:
-                                            td.tor-details
+                                            th.tor-details Language:
+                                            td.tor-details #{data.language}
                                                 
                                         tr
-                                            th.tor-details Group:
-                                            td.tor-details
+                                            th.tor-details Founded:
+                                            td.tor-details #{data.founded_timestamp}
+                                                    
+                                        tr
+                                            th.tor-details Leader:
+                                            td.tor-details #{data.leader_id}
                                                     
                                         tr
                                             th.tor-details Website:
-                                            td.tor-details
-                                                    
+                                            td.tor-details #{data.website} 
                                         tr
-                                            th.tor-details Date:
-                                            td.tor-details 
+                                            th.tor-details IRC Channel:
+                                            td.tor-details ##{data.channel}@#{data.server}
                                         tr
-                                            th.tor-details File size:
-                                            td.tor-details 
-                                        tr
-                                            th.tor-details Seeders:
-                                            td.tor-details.green 
-                                        tr
-                                            th.tor-details Leechers:
-                                            td.tor-details.red 
-                                        tr
-                                            th.tor-details Completed:
-                                            td.tor-details.purple 
-                                        tr
-                                            th.tor-details Hash:
-                                            td.tor-details 
-                                        tr
-                                            th.tor-details Download:
-                                            td.tor-details
-                                                
+                                            th.tor-details Contact:
+                                            td.tor-details #{data.email}
+
                             td.tor-details(width='400px;')
                                 table
                                     tbody
                                         tr
-                                            th.tor-details Name:
+                                            th.tor-details Total series:
                                             td.tor-details ???
                                         tr
-                                            th.tor-details Type:
+                                            th.tor-details Total torrents:
                                             td.tor-details 
                                         tr
-                                            th.tor-details Status:
+                                            th.tor-details Total seeds:
                                             td.tor-details ???
                                         tr
-                                            th.tor-details Aired:
+                                            th.tor-details Total leechers:
                                             td.tor-details ???
                                         tr
-                                            th.tor-details Episodes:
-                                            td.tor-details ???
-                                        tr
-                                            th.tor-details Genres:
-                                            td.tor-details ???
-                                        tr
-                                            th.tor-details Description:
-                                            td.tor-details ???
-                                        tr
-                                            th.tor-details Ext. Link:
+                                            th.tor-details Total completed:
                                             td.tor-details ???
 
                             td.tor-details(width='*')
