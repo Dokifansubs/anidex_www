@@ -8,75 +8,75 @@ block content
                 table.tor
                     tbody
                         tr
-                            td.tor-details(width='400px;')
+                            td(width='400px;')
                                 table
                                     tbody
                                         tr
-                                            th.tor-details Uploader:
-                                            td.tor-details
+                                            th Uploader:
+                                            td
                                                 a(href='/users/#{torrent.user_id}') #{torrent.username}
                                         if torrent.group_id
                                             tr
-                                                th.tor-details Group:
-                                                td.tor-details
+                                                th Group:
+                                                td
                                                     a(href='/groups/#{torrent.group_id}') #{torrent.group_name}
                                             tr
-                                                th.tor-details Website:
-                                                td.tor-details
+                                                th Website:
+                                                td
                                                     a(href='#{torrent.website}') #{torrent.website}
                                         tr
-                                            th.tor-details Date:
-                                            td.tor-details #{torrent.created}
+                                            th Date:
+                                            td #{torrent.created}
                                         tr
-                                            th.tor-details File size:
-                                            td.tor-details #{torrent.size}
+                                            th File size:
+                                            td #{torrent.size}
                                         tr
-                                            th.tor-details Seeders:
-                                            td.tor-details.green #{torrent.complete}
+                                            th Seeders:
+                                            td.green #{torrent.complete}
                                         tr
-                                            th.tor-details Leechers:
-                                            td.tor-details.red #{torrent.incomplete}
+                                            th Leechers:
+                                            td.red #{torrent.incomplete}
                                         tr
-                                            th.tor-details Completed:
-                                            td.tor-details.purple #{torrent.downloaded}
+                                            th Completed:
+                                            td.purple #{torrent.downloaded}
                                         tr
-                                            th.tor-details Hash:
-                                            td.tor-details #{torrent.info_hash}
+                                            th Hash:
+                                            td #{torrent.info_hash}
                                         tr
-                                            th.tor-details Download:
-                                            td.tor-details
+                                            th Download:
+                                            td
                                                 a.glyphicon.glyphicon-save(href="http://anidex.moe/")
                                                 span &nbsp;
                                                 a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
-                            td.tor-details(width='400px;')
+                            td(width='400px;')
                                 table
                                     tbody
                                         tr
-                                            th.tor-details Name:
-                                            td.tor-details ???
+                                            th Name:
+                                            td ???
                                         tr
-                                            th.tor-details Type:
-                                            td.tor-details #{torrent.category_name}
+                                            th Type:
+                                            td #{torrent.category_name}
                                         tr
-                                            th.tor-details Status:
-                                            td.tor-details ???
+                                            th Status:
+                                            td ???
                                         tr
-                                            th.tor-details Aired:
-                                            td.tor-details ???
+                                            th Aired:
+                                            td ???
                                         tr
-                                            th.tor-details Episodes:
-                                            td.tor-details ???
+                                            th Episodes:
+                                            td ???
                                         tr
-                                            th.tor-details Genres:
-                                            td.tor-details ???
+                                            th Genres:
+                                            td ???
                                         tr
-                                            th.tor-details Description:
-                                            td.tor-details ???
+                                            th Description:
+                                            td ???
                                         tr
-                                            th.tor-details Ext. Link:
-                                            td.tor-details ???
+                                            th Ext. Link:
+                                            td ???
 
-                            td.tor-details(width='*')
+                            td(width='*')
                                 img(src='http://cdn.myanimelist.net/images/anime/11/61039.jpg')
 
             .box
@@ -86,12 +86,12 @@ block content
                 table.tor#files(style="display: none;")
                     tbody
                         tr
-                            td.tor-details
+                            td
                                 table
                                     tbody
                                         tr
-                                            td.tor-details File xyz
-                                            td.tor-details #{torrent.filelist}
+                                            td File xyz
+                                            td #{torrent.filelist}
                                         tr
             .box
                 .header
@@ -99,14 +99,14 @@ block content
                 table.tor
                     tbody
                         tr
-                            td.tor-details
+                            td
                                 table
                                     tbody
                                         tr
-                                            td.tor-details Comment xyz
-                                            td.tor-details #{torrent.comments}
+                                            td Comment xyz
+                                            td #{torrent.comments}
                                         tr
-                            td.tor-details
+                            td
     else
         .container
             p invalid ID.
