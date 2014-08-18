@@ -28,10 +28,12 @@ block content
                                                     
                                         tr
                                             th.tor-details Website:
-                                            td.tor-details #{data.website} 
+                                            td.tor-details 
+                                                a(href='#{data.website}',target='_blank') #{data.website}
                                         tr
                                             th.tor-details IRC Channel:
-                                            td.tor-details ##{data.channel}@#{data.server}
+                                            td.tor-details 
+                                                a(href='irc://#{data.irc_server}/#{data.irc_channel}') ##{data.irc_channel}@#{data.irc_server}
                                         tr
                                             th.tor-details Contact:
                                             td.tor-details #{data.email}
