@@ -123,6 +123,8 @@ var createTorrentElement = function(torrent) {
     return container;
 }
 
+categories.push('other');
+
 addTorrentElement(createTorrentElement({}));
 
 var processTorrent = function(torrent) {

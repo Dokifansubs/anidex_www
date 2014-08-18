@@ -31,14 +31,6 @@
     position: relative;
 }
 
-.torrent-specific {
-    height: 100%;
-    width: 5px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 .anime:before {
     content: "A";
 }
@@ -49,6 +41,13 @@
 
 .book:before {
     content: "B";
+}
+
+.other:before {
+    content: "?";
+}
+.other {
+    border-left: 5px solid #AAA;
 }
 
 .english {
@@ -164,11 +163,13 @@
     text-align: left;
     line-height: 22px;
     background-color: #EEE;
-    position: absolute;
-    top: 50px;
+    position: relative;
+    top: 5px;
+    left: -5px;
     display: block;
     width: 200px;
     visibility: hidden;
+    z-index: 1030;
 }
 
 .torrent-list-name {
