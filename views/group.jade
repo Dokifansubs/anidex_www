@@ -1,6 +1,99 @@
 extends layout
 block content
-    .container
-        img.banner(src='#{data.banner}')
-        hr
-        .box
+    if data
+        .container.container-width
+            .box
+                img.banner(src='#{data.banner}')
+            
+            .box
+                .header
+                    h5 #{data.name} [#{data.short_name}]
+                table.tor
+                    tbody
+                        tr
+                            td(width='50%;')
+                                table
+                                    tbody
+                                        tr
+                                            th Language:
+                                            td #{data.language}
+                                                
+                                        tr
+                                            th Founded:
+                                            td #{data.founded_timestamp}
+                                                    
+                                        tr
+                                            th Leader:
+                                            td #{data.leader_id}
+                                                    
+                                        tr
+                                            th Website:
+                                            td 
+                                                a(href='#{data.website}',target='_blank') #{data.website}
+                                        tr
+                                            th IRC Channel:
+                                            td 
+                                                a(href='irc://#{data.irc_server}/#{data.irc_channel}') ##{data.irc_channel}@#{data.irc_server}
+                                        tr
+                                            th Contact:
+                                            td #{data.contact}
+                                        tr
+                                            th RSS:
+                                            td RSS link
+
+                            td(width='50%;')
+                                table
+                                    tbody
+                                        tr
+                                            th Total series:
+                                            td ???
+                                        tr
+                                            th Total torrents:
+                                            td ???
+                                        tr 
+                                            th Total size:
+                                            td ???
+                                        tr
+                                            th Total seeds:
+                                            td ???
+                                        tr
+                                            th Total leechers:
+                                            td ???
+                                        tr
+                                            th Total completed:
+                                            td ???
+                                        tr
+                                            th Release frequency:
+                                            td x times per week
+
+            .box
+                .header
+                    h5 Torrents
+                        a(onclick="hide();") (show/hide)
+                table.tor#files(style="display: none;")
+                    tbody
+                        tr
+                            td
+                                table
+                                    tbody
+                                        tr
+                                            td File xyz
+                                            td 
+                                        tr
+            .box
+                .header
+                    h5 Comments
+                table.tor
+                    tbody
+                        tr
+                            td
+                                table
+                                    tbody
+                                        tr
+                                            td Comment xyz
+                                            td 
+                                        tr
+                            td
+    else
+        .container.container-width
+            p invalid ID.
