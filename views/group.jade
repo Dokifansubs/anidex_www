@@ -11,51 +11,51 @@ block content
                 table.tor
                     tbody
                         tr
-                            td.tor-details(width='50%;')
+                            td(width='50%;')
                                 table
                                     tbody
                                         tr
-                                            th.tor-details Language:
-                                            td.tor-details #{data.language}
+                                            th Language:
+                                            td #{data.language}
                                                 
                                         tr
-                                            th.tor-details Founded:
-                                            td.tor-details #{data.founded_timestamp}
+                                            th Founded:
+                                            td #{data.founded_timestamp}
                                                     
                                         tr
-                                            th.tor-details Leader:
-                                            td.tor-details #{data.leader_id}
+                                            th Leader:
+                                            td #{data.leader_id}
                                                     
                                         tr
-                                            th.tor-details Website:
-                                            td.tor-details 
+                                            th Website:
+                                            td 
                                                 a(href='#{data.website}',target='_blank') #{data.website}
                                         tr
-                                            th.tor-details IRC Channel:
-                                            td.tor-details 
+                                            th IRC Channel:
+                                            td 
                                                 a(href='irc://#{data.irc_server}/#{data.irc_channel}') ##{data.irc_channel}@#{data.irc_server}
                                         tr
-                                            th.tor-details Contact:
-                                            td.tor-details #{data.contact}
+                                            th Contact:
+                                            td #{data.contact}
 
-                            td.tor-details(width='50%;')
+                            td(width='50%;')
                                 table
                                     tbody
                                         tr
-                                            th.tor-details Total series:
-                                            td.tor-details ???
+                                            th Total series:
+                                            td ???
                                         tr
-                                            th.tor-details Total torrents:
-                                            td.tor-details 
+                                            th Total torrents:
+                                            td 
                                         tr
-                                            th.tor-details Total seeds:
-                                            td.tor-details ???
+                                            th Total seeds:
+                                            td ???
                                         tr
-                                            th.tor-details Total leechers:
-                                            td.tor-details ???
+                                            th Total leechers:
+                                            td ???
                                         tr
-                                            th.tor-details Total completed:
-                                            td.tor-details ???
+                                            th Total completed:
+                                            td ???
 
             .box
                 .header
@@ -64,12 +64,12 @@ block content
                 table.tor#files(style="display: none;")
                     tbody
                         tr
-                            td.tor-details
+                            td
                                 table
                                     tbody
                                         tr
-                                            td.tor-details File xyz
-                                            td.tor-details 
+                                            td File xyz
+                                            td 
                                         tr
             .box
                 .header
@@ -77,14 +77,14 @@ block content
                 table.tor
                     tbody
                         tr
-                            td.tor-details
+                            td
                                 table
                                     tbody
                                         tr
-                                            td.tor-details Comment xyz
-                                            td.tor-details 
+                                            td Comment xyz
+                                            td 
                                         tr
-                            td.tor-details
+                            td
     else
         .container
             p invalid ID.
