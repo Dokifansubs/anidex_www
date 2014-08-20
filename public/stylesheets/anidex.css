@@ -212,6 +212,7 @@ img.banner {
     display: block;
     margin: 0 auto;
     width: 100%;
+    border-radius: 5px;
 }
 
 .tor > thead > tr > th {
