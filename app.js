@@ -52,10 +52,10 @@ app.get('/', home.index);
 var torrents = require('./lib/request-handlers/torrents');
 torrents.init(database);
 app.get('/torrents/:id', torrents.single);
-app.get('/upload', passport.ensureAuthenticated, torrents.upload);
+app.get('/upload', passHandler.ensureAuthenticated, torrents.upload);
 app.post('/upload', torrents.uploadFile);
 app.post('/parse', torrents.parseFile);
-app.get('/advupload', passport.ensureAuthenticated ,torrents.advUpload);
+app.get('/advupload', passHandler.ensureAuthenticated ,torrents.advUpload);
 
 var groups = require('./lib/request-handlers/groups');
 groups.init(database);
