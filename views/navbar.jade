@@ -18,24 +18,28 @@
                     a(href='irc://irc.rizon.net/anidex') IRC
                 li#rss
                     a(href='/rss') RSS
-            ul.navbar-right(class=['nav', 'navbar-nav'])
-                if user
-                    li#account
-                        a(href='/account') Account
-                    li#logout
-                        a.login(href='/logout') Logout
-                else
-                    li#signup
-                        a(href='/register') Register
-                    li#login
-                        a.login(href='/login') Login
+            ul.nav.navbar-nav.navbar-right(class=['nav', 'navbar-nav'])
+                li.dropdown
+                    a.dropdown-toggle(href="#" data-toggle="dropdown") Account&nbsp;
+                        span.caret
+                    ul.dropdown-menu#account(role="menu")
+                        if user
+                            li#account
+                                a(href='/account') Settings
+                            li#logout
+                                a.login(href='/logout') Logout
+                        else
+                            li#signup
+                                a(href='/register') Register
+                            li#login
+                                a.login(href='/login') Login
             form.navbar-right.navbar-form(role='search' action="/")
-                .input-group
+                .input-group.input-group-sm
                     input.form-control(placeholder='Search', name='q', id='srch-term', type='text')
                     .input-group-btn
                         div.btn-group
                                 div.btn-group
-                                    button.btn.btn-default.dropdown-toggle.btn(type='button', data-toggle='dropdown')
+                                    button.btn.btn-default.btn-sm.dropdown-toggle.btn(type='button', data-toggle='dropdown')
                                         | Categories&nbsp;
                                         b.caret
                                     ul.dropdown-menu.dropdown-menu-form(role='menu')
@@ -111,5 +115,5 @@
                                                 label
                                                     input(type='checkbox')
                                                     |&nbsp;&nbsp; Unofficial
-                            button.btn.btn-default(type='submit')
+                            button.btn.btn-default(type='submit').btn-sm
                                 i.glyphicon.glyphicon-search
