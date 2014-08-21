@@ -11,18 +11,64 @@ block content
             ul.nav.nav-tabs(role='tablist')
                 li.active
                     a(href='#') All
-                li
-                    a(href='#') Anime
-                li
-                    a(href='#') Manga
-                li
-                    a(href='#') Music
-                li
-                    a(href='#') Literature
-                li
-                    a(href='#') Live Action
-                li
-                    a(href='#') Software
+                li.dropdown
+                    a.dropdown-toggle(data-toggle='dropdown', href='#')
+                        | Anime
+                    ul.dropdown-menu(role='menu')
+                        li
+                            a(href='#') Anime (English)
+                        li
+                            a(href='#') Anime (Non-English)
+                        li
+                            a(href='#') Anime (Raws)
+                li.dropdown
+                    a.dropdown-toggle(data-toggle='dropdown', href='#')
+                        | Manga
+                    ul.dropdown-menu(role='menu')
+                        li
+                            a(href='#') Manga (English)
+                        li
+                            a(href='#') Manga (Non-English)
+                        li
+                            a(href='#') Manga (Raws)
+                li.dropdown
+                    a.dropdown-toggle(data-toggle='dropdown', href='#')
+                        | Music
+                    ul.dropdown-menu(role='menu')
+                        li
+                            a(href='#') Music (Lossy)
+                        li
+                            a(href='#') Music (Lossless)
+                li.dropdown
+                    a.dropdown-toggle(data-toggle='dropdown', href='#')
+                        | Literature
+                    ul.dropdown-menu(role='menu')
+                        li
+                            a(href='#') Literature (English)
+                        li
+                            a(href='#') Literature (Non-English)
+                        li
+                            a(href='#') Literature (Raws)
+                li.dropdown
+                    a.dropdown-toggle(data-toggle='dropdown', href='#')
+                        | Live Action
+                    ul.dropdown-menu(role='menu')
+                        li
+                            a(href='#') Live Action (English)
+                        li
+                            a(href='#') Live Action (Non-English)
+                        li
+                            a(href='#') Live Action (Raws)
+                li.dropdown
+                    a.dropdown-toggle(data-toggle='dropdown', href='#')
+                        | Software
+                    ul.dropdown-menu(role='menu')
+                        li
+                            a(href='#') Software (English)
+                        li
+                            a(href='#') Software (Non-English)
+                        li
+                            a(href='#') Software (Raws)
                 li
                     a(href='#') Other
                 li
