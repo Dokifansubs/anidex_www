@@ -18,11 +18,11 @@
                     a(href='irc://irc.rizon.net/anidex') IRC
                 li#rss
                     a(href='/rss') RSS
-            ul.navbar-right(class=['nav', 'navbar-nav'])
+            ul.nav.navbar-nav.navbar-right(class=['nav', 'navbar-nav'])
                 li.dropdown
-                    a.dropdown-toggle(data-toggle="dropdown") Account
+                    a.dropdown-toggle(href="#" data-toggle="dropdown") Account&nbsp;
                         span.caret
-                    ul.dropdown-menu#account
+                    ul.dropdown-menu#account(role="menu")
                         if user
                             li#account
                                 a(href='/account') Settings

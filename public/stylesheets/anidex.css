@@ -4,9 +4,9 @@
     }
 }
 
-@media (min-width:992px) {
+@media (min-width:959px) {
     .container {
-        width:970px;
+        width:950px;
     }
 }
 
@@ -260,10 +260,6 @@ h3 {
     border-bottom-right-radius: 5px;
 }
 
-.dropdown-menu > li > a {
-    padding: 0px 20px;
-}
-
 .form-input {
     display: block;
     width: 100%;
@@ -427,5 +423,4 @@ label {
     font-weight: normal;
     display: inline;
     vertical-align: baseline;
-
 }
