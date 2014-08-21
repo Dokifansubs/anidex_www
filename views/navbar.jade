@@ -19,16 +19,20 @@
                 li#rss
                     a(href='/rss') RSS
             ul.navbar-right(class=['nav', 'navbar-nav'])
-                if user
-                    li#account
-                        a(href='/account') Account
-                    li#logout
-                        a.login(href='/logout') Logout
-                else
-                    li#signup
-                        a(href='/register') Register
-                    li#login
-                        a.login(href='/login') Login
+                li.dropdown
+                    a.dropdown-toggle(data-toggle="dropdown") Account
+                        span.caret
+                    ul.dropdown-menu#account
+                        if user
+                            li#account
+                                a(href='/account') Settings
+                            li#logout
+                                a.login(href='/logout') Logout
+                        else
+                            li#signup
+                                a(href='/register') Register
+                            li#login
+                                a.login(href='/login') Login
             form.navbar-right.navbar-form(role='search' action="/")
                 .input-group.input-group-sm
                     input.form-control(placeholder='Search', name='q', id='srch-term', type='text')
