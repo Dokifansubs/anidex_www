@@ -4,7 +4,7 @@ block content
         .container.container-width
             .box
                 img.banner(src='#{data.banner}')
-            
+
             .box
                 .header
                     h5 #{data.name} [#{data.short_name}]
@@ -17,22 +17,19 @@ block content
                                         tr
                                             th Language:
                                             td #{data.language}
-                                                
                                         tr
                                             th Founded:
                                             td #{data.founded_timestamp}
-                                                    
                                         tr
                                             th Leader:
                                             td #{data.leader_id}
-                                                    
                                         tr
                                             th Website:
-                                            td 
+                                            td
                                                 a(href='#{data.website}',target='_blank') #{data.website}
                                         tr
                                             th IRC Channel:
-                                            td 
+                                            td
                                                 a(href='irc://#{data.irc_server}/#{data.irc_channel}') ##{data.irc_channel}@#{data.irc_server}
                                         tr
                                             th Contact:
@@ -50,7 +47,7 @@ block content
                                         tr
                                             th Total torrents:
                                             td ???
-                                        tr 
+                                        tr
                                             th Total size:
                                             td ???
                                         tr
@@ -68,7 +65,7 @@ block content
 
             .box
                 .header
-                    h5 Torrents
+                    h5 Torrents&nbsp;
                         a(onclick="hide();") (show/hide)
                 table.tor#files(style="display: none;")
                     tbody
@@ -78,7 +75,7 @@ block content
                                     tbody
                                         tr
                                             td File xyz
-                                            td 
+                                            td
                                         tr
             .box
                 .header
@@ -91,7 +88,7 @@ block content
                                     tbody
                                         tr
                                             td Comment xyz
-                                            td 
+                                            td
                                         tr
                             td
     else
