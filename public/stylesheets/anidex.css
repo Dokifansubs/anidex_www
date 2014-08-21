@@ -424,3 +424,7 @@ label {
     display: inline;
     vertical-align: baseline;
 }
+
+.dropdown:hover .dropdown-hover {
+    display: block;
+ }
