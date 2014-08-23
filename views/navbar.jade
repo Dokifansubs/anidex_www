@@ -20,8 +20,7 @@
                     a(href='/rss') RSS
             ul.nav.navbar-nav.navbar-right(class=['nav', 'navbar-nav'])
                 li.dropdown
-                    a.dropdown-toggle(href="#" data-toggle="dropdown") Account&nbsp;
-                        span.caret
+                    a.dropdown-toggle(href="#" data-toggle="dropdown") Account
                     ul.dropdown-menu#account(role="menu")
                         if user
                             li#account
@@ -38,82 +37,5 @@
                     input.form-control(placeholder='Search', name='q', id='srch-term', type='text')
                     .input-group-btn
                         div.btn-group
-                                div.btn-group
-                                    button.btn.btn-default.btn-sm.dropdown-toggle.btn(type='button', data-toggle='dropdown')
-                                        | Categories&nbsp;
-                                        b.caret
-                                    ul.dropdown-menu.dropdown-menu-form(role='menu')
-                                        li.dropdown-header(role='presentation')
-                                        form-field
-                                        li.dropdown-header(role='presentation') Type
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='radio' name='category')
-                                                    |&nbsp;&nbsp; Anime
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='radio' name='category')
-                                                    |&nbsp;&nbsp; Manga
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='radio' name='category')
-                                                    |&nbsp;&nbsp; Music
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='radio' name='category')
-                                                    |&nbsp;&nbsp; Literature
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='radio' name='category')
-                                                    |&nbsp;&nbsp; Live Action
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='radio' name='category')
-                                                    |&nbsp;&nbsp; Software
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='radio' name='category')
-                                                    |&nbsp;&nbsp; Other
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='checkbox' name='category')
-                                                    |&nbsp;&nbsp; R18+
-                                        li.divider(role='presentation')
-                                        li.dropdown-header(role='presentation') Language
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='radio' name='language')
-                                                    |&nbsp;&nbsp; English
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='radio' name='language')
-                                                    |&nbsp;&nbsp; Non-English
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='radio' name='language')
-                                                    |&nbsp;&nbsp; Raws
-                                        li.divider(role='presentation')
-                                        li.dropdown-header(role='presentation') Filter
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='checkbox')
-                                                    |&nbsp;&nbsp; Re-encodes
-                                        li(role='presentation')
-                                            checkbox
-                                                label
-                                                    input(type='checkbox')
-                                                    |&nbsp;&nbsp; Unofficial
                             button.btn.btn-default(type='submit').btn-sm
                                 i.glyphicon.glyphicon-search
