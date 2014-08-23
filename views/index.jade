@@ -72,7 +72,10 @@ block content
                 li
                     a(href='#') Other
                 li
-                    a(href='#') R18+
+                    div.btn-group.btn-sm
+                        button.btn.btn-warning(type='filter' data-toggle='buttons-checkbox') Unofficial
+                        button.btn.btn-warning(type='filter' data-toggle='buttons-checkbox') Re-encodes
+                        button.btn.btn-danger(type='filter' data-toggle='buttons-checkbox') R18+
             table.Table.table-hov
                 tr.Header
                     th.tor-cat-title.tleft Cat.
@@ -104,3 +107,4 @@ block content
                 else
                     tr.Row
                         td.tor-empty(colspan="8" style="text-align: center;") No results found
+

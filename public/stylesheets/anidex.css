@@ -416,7 +416,7 @@ ul.dropdown-menu-form {
 
 .container-width {
     max-width: 1300px;
-    min-width: 900px;
+    min-width: 960px;
 }
 
 label {
@@ -427,4 +427,9 @@ label {
 
 .dropdown:hover .dropdown-hover {
     display: block;
+ }
+
+ .right {
+    align: right;
+    text-align: right;
  }
