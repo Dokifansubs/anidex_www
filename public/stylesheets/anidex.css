@@ -92,6 +92,7 @@ select.lang {
 .Table {
     padding: 0px 0px;
     width: 100%;
+    table-layout: fixed;
 }
 
 .Row {
@@ -99,10 +100,14 @@ select.lang {
     margin: 0px auto;
 }
 
+.tor-name td,
 .tor-name {
     margin: 0px;
     border: 0px none;
-    width: auto;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow : ellipsis;
 }
 
 /* Please to not write it like this in final release */
@@ -428,15 +433,13 @@ label {
   border-color: #ccc;
 }
 
-@media (max-width: 1199px) {
+@media (min-width: 993px) {
     .container {
         width: 910px;
     }
-    .box {
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-        border-top-width: 0px;
-    }
+}
+
+@media (max-width: 1199px) {
     .row {
         margin: auto;
     }
@@ -444,11 +447,7 @@ label {
         margin-left: -6px;
     }
     .anidex-options {
-        border: 1px solid #CCC;
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
         padding: 0px;
-
     }
 }
 
