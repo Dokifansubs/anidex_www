@@ -8,17 +8,16 @@ block content
             strong Yo!&nbsp;
             | Welcome to our new tracker. It's still a work in progress.
         .row
-            .anidex-options.col-xs-4.pull-right
+            .anidex-options.pull-right
                 .btn-group.btn-sm.pull-right
                     button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Unofficial
-                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Re-encodes
                     button.btn.btn-sm.btn-filter-r18(type='button' data-toggle='buttons-checkbox') R18+
                 select.form-control.lang.pull-right
                     option All languages
                     option English
                     option Non-English
                     option Raws
-            .col-xs-8
+            div
                 ul.nav.nav-tabs.anidex-tabs(role='tablist')
                     li.active
                         a(href='#') All
@@ -58,20 +57,20 @@ block content
                         - var rowclass = 'even'
                         //- var rowclass = (i % 2 == 0) ? 'odd' : 'even'
                         tr.Row
-                            td.brown(class=[(i === torrents.length - 1) ? 'bleft' : '', rowclass]) #{torrent.category_name}
-                            td.tor-name(class=rowclass)
+                            td.brown(class=(i === torrents.length - 1) ? 'bleft' : '') #{torrent.category_name}
+                            td.tor-name
                                 a(href='/torrents/#{torrent.torrent_id}' style="color: #2F4F70") #{torrent.filename}
                                 if torrent.comments > 0
                                     span.badge.pull-right(rel="tooltip" title="Comments" data-placement="left") #{torrent.comments}
-                            td.center(class=rowclass)
+                            td.center
                                 a.glyphicon.glyphicon-save(href="http://anidex.moe/")
                                 span &nbsp;
                                 a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
-                            td.brown.center(class=rowclass) #{torrent.size}
-                            td.center(class=rowclass) #{torrent.created}
-                            td.green.center(class=rowclass) #{torrent.complete}
-                            td.red.center(class=rowclass) #{torrent.incomplete}
-                            td.purple.center(class=[(i === torrents.length - 1) ? 'bright' : '', rowclass]) #{torrent.downloaded}
+                            td.brown.center #{torrent.size}
+                            td.center #{torrent.created}
+                            td.green.center #{torrent.complete}
+                            td.red.center #{torrent.incomplete}
+                            td.purple.center(class=(i === torrents.length - 1) ? 'bright' : '') #{torrent.downloaded}
                 else
                     tr.Row
                         td.tor-empty(colspan="8" style="text-align: center;") No results found
