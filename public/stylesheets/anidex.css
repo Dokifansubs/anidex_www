@@ -428,7 +428,7 @@ label {
   border-color: #ccc;
 }
 
-@media (min-width: 940px) and (max-width: 1199px) {
+@media (max-width: 1199px) {
     .container {
         width: 910px;
     }
@@ -456,11 +456,4 @@ label {
     .container {
         width: 1300px;
     }
-}
-
-.container-width {
-    min-width: 1020px;
-    max-width: 1300px;
-    width: 100%;
-
 }
