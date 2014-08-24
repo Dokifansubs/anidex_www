@@ -1,120 +1,61 @@
 extends layout
 block content
-    .container.upload-inputs
+    .container.container-upload
             .alert.alert-warning.alert(role='alert').center
                 strong Tracker Announce URL
-                .br http://anidex.moe:6969/announce
-            .alert.alert-success.alert(role='alert').center
-                strong Upload
-                form(action='/upload' method='post' enctype='multipart/form-data')
-                    table.upload-box
-                        tbody
-                            tr
-                                td
-                                    .input-group
-                                        input.form-control(type='text' placeholder='Torrent name (optional)')
-                                        .input-group-btn
-                                            span.btn.btn-default.btn-file
-                                                | Browse
-                                                input(type='file' accept='application/x-bittorrent' name='torrent')
-                            tr
-                                td
-                                    .input-group
-                                        input.form-control(placeholder='Category', name='q', id='srch-term', type='text')
-                                        .input-group-btn
-                                            div.btn-group
-                                                div.btn-group
-                                                    button.btn.btn-default.dropdown-toggle.btn(type='button', data-toggle='dropdown')
-                                                        | Category&nbsp;
-                                                        b.caret
-                                                    ul.dropdown-menu.dropdown-menu-form(role='menu')
-                                                        li.dropdown-header(role='presentation')
-                                                        form-field
-                                                        li.dropdown-header(role='presentation') Type
-                                                        li(role='presentation')
-                                                            checkbox
-                                                                label
-                                                                    input(type='radio' name='category')
-                                                                    |&nbsp;&nbsp; Anime
-                                                        li(role='presentation')
-                                                            checkbox
-                                                                label
-                                                                    input(type='radio' name='category')
-                                                                    |&nbsp;&nbsp; Manga
-                                                        li(role='presentation')
-                                                            checkbox
-                                                                label
-                                                                    input(type='radio' name='category')
-                                                                    |&nbsp;&nbsp; Music
-                                                        li(role='presentation')
-                                                            checkbox
-                                                                label
-                                                                    input(type='radio' name='category')
-                                                                    |&nbsp;&nbsp; Literature
-                                                        li(role='presentation')
-                                                            checkbox
-                                                                label
-                                                                    input(type='radio' name='category')
-                                                                    |&nbsp;&nbsp; Live Action
-                                                        li(role='presentation')
-                                                            checkbox
-                                                                label
-                                                                    input(type='radio' name='category')
-                                                                    |&nbsp;&nbsp; Software
-                                                        li(role='presentation')
-                                                            checkbox
-                                                                label
-                                                                    input(type='radio' name='category')
-                                                                    |&nbsp;&nbsp; Other
-                                                        li(role='presentation')
-                                                            checkbox
-                                                                label
-                                                                    input(type='checkbox' name='category')
-                                                                    |&nbsp;&nbsp; R18+
-                                                        li.divider(role='presentation')
-                                                        li.dropdown-header(role='presentation') Language
-                                                        li(role='presentation')
-                                                            checkbox
-                                                                label
-                                                                    input(type='radio' name='language')
-                                                                    |&nbsp;&nbsp; English
-                                                        li(role='presentation')
-                                                            checkbox
-                                                                label
-                                                                    input(type='radio' name='language')
-                                                                    |&nbsp;&nbsp; Non-English
-                                                        li(role='presentation')
-                                                            checkbox
-                                                                label
-                                                                    input(type='radio' name='language')
-                                                                    |&nbsp;&nbsp; Raws
-                            tr
-                                td
-                                    .input-group.upload-inputs
-                                        input.form-control(type='text' placeholder='AniDB URL (optional)')
-                            tr
-                                td
-                                    .input-group
-                                      input.form-control(type='text', placeholder='Hidden?', disabled='true')
-                                      span.input-group-addon
-                                        input(type='checkbox')
-                            tr
-                                td
-                                    .input-group
-                                      input.form-control(type='text', placeholder='Anonymous?', disabled='true')
-                                      span.input-group-addon
-                                        input(type='checkbox')
-                            tr
-                                td
-                                    .input-group
-                                      input.form-control(type='text', placeholder='Re-encode?', disabled='true')
-                                      span.input-group-addon
-                                        input(type='checkbox')
-                            tr
-                                td
-                                    .form-group
-                                       textarea.form-control(type='text', placeholder='Description').description-textarea
-                            tr
-                                td
-                                        span.input-group-btn
-                                            button.btn.btn-default(type='submit') Submit
+                div http://anidex.moe:6969/announce
+            form
+                .panel.panel-default
+                    .panel-body
+                        button.btn.btn-primary.btn-sm(type='submit') Submit
+                        button.btn.btn-success.btn-sm.pull-right(type='button')
+                            span.glyphicon.glyphicon-plus-sign
+                            | &nbsp;&nbsp;Add
+                .panel.panel-default
+                    .panel-body
+                        .col-xs-4.col-left
+                            strong Information
+                        .col-xs-4
+                            strong Description
+                        .col-xs-3
+                            strong Preview
+                        .col-xs-1.col-right.upload-del
+                            button.btn.btn-danger.btn-sm.pull-right(type='button')
+                                span.glyphicon.glyphicon-minus-sign
+                                | &nbsp;&nbsp;Delete
+                        .col-xs-4.col-left
+                            .input-group.input-group-sm
+                                input.form-control(placeholder='Filename', name='filename', id='filename', text='text')
+                                .input-group-btn
+                                    span.btn.btn-default.btn-sm.btn-file Browse
+                                        input(type='file' name='torrent')
+                            strong.col-xs-2.infohash infohash:
+                            .col-xs-10.infohash 1defea192aac88bd8f474a964550920da25fb94c
+                            div
+                                select.form-control.upload-select.pull-left
+                                    option Anime
+                                    option Manga
+                                    option Music
+                                    option Literature
+                                    option Live Action
+                                    option Software
+                                    option Other
+                                .btn-group.btn-sm.upload-group
+                                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox') Batch
+                                    button.btn.btn-sm.btn-filter-r18(type='button' data-toggle='buttons-checkbox') R18+
+                                select.form-control.upload-select.pull-right
+                                    option All languages
+                                    option English
+                                    option Non-English
+                                    option Raws
+                            .col-xs-12(style='padding: 0px; margin-top: 5px;')
+                                .form-group
+                                    .input-group.input-group-sm
+                                        .input-group-addon
+                                            span.glyphicon.glyphicon-link
+                                        input.form-control(type='text' placeholder='AniDB link')
+                        .col-xs-4.input-group-sm.col-right
+                            textarea.form-control(type='text' style="height:145px;")
+                        .col-xs-4.input-group-sm.col-right
+                            textarea.form-control(type='text' style="height:145px;")
+

@@ -3,12 +3,6 @@ var dndSupported = function() {
     return ('draggable' in div) || ('ondragstart' in div && 'ondrop' in div);
 };
 
-document.body.id += 'dropzone';
-console.log(document.body);
-console.log(location.hostname);
-
-var reader = new FileReader();
-
 var createDiv = function(classes) {
     if (Array.isArray(classes)) {
         classes = classes.join(' ');
@@ -129,7 +123,7 @@ addTorrentElement(createTorrentElement({}));
 
 var processTorrent = function(torrent) {
     if (torrent.type === 'application/x-bittorrent') {
-        var url = 'http://' + location.hostname + ':8008/upload';
+        var url = 'http://' + location.hostname + ':8008/parse';
         var formData = new FormData();
 
         var xhr = new XMLHttpRequest();
