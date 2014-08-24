@@ -76,7 +76,7 @@ body {
 }
 
 .odd {
-    background-color: #DDD;
+    background-color: #EEEEEE;
 }
 
 .even {
@@ -190,7 +190,7 @@ td {
 .tor-empty {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-    background-color: #DDD;
+    background-color: #EEEEEE;
 }
 
 .center {
