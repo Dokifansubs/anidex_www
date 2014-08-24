@@ -433,9 +433,9 @@ label {
   border-color: #ccc;
 }
 
-@media (min-width: 993px) {
+@media (min-width: 940px) {
     .container {
-        width: 910px;
+        width: 920px;
     }
 }
 
