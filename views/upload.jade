@@ -11,51 +11,5 @@ block content
                         button.btn.btn-success.btn-sm.pull-right(type='button')
                             span.glyphicon.glyphicon-plus-sign
                             | &nbsp;&nbsp;Add
-                .panel.panel-default
-                    .panel-body
-                        .col-xs-4.col-left
-                            strong Information
-                        .col-xs-4
-                            strong Description
-                        .col-xs-3
-                            strong Preview
-                        .col-xs-1.col-right.upload-del
-                            button.btn.btn-danger.btn-sm.pull-right(type='button')
-                                span.glyphicon.glyphicon-minus-sign
-                                | &nbsp;&nbsp;Delete
-                        .col-xs-4.col-left
-                            .input-group.input-group-sm
-                                input.form-control(placeholder='Filename', name='filename', id='filename', text='text')
-                                .input-group-btn
-                                    span.btn.btn-default.btn-sm.btn-file Browse
-                                        input(type='file' name='torrent')
-                            strong.col-xs-2.infohash infohash:
-                            .col-xs-10.infohash 1defea192aac88bd8f474a964550920da25fb94c
-                            div
-                                select.form-control.upload-select.pull-left
-                                    option Anime
-                                    option Manga
-                                    option Music
-                                    option Literature
-                                    option Live Action
-                                    option Software
-                                    option Other
-                                .btn-group.btn-sm.upload-group
-                                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox') Batch
-                                    button.btn.btn-sm.btn-filter-r18(type='button' data-toggle='buttons-checkbox') R18+
-                                select.form-control.upload-select.pull-right
-                                    option All languages
-                                    option English
-                                    option Non-English
-                                    option Raws
-                            .col-xs-12(style='padding: 0px; margin-top: 5px;')
-                                .form-group
-                                    .input-group.input-group-sm
-                                        .input-group-addon
-                                            span.glyphicon.glyphicon-link
-                                        input.form-control(type='text' placeholder='AniDB link')
-                        .col-xs-4.input-group-sm.col-right
-                            textarea.form-control(type='text' style="height:145px; resize: none; overflow-y:scroll;")
-                        .col-xs-4.input-group-sm.col-right
-                            textarea.form-control(type='text' style="height:145px; resize: none; overflow-y:scroll;")
-
+                include uploadField
+                include uploadField
