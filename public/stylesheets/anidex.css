@@ -174,11 +174,11 @@ td {
 
 .table-hov > tbody > tr:hover > td {
     background-color: #d9edf7;
-    transition: background-color 0.1s;
+    transition: background-color 0s;
 }
 
 .table-hov > tbody > tr > td {
-    transition: background-color 0.1s;
+    transition: background-color 1s;
 }
 
 .tor-d {
