@@ -444,19 +444,11 @@ label {
         width: 963px;
     }
 }
-/*
-@media (max-width: 1329px) {
-    .row {
-        margin: auto;
-    }
-    .anidex-tabs {
-        margin-left: -6px;
-    }
-    .anidex-options {
-        padding: 0px;
-    }
+
+.row {
+    padding-left: 15px;
+    padding-right: 15px;
 }
-*/
 
 @media (min-width: 1330px) {
     .container {
