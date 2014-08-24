@@ -451,6 +451,21 @@ label {
   background-color: #FFD3F2;
   border-color: #adadad;
 }
+
+.btn-language {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.btn-filter-language:active,
+.btn-filter-language.active,
+.open > .dropdown-toggle.btn-filter-language {
+  color: #333;
+  background-color: #fff;
+  border-color: #adadad;
+}
+
 .btn-search {
   color: #333;
   background-color: #fff;
