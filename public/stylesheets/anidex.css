@@ -439,7 +439,13 @@ label {
     }
 }
 
-@media (max-width: 1199px) {
+@media (min-width: 993px) {
+    .container {
+        width: 963px;
+    }
+}
+/*
+@media (max-width: 1329px) {
     .row {
         margin: auto;
     }
@@ -450,9 +456,22 @@ label {
         padding: 0px;
     }
 }
+*/
 
-@media (min-width: 1200px) {
+@media (min-width: 1330px) {
     .container {
         width: 1300px;
     }
+}
+
+.container-width {
+    width: 1300px;
+}
+
+body {
+    margin-top: 70px;
+}
+
+.navbar-fixed-top .navbar-collapse {
+    max-height: 290px;
 }

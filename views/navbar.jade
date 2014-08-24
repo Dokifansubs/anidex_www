@@ -1,41 +1,41 @@
-nav.navbar.navbar-default.navbar-static-top
-    .container
-        .navbar-header
-            button.navbar-toggle.collapsed(data-target=".bs-navbar-collapse" data-toggle="collapse" type="button")
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-            a.navbar-brand(href='/') #{title}
-        .navbar-collapse.bs-navbar-collapse.collapse(role="navigation")
-            ul.nav.navbar-nav
-                li#upload
-                    a(href='/upload') Upload
-                li#groups
-                    a(href='/groups') Groups
-                li#faq
-                    a(href='/faq') FAQ
-                li#irc
-                    a(href='irc://irc.rizon.net/anidex') IRC
-                li#rss
-                    a(href='/rss') RSS
-            ul.nav.navbar-nav.navbar-right(class=['nav', 'navbar-nav'])
-                li.dropdown
-                    a.dropdown-toggle(href="#" data-toggle="dropdown") Account
-                    ul.dropdown-hover.dropdown-menu#account(role="menu")
-                        if user
-                            li#account
-                                a(href='/account') Settings
-                            li#logout
-                                a.login(href='/logout') Logout
-                        else
-                            li#signup
-                                a(href='/register') Register
-                            li#login
-                                a.login(href='/login') Login
-            form.navbar-right.navbar-form(role='search' action="/")
-                .input-group.input-group-sm
-                    input.form-control(placeholder='Search', name='q', id='srch-term', type='text')
-                    .input-group-btn
-                        div.btn-group
-                            button.btn.btn-search(type='submit').btn-sm
-                                i.glyphicon.glyphicon-search
+nav.navbar.navbar-default.navbar-fixed-top
+        .container
+            .navbar-header
+                button.navbar-toggle.collapsed(data-target=".bs-navbar-collapse" data-toggle="collapse" type="button")
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href='/') #{title}
+            .navbar-collapse.bs-navbar-collapse.collapse(role="navigation" style="overflow-y: scroll;")
+                ul.nav.navbar-nav
+                    li#upload
+                        a(href='/upload') Upload
+                    li#groups
+                        a(href='/groups') Groups
+                    li#faq
+                        a(href='/faq') FAQ
+                    li#irc
+                        a(href='irc://irc.rizon.net/anidex') IRC
+                    li#rss
+                        a(href='/rss') RSS
+                ul.nav.navbar-nav.navbar-right(class=['nav', 'navbar-nav'])
+                    li.dropdown
+                        a.dropdown-toggle(href="#" data-toggle="dropdown") Account
+                        ul.dropdown-hover.dropdown-menu#account(role="menu")
+                            if user
+                                li#account
+                                    a(href='/account') Settings
+                                li#logout
+                                    a.login(href='/logout') Logout
+                            else
+                                li#signup
+                                    a(href='/register') Register
+                                li#login
+                                    a.login(href='/login') Login
+                form.nav.navbar-nav.navbar-right.navbar-form(role='search' action="/")
+                    .input-group.input-group-sm
+                        input.form-control(placeholder='Search', name='q', id='srch-term', type='text')
+                        .input-group-btn
+                            div.btn-group
+                                button.btn.btn-search(type='submit').btn-sm
+                                    i.glyphicon.glyphicon-search
