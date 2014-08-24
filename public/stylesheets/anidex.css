@@ -109,12 +109,12 @@ body {
 /* Agreed - This shit is confusing as hell. We need some kind of standardized CSS to be used across all tables.
 However, I don't really know what the convention is! -Holo */
 th {
-    padding: 2px 4px;
+    padding: 6px 4px;
     vertical-align: top;
 }
 
 td {
-    padding: 4px 4px;
+    padding: 6px 4px;
     vertical-align: top;
 }
 
