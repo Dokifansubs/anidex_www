@@ -72,10 +72,19 @@ select.lang {
     margin: 0px;
 }
 
-.square-top {
+.anidex-tabs {
+    border-bottom: 0px;
+}
+
+.anidex-tabs > li.active > a,
+.anidex-tabs > li.active > a:hover,
+.anidex-tabs > li.active > a:focus {
+    border-color: #CCC #CCC transparent;
+}
+
+.anidex-list {
     border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-top-width: 0px;
+    border-top-right-radius: 6px;
 }
 
 .odd {
@@ -429,9 +438,4 @@ label {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
-}
-
-.torrent-select {
-    height: 40px;
-    border-bottom: 1px solid #CCC;
 }
