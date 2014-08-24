@@ -1,6 +1,6 @@
 extends layout
 block content
-    .container
+    .container.container-width
         .alert.alert-warning.alert-dismissible(role='alert').center
             button.close(data-dismiss='alert', type='button')
                 span(aria-hidden='true') &times;
@@ -8,7 +8,7 @@ block content
             strong Yo!&nbsp;
             | Welcome to our new tracker. It's still a work in progress.
         .row
-            .anidex-options.col-xs-12.col-lg-4.pull-right
+            .anidex-options.col-xs-4.pull-right
                 .btn-group.btn-sm.pull-right
                     button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Unofficial
                     button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Re-encodes
@@ -18,7 +18,7 @@ block content
                     option English
                     option Non-English
                     option Raws
-            .col-xs-12.col-lg-8
+            .col-xs-8
                 ul.nav.nav-tabs.anidex-tabs(role='tablist')
                     li
                         a(href='#') All
