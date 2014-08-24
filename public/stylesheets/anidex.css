@@ -465,7 +465,9 @@ label {
 }
 
 .container-width {
-    width: 1300px;
+    min-width: 1020px;
+    max-width: 1300px;
+    width: 100%;
 }
 
 body {
