@@ -45,6 +45,16 @@ body {
     font-family: "Ubuntu", sans-serif;
 }
 
+select.lang {
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .box {
     border: 1px solid #CCC;
     margin: 0px 0px 16px;
