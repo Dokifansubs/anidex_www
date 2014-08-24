@@ -21,7 +21,7 @@
             ul.nav.navbar-nav.navbar-right(class=['nav', 'navbar-nav'])
                 li.dropdown
                     a.dropdown-toggle(href="#" data-toggle="dropdown") Account
-                    ul.dropdown-menu#account(role="menu")
+                    ul.dropdown-hover.dropdown-menu#account(role="menu")
                         if user
                             li#account
                                 a(href='/account') Settings
@@ -37,5 +37,5 @@
                     input.form-control(placeholder='Search', name='q', id='srch-term', type='text')
                     .input-group-btn
                         div.btn-group
-                            button.btn.btn-default(type='submit').btn-sm
+                            button.btn.btn-search(type='submit').btn-sm
                                 i.glyphicon.glyphicon-search

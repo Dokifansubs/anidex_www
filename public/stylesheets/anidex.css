@@ -429,7 +429,35 @@ label {
     display: block;
  }
 
- .right {
-    align: right;
-    text-align: right;
- }
+.btn-filter {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.btn-filter:active,
+.btn-filter.active,
+.open > .dropdown-toggle.btn-filter {
+  color: #333;
+  background-color: #C2FFBC;
+  border-color: #adadad;
+}
+
+.btn-filter-r18 {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.btn-filter-r18:active,
+.btn-filter-r18.active,
+.open > .dropdown-toggle.btn-filter-r18 {
+  color: #333;
+  background-color: #FFD3F2;
+  border-color: #adadad;
+}
+.btn-search {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
