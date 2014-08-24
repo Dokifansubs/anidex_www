@@ -430,5 +430,6 @@ label {
 
 .container-width {
     min-width: 1020px;
-    max-width: 1300px:
+    max-width: 1300px;
+    width: 100%;
 }
