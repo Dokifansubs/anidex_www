@@ -1,16 +1,13 @@
-@media (min-width: 768px) {
-  .navbar-collapse.collapse {
-    display: block !important;
-    height: auto !important;
-    padding-bottom: 0;
-    overflow: visible !important;
-  }
-  .navbar-collapse.in {
-    display: block !important;
-    height: auto !important;
-    padding-bottom: 0;
-    overflow: visible !important;
-  }
+@media (min-width: 940px) {
+    .container {
+        width: 910px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1300px;
+    }
 }
 
 @font-face {
@@ -46,7 +43,7 @@ body {
 }
 
 select.lang {
-    width: 100px;
+    width: 120px;
     height: 30px;
     font-size: 12px;
     line-height: 18px;
@@ -417,11 +414,6 @@ h3 {
 
 ul.dropdown-menu-form {
     padding: 5px 10px 10px;
-}
-
-.container-width {
-    max-width: 1300px;
-    min-width: 950px;
 }
 
 label {
