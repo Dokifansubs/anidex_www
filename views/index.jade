@@ -7,35 +7,35 @@ block content
                 span.sr-only Close
             strong Yo!&nbsp;
             | Welcome to our new tracker. It's still a work in progress.
-        .box
-            ul.nav.nav-tabs(role='tablist')
-                li.active
-                    a(href='#') All
-                li
-                    a(href='#') Anime
-                li
-                    a(href='#') Manga
-                li.dropdown
-                    a.dropdown-toggle(data-toggle='dropdown', href='#')
-                        | Music
-                    ul.dropdown-hover.dropdown-menu(role='menu')
-                        li
-                            a(href='#') Music (Lossy)
-                        li
-                            a(href='#') Music (Lossless)
-                li
-                    a(href='#') Literature
-                li
-                    a(href='#') Live Action
-                li
-                    a(href='#') Software
-                li
-                    a(href='#') Other
-                li.pull-right
-                    div.btn-group.btn-sm
-                        button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Unofficial
-                        button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Re-encodes
-                        button.btn.btn-sm.btn-filter-r18(type='button' data-toggle='buttons-checkbox') R18+
+        ul.nav.nav-tabs(role='tablist')
+            li.active
+                a(href='#') All
+            li
+                a(href='#') Anime
+            li
+                a(href='#') Manga
+            li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                    | Music
+                ul.dropdown-hover.dropdown-menu(role='menu')
+                    li
+                        a(href='#') Music (Lossy)
+                    li
+                        a(href='#') Music (Lossless)
+            li
+                a(href='#') Literature
+            li
+                a(href='#') Live Action
+            li
+                a(href='#') Software
+            li
+                a(href='#') Other
+        .box.square-top
+            .torrent-select
+                .btn-group.btn-sm.pull-right
+                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Unofficial
+                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Re-encodes
+                    button.btn.btn-sm.btn-filter-r18(type='button' data-toggle='buttons-checkbox') R18+
                 select.form-control.pull-right.lang
                     option All
                     option English
