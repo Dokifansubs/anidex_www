@@ -1,6 +1,6 @@
 extends layout
 block content
-    .container.container-width
+    .container
         .alert.alert-warning.alert-dismissible(role='alert').center
             button.close(data-dismiss='alert', type='button')
                 span(aria-hidden='true') &times;
@@ -8,11 +8,21 @@ block content
             strong Yo!&nbsp;
             | Welcome to our new tracker. It's still a work in progress.
         .row
+            .anidex-options.col-xs-12.col-lg-4.pull-right
+                .btn-group.btn-sm.pull-right
+                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Unofficial
+                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Re-encodes
+                    button.btn.btn-sm.btn-filter-r18(type='button' data-toggle='buttons-checkbox') R18+
+                select.form-control.lang.pull-right
+                    option All
+                    option English
+                    option Non-English
+                    option Raws
             .col-xs-12.col-lg-8
                 ul.nav.nav-tabs.anidex-tabs(role='tablist')
-                    li.active
-                        a(href='#') All
                     li
+                        a(href='#') All
+                    li.active
                         a(href='#') Anime
                     li
                         a(href='#') Manga
@@ -32,30 +42,21 @@ block content
                         a(href='#') Software
                     li
                         a(href='#') Other
-            .anidex-options.col-xs-12.col-lg-4
-                .btn-group.btn-sm.pull-right
-                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Unofficial
-                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Re-encodes
-                    button.btn.btn-sm.btn-filter-r18(type='button' data-toggle='buttons-checkbox') R18+
-                select.form-control.lang.pull-right
-                    option All
-                    option English
-                    option Non-English
-                    option Raws
         .box
             table.Table.table-hov
                 tr.Header
                     th.tor-cat-title.tleft Cat.
                     th.tor-name Name
                     th.tor-d DL
-                    th.tor-size Size
-                    th.tor-age Age
+                    th.tor-size.visible-lg Size
+                    th.tor-age.visible-lg Age
                     th.tor-s S
-                    th.tor-l L
-                    th.tor-c.tright C
+                    th.tor-l.visible-lg L
+                    th.tor-c.tright.visible-lg C
                 if torrents.length > 0
                     each torrent, i in torrents
-                        - var rowclass = (i % 2 == 0) ? 'odd' : 'even'
+                        - var rowclass = 'even'
+                        //- var rowclass = (i % 2 == 0) ? 'odd' : 'even'
                         tr.Row
                             td.brown(class=[(i === torrents.length - 1) ? 'bleft' : '', rowclass]) #{torrent.category_name}
                             td.tor-name(class=rowclass)
@@ -66,11 +67,11 @@ block content
                                 a.glyphicon.glyphicon-save(href="http://anidex.moe/")
                                 span &nbsp;
                                 a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
-                            td.brown.center(class=rowclass) #{torrent.size}
-                            td.center(class=rowclass) #{torrent.created}
-                            td.green.center(class=rowclass) #{torrent.complete}
-                            td.red.center(class=rowclass) #{torrent.incomplete}
-                            td.purple.center(class=[(i === torrents.length - 1) ? 'bright' : '', rowclass]) #{torrent.downloaded}
+                            td.brown.center.visible-lg(class=rowclass) #{torrent.size}
+                            td.center.visible-lg(class=rowclass) #{torrent.created}
+                            td.green.center(class=[(i === torrents.length - 1) ? 'bright' : '']) #{torrent.complete}
+                            td.red.center.visible-lg(class=rowclass) #{torrent.incomplete}
+                            td.purple.center.visible-lg(class=[(i === torrents.length - 1) ? 'bright' : '', rowclass]) #{torrent.downloaded}
                 else
                     tr.Row
                         td.tor-empty(colspan="8" style="text-align: center;") No results found
