@@ -1,3 +1,18 @@
+@media (min-width: 768px) {
+  .navbar-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+  .navbar-collapse.in {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+}
+
 @font-face {
     font-weight:300;
     font-style:normal;
@@ -28,7 +43,6 @@
 
 body {
     font-family: "Ubuntu", sans-serif;
-    padding-top: 70px;
 }
 
 .box {
@@ -397,7 +411,7 @@ ul.dropdown-menu-form {
 
 .container-width {
     max-width: 1300px;
-    min-width: 960px;
+    min-width: 950px;
 }
 
 label {
