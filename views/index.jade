@@ -7,7 +7,7 @@ block content
                 span.sr-only Close
             strong Yo!&nbsp;
             | Welcome to our new tracker. It's still a work in progress.
-        ul.nav.nav-tabs(role='tablist')
+        ul.nav.nav-tabs.anidex-tabs(role='tablist')
             li.active
                 a(href='#') All
             li
@@ -30,17 +30,16 @@ block content
                 a(href='#') Software
             li
                 a(href='#') Other
-        .box.square-top
-            .torrent-select
-                .btn-group.btn-sm.pull-right
-                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Unofficial
-                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Re-encodes
-                    button.btn.btn-sm.btn-filter-r18(type='button' data-toggle='buttons-checkbox') R18+
-                select.form-control.pull-right.lang
-                    option All
-                    option English
-                    option Non-English
-                    option Raws
+            .btn-group.btn-sm.pull-right
+                button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Unofficial
+                button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox').active Re-encodes
+                button.btn.btn-sm.btn-filter-r18(type='button' data-toggle='buttons-checkbox') R18+
+            select.form-control.pull-right.lang
+                option All
+                option English
+                option Non-English
+                option Raws
+        .box.anidex-list
             table.Table.table-hov
                 tr.Header
                     th.tor-cat-title.tleft Cat.
