@@ -48,11 +48,11 @@ block content
                     th.tor-cat-title.tleft Cat.
                     th.tor-name Name
                     th.tor-d DL
-                    th.tor-size.visible-lg Size
-                    th.tor-age.visible-lg Age
+                    th.tor-size Size
+                    th.tor-age Age
                     th.tor-s S
-                    th.tor-l.visible-lg L
-                    th.tor-c.tright.visible-lg C
+                    th.tor-l L
+                    th.tor-c.tright C
                 if torrents.length > 0
                     each torrent, i in torrents
                         - var rowclass = 'even'
@@ -67,11 +67,11 @@ block content
                                 a.glyphicon.glyphicon-save(href="http://anidex.moe/")
                                 span &nbsp;
                                 a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
-                            td.brown.center.visible-lg(class=rowclass) #{torrent.size}
-                            td.center.visible-lg(class=rowclass) #{torrent.created}
-                            td.green.center(class=[(i === torrents.length - 1) ? 'bright' : '']) #{torrent.complete}
-                            td.red.center.visible-lg(class=rowclass) #{torrent.incomplete}
-                            td.purple.center.visible-lg(class=[(i === torrents.length - 1) ? 'bright' : '', rowclass]) #{torrent.downloaded}
+                            td.brown.center(class=rowclass) #{torrent.size}
+                            td.center(class=rowclass) #{torrent.created}
+                            td.green.center(class=rowclass) #{torrent.complete}
+                            td.red.center(class=rowclass) #{torrent.incomplete}
+                            td.purple.center(class=[(i === torrents.length - 1) ? 'bright' : '', rowclass]) #{torrent.downloaded}
                 else
                     tr.Row
                         td.tor-empty(colspan="8" style="text-align: center;") No results found
