@@ -533,3 +533,8 @@ select.upload-select {
     line-height: 18px;
     padding: 5px;
 }
+
+.panel {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
