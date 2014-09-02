@@ -1,14 +1,14 @@
 extends layout
 block content
     .container.container-width
-        .alert.alert-warning.alert-dismissible(role='alert').center
+        .alert.alert-info.alert-dismissible(role='alert').center
             button.close(data-dismiss='alert', type='button')
                 span(aria-hidden='true') &times;
                 span.sr-only Close
             strong Yo!&nbsp;
             | Welcome to our new tracker. It's still a work in progress.
         .row
-            .anidex-categories.pull-left
+            .pull-left
                 ul.nav.nav-tabs.anidex-tabs(role='tablist')
                     li.active
                         a(href='#') All
@@ -41,7 +41,7 @@ block content
                     option English
                     option Non-English
                     option Raws
-        .box
+        .box.box-anidex.tleft
             table.Table.table-hov
                 tr.Header
                     th.tor-cat-title.tleft Cat.
