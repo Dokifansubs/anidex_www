@@ -16,10 +16,12 @@ block content
                             td #{group.short_name}
                             td #{group.language}
                             td #{group.founded_timestamp}
-                            td 
-                                a(target='_blank', href='#{group.website}') 
+                            td
+                                a(target='_blank', href='#{group.website}')
                                     span(class='label label-default') #{group.website}
-                                a(href='irc://#{group.irc_server}/#{group.irc_channel}') 
+                                a(href='irc://#{group.irc_server}/#{group.irc_channel}')
                                     span(class='label label-info') ##{group.irc_channel}@#{group.irc_server}
-                                span(class='label label-default') RSS
+                            //-
+                                a(href='#')
+                                    span(class='label label-default') RSS
 
