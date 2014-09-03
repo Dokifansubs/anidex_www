@@ -4,7 +4,7 @@ block content
         .box
             table.Table.table-hov
                 tr.Header
-                    th(style='width: 150px;') Tag
+                    th(style='width: 100px;') Tag
                     th Fansub Group
                     th(style='width: 100px;') Language
                     th(style='width: 100px;') Founded
@@ -12,9 +12,9 @@ block content
                     th(style='width: 200px;') IRC
                     each group, i in data
                         tr.Row
+                            td #{group.short_name}
                             td
                                 a(href='/groups/#{group.group_id}') #{group.name}
-                            td #{group.short_name}
                             td(style='width: 100px;') #{group.language}
                             td #{group.founded_timestamp}
                             td
