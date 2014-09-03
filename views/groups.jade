@@ -7,20 +7,19 @@ block content
                     th Fansub Group
                     th Tag
                     th Language
-                    th Website
-                    th IRC
                     th Founded
-                    th RSS
+                    th Links
                     each group, i in data
                         tr.Row
                             td
                                 a(href='/groups/#{group.group_id}') #{group.name}
                             td #{group.short_name}
                             td #{group.language}
-                            td
-                                a(target='_blank', href='#{group.website}') #{group.website}
-                            td
-                                a(href='irc://#{group.irc_server}/#{group.irc_channel}') ##{group.irc_channel}@#{group.irc_server}
-
                             td #{group.founded_timestamp}
-                            td RSS
+                            td 
+                                a(target='_blank', href='#{group.website}') 
+                                    span(class='label label-default') #{group.website}
+                                a(href='irc://#{group.irc_server}/#{group.irc_channel}') 
+                                    span(class='label label-info') ##{group.irc_channel}@#{group.irc_server}
+                                span(class='label label-default') RSS
+
