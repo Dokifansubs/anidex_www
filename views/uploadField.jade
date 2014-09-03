@@ -2,46 +2,37 @@
     .panel-body
         .col-xs-4.col-left
             strong Information
-        .col-xs-4
+        .col-xs-6
             strong Description
-        .col-xs-2
-            strong Preview
         .col-xs-2.col-right.upload-del
-            button.btn.btn-danger.btn-xs.pull-right(type='button')
+            button.btn.btn-danger.btn-xs.pull-right(type='button').disabled
                 span.glyphicon.glyphicon-minus-sign
         .col-xs-4.col-left
             .input-group.input-group-sm
                 input.form-control(placeholder='Filename', name='filename', id='filename', text='text')
                 .input-group-btn
                     span.btn.btn-white.btn-sm.btn-file Browse
-                        input(type='file' name='torrent')
+                        input(type='file' name='torrent' id='torrentfile')
             strong.col-xs-2.infohash infohash:
-            .col-xs-10.infohash 1defea192aac88bd8f474a964550920da25fb94c
+            .col-xs-10.infohash(id='infohash') &nbsp;
             div
-                select.form-control.upload-select.pull-left
-                    option Anime
-                    option Manga
-                    option Music
-                    option Literature
-                    option Live Action
-                    option Software
-                    option Other
+                select.form-control.upload-select.pull-left(name='category')
+                    for cat in categories
+                        option(value='#{cat.category_id}') #{cat.category_name}
                 select.form-control.upload-select.pull-right
                     option All languages
                     option English
                     option Non-English
                     option Raws
                 .btn-group.btn-sm.upload-group
-                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox') Batch
-                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox' title='Upload to TokyoTosho').active TT API
-                    button.btn.btn-sm.btn-filter-r18(type='button' data-toggle='buttons-checkbox') R18+
+                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox' name='batch') Batch
+                    button.btn.btn-sm.btn-filter(type='button' data-toggle='buttons-checkbox' title='Upload to TokyoTosho' name='tt') TT API
+                    button.btn.btn-sm.btn-filter-r18(type='button' data-toggle='buttons-checkbox' name='hentai') R18+
             .col-xs-12(style='padding: 0px; margin-top: 5px;')
                 .form-group
                     .input-group.input-group-sm
                         .input-group-addon.btn-white
                             span.glyphicon.glyphicon-link
-                        input.form-control(type='text' placeholder='AniDB link')
-        .col-xs-4.input-group-sm.col-right
-            textarea.form-control(type='text' style="height:145px; resize: none; overflow-y:scroll;")
-        .col-xs-4.input-group-sm.col-right
-            textarea.form-control(type='text' style="height:145px; resize: none; overflow-y:scroll;")
+                        input.form-control(type='text' placeholder='AniDB link' name='anidb')
+        .col-xs-8.input-group-sm.col-right
+            textarea.form-control(type='text' style="height:145px; resize: none; overflow-y:scroll;" name='description')

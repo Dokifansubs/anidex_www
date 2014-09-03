@@ -63,9 +63,9 @@ block content
                                 if torrent.comments > 0
                                     span.badge.pull-right(rel="tooltip" title="Comments" data-placement="left") #{torrent.comments}
                             td.center
-                                a.glyphicon.glyphicon-save(href="http://anidex.moe/")
-                                span &nbsp;
-                                a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
+                                a.glyphicon.glyphicon-save(href="/download/#{torrent.torrent_id}")
+                                //-span &nbsp;
+                                //-a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
                             td.brown.center #{torrent.size}
                             td.center #{torrent.created}
                             td.green.center #{torrent.complete}
