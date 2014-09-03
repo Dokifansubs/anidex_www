@@ -18,7 +18,7 @@ var app = module.exports = express();
 app.set('port', 8008);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.bodyParser());
+app.use(express.bodyParser({uploadDir: __dirname + '/public/torrents'}));
 app.use(express.cookieParser());
 app.use(express.session(sessionConfig));
 app.use(express.methodOverride());
@@ -52,11 +52,14 @@ app.get('/', home.index);
 var torrents = require('./lib/request-handlers/torrents');
 torrents.init(database);
 app.get('/torrents/:id', torrents.single);
-app.get('/upload', torrents.upload);
-//app.get('/upload', passHandler.ensureAuthenticated, torrents.upload);
+//app.get('/upload', torrents.upload);
+app.get('/upload', passHandler.ensureAuthenticated, torrents.upload);
 app.post('/upload', torrents.uploadFile);
 app.post('/parse', torrents.parseFile);
+/*
 app.get('/advupload', passHandler.ensureAuthenticated ,torrents.advUpload);
+*/
+app.get('/download/:id', torrents.downloadFile);
 
 var groups = require('./lib/request-handlers/groups');
 groups.init(database);
@@ -82,5 +85,4 @@ app.post('/register', profile.registerForm);
 // Start the server
 app.listen(app.get('port'), function() {
     console.log("Express server listening on port " + app.get('port'));
-    console.log("UPDATE EMAIL SYSTEM IN FINAL VERSION".red);
 });

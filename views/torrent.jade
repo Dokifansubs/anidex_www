@@ -15,7 +15,7 @@ block content
                                             th Uploader:
                                             td
                                                 a(href='/users/#{torrent.user_id}') #{torrent.username}
-                                        if torrent.group_id
+                                        if torrent.group_id > 0
                                             tr
                                                 th Group:
                                                 td
