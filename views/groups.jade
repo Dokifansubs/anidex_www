@@ -4,21 +4,23 @@ block content
         .box
             table.Table.table-hov
                 tr.Header
+                    th(style='width: 150px;') Tag
                     th Fansub Group
-                    th Tag
-                    th Language
-                    th Founded
-                    th Links
+                    th(style='width: 100px;') Language
+                    th(style='width: 100px;') Founded
+                    th(style='width: 200px;') Links
+                    th(style='width: 200px;') IRC
                     each group, i in data
                         tr.Row
                             td
                                 a(href='/groups/#{group.group_id}') #{group.name}
                             td #{group.short_name}
-                            td #{group.language}
+                            td(style='width: 100px;') #{group.language}
                             td #{group.founded_timestamp}
                             td
                                 a(target='_blank', href='#{group.website}')
                                     span(class='label label-default') #{group.website}
+                            td
                                 a(href='irc://#{group.irc_server}/#{group.irc_channel}')
                                     span(class='label label-info') ##{group.irc_channel}@#{group.irc_server}
                             //-
