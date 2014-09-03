@@ -15,7 +15,7 @@ var database = require('./lib/repositories/database');
 
 var app = module.exports = express();
 
-app.set('port', 8008);
+app.set('port', 80);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.bodyParser({uploadDir: __dirname + '/public/torrents'}));

@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 var processTorrent = function(torrent) {
     if (torrent.type === 'application/x-bittorrent') {
-        var url = 'http://' + location.hostname + ':8008/parse';
+        var url = 'http://' + location.hostname + '/parse';
         var formData = new FormData();
 
         var xhr = new XMLHttpRequest();
