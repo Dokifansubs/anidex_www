@@ -1,0 +1,6 @@
+{
+    "domain": "localhost",
+    "session": {
+        "secret": "super-sekrit"
+    }
+}
