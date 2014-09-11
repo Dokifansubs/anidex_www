@@ -73,6 +73,12 @@ app.get('/login', profile.login);
 app.get('/logout', profile.logout);
 app.get('/verify-account', profile.verify);
 
+var management = require('./lib/request-handlers/management');
+management.init(database);
+// TODO: Add authentication middleware.
+app.get('/account', passHander.ensureAuthenticated, management.user);
+app.get('/account-group/:id', passHandler.ensureAuthenticated, management.group);
+
 app.post('/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
