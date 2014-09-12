@@ -1,6 +1,0 @@
-{
-    "host"      : "smtp.gmail.com",
-    "email"     : "email@gmail.com",
-    "password"  : "password",
-    "sender"    : "yourname <email>@gmail.com"
-}

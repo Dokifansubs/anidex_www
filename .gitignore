@@ -35,7 +35,11 @@ cheatsheet
 # Do not include database files.
 *.sql
 
-# Ignore NoteTools files.
+# Hide visual studio project and solution files
+*.njsproj
+*.sln
+
+# Do not include shitty NodeTools analysis file
 .ntvs_analysis.dat
 
 ## Ignore Visual Studio temporary files, build results, and

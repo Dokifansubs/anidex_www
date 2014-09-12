@@ -1,5 +1,20 @@
 extends layout
 block content
+    .container
+        if error
+            .alert.alert-danger.alert-dismissible(role='alert')
+                button.close(data-dismiss='alert', type='button')
+                    span(aria-hidden='true') &times;
+                    span.sr-only Close
+                strong Error!&nbsp;
+                | #{error}
+        if message
+            .alert.alert-success.alert-dismissible(role='alert')
+                button.close(data-dismiss='alert', type='button')
+                    span(aria-hidden='true') &times;
+                    span.sr-only Close
+                strong Success!&nbsp;
+                | #{message}
     .container-admin
         .nav-admin
             ul.nav.nav-pills.nav-stacked
@@ -11,6 +26,8 @@ block content
                     a(href='#') Torrents
                 li
                     a(href='#') Comments
+                li
+                    a(href='#') Groups
         .admin-content
             .col-xs-12.col-lg-8
                 .col-xs-12
@@ -18,15 +35,12 @@ block content
                     img.media-object(alt='64x64' data-src='holder.js/64x64' style='width: 64px; height: 64px;' src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+')
                 .col-xs-2
                     strong Username:
-                .col-xs-10
-                    if user
-                        p #{user.username}
-                    else
-                        p Placeholder
+                .col-xs-10                    
+                    p #{user.username}                    
                 .col-xs-2
                     strong Change password:
                 .col-xs-10
-                    form
+                    form(action='/update-password' method='post')
                         .form-group
                             input.form-control(type='password' name='opass' placeholder='Current password')
                             input.form-control(type='password' name='npass' placeholder='New password')
@@ -34,7 +48,8 @@ block content
                             .btn-group.pull-right
                                 button.btn.btn-default(type='button') Clear
                                 button.btn.btn-primary(type='submit') Change
-                            </br>
+                    </br>
+                    </br>
                 .col-xs-2
                     strong Change email:
                 .col-xs-10
