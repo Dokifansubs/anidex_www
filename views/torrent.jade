@@ -28,6 +28,9 @@ block content
                                             th Date:
                                             td #{torrent.created}
                                         tr
+                                            th Type:
+                                            td #{torrent.category_name}
+                                        tr
                                             th File size:
                                             td #{torrent.size}
                                         tr
@@ -48,37 +51,7 @@ block content
                                                 a.glyphicon.glyphicon-save(href="/download/#{torrent.torrent_id}")
                                                 //-span &nbsp;
                                                 //-a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
-                            td(width='400px;')
-                                table
-                                    tbody
-                                        tr
-                                            th Name:
-                                            td ???
-                                        tr
-                                            th Type:
-                                            td #{torrent.category_name}
-                                        tr
-                                            th Status:
-                                            td ???
-                                        tr
-                                            th Aired:
-                                            td ???
-                                        tr
-                                            th Episodes:
-                                            td ???
-                                        tr
-                                            th Genres:
-                                            td ???
-                                        tr
-                                            th Description:
-                                            td ???
-                                        tr
-                                            th Ext. Link:
-                                            td ???
-
-                            td(width='*')
-                                img(src='http://cdn.myanimelist.net/images/anime/11/61039.jpg')
-
+        //-
             .box
                 .header
                     h5 Files&nbsp;
@@ -110,6 +83,7 @@ block content
     else
         .container
             p invalid ID.
+//-
     script.
         function hide() {
             $('#files').toggle();

@@ -5,7 +5,7 @@
 
 var express = require('express');
 var http = require('http');
-var sessionConfig = require('./conf/session.json');
+var serverConfig = require('./conf/server.json');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var colors = require('colors');
@@ -20,7 +20,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.bodyParser({uploadDir: __dirname + '/public/torrents'}));
 app.use(express.cookieParser());
-app.use(express.session(sessionConfig));
+app.use(express.session(serverConfig.session));
 app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -72,6 +72,12 @@ app.get('/register', profile.register);
 app.get('/login', profile.login);
 app.get('/logout', profile.logout);
 app.get('/verify-account', profile.verify);
+
+var management = require('./lib/request-handlers/management');
+management.init(database);
+// TODO: Add authentication middleware.
+app.get('/account', passHandler.ensureAuthenticated, management.user);
+app.get('/account-group/:id', passHandler.ensureAuthenticated, management.group);
 
 app.post('/login', passport.authenticate('local', {
     successRedirect: '/',
