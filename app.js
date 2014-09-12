@@ -5,7 +5,7 @@
 
 var express = require('express');
 var http = require('http');
-var serverConfig = require('./conf/server.json');
+var ServerConfig = require('./conf/server.json');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var colors = require('colors');
@@ -20,7 +20,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.bodyParser({uploadDir: __dirname + '/public/torrents'}));
 app.use(express.cookieParser());
-app.use(express.session(serverConfig.session));
+app.use(express.session(ServerConfig.session));
 app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -32,7 +32,6 @@ if (app.get('env') === 'development') {
     app.use(express.errorHandler());
 }
 
-
 // Configure passport handling
 var passHandler = require('./lib/helpers/passport');
 passHandler.init(database);
@@ -40,11 +39,9 @@ passport.use(new LocalStrategy(passHandler.login));
 passport.serializeUser(passHandler.serialize);
 passport.deserializeUser(passHandler.deserialize)
 
-
 /*
  * Routes handlers
  */
-
 var home = require('./lib/request-handlers/home')
 home.init(database);
 app.get('/', home.index);
@@ -72,6 +69,7 @@ app.get('/register', profile.register);
 app.get('/login', profile.login);
 app.get('/logout', profile.logout);
 app.get('/verify-account', profile.verify);
+app.post('/update-password', passHandler.ensureAuthenticated, profile.updatePassword);
 
 var management = require('./lib/request-handlers/management');
 management.init(database);

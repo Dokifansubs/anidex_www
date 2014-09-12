@@ -1,6 +1,23 @@
 {
-    "domain": "localhost",
-    "session": {
-        "secret": "super-sekrit"
-    }
+    "domain"	: "localhost",
+	"trackers"	: [],
+    "session"	: {
+        "secret"	: "super-sekrit"
+    },
+	"email": {
+		"host"      : "smtp.gmail.com",
+		"user"		: "email@gmail.com",
+		"password"  : "password",
+		"sender"    : "email@gmail.com"
+		
+	},
+	"captcha"	: {
+		"private_key"	: "",
+		"public_key"	: ""
+	},
+	"mysql"		: {
+		"host"		: "localhost",
+		"user"		: "username",
+		"password"	: "password"
+	}
 }
