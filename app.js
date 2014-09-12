@@ -69,6 +69,7 @@ app.get('/register', profile.register);
 app.get('/login', profile.login);
 app.get('/logout', profile.logout);
 app.get('/verify-account', profile.verify);
+app.post('/update-password', passHandler.ensureAuthenticated, profile.updatePassword);
 
 var management = require('./lib/request-handlers/management');
 management.init(database);
