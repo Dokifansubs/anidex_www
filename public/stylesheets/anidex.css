@@ -30,6 +30,24 @@ body {
     font-family: "Ubuntu", sans-serif;
 }
 
+.container-admin {
+    min-width: 940px;
+    max-width: 1920px;
+}
+
+.nav-admin {
+    width: 300px;
+    margin: 10px;
+    float: left;
+}
+
+.admin-content {
+    width: auto;
+    overflow: hidden;
+    margin: 10px;
+}
+
+
 select.lang {
     width: 110px;
     height: 30px;
