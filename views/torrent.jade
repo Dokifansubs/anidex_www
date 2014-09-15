@@ -48,15 +48,15 @@ block content
                                         tr
                                             th Download:
                                             td
-                                                a.glyphicon.glyphicon-save(href="/download/#{torrent.torrent_id}")
+                                                a.glyphicon.glyphicon-save(href='/download/#{torrent.torrent_id}')
                                                 //-span &nbsp;
-                                                //-a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
+                                                //-a.glyphicon.glyphicon-magnet(href='http://anidex.moe/')
         //-
             .box
                 .header
                     h5 Files&nbsp;
-                        a(onclick="hide();") (show/hide)
-                table.tor#files(style="display: none;")
+                        a(onclick='hide();') (show/hide)
+                table.tor#files(style='display: none;')
                     tbody
                         tr
                             td

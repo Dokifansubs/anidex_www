@@ -8,10 +8,10 @@ block content
                     span.sr-only Close
                 strong Error!&nbsp;
                 | #{error}
-        form(action="/login" method="post")
-            input.form-input(type="text" name="username" placeholder="Username")
-            input.form-input(type="password" name="password" placeholder="Password")
+        form(action='/login' method='post')
+            input.form-input(type='text' name='username' placeholder='Username')
+            input.form-input(type='password' name='password' placeholder='Password')
             .checkbox
-                input#rmbm(type="checkbox" name="rememberme")
-                label(for="rmbm") Remember me
-            button.anibtn.anibtn-default(type="submit") Login
+                input#rmbm(type='checkbox' name='rememberme')
+                label(for='rmbm') Remember me
+            button.anibtn.anibtn-default(type='submit') Login
