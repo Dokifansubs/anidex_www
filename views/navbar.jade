@@ -20,7 +20,7 @@ nav.navbar.navbar-default.navbar-fixed-top
                         a(href='/rss') RSS
                 ul.nav.navbar-nav.navbar-right
                     li.dropdown
-                        a.dropdown-toggle(href="#" data-toggle="dropdown") Account
+                        a.dropdown-toggle(href=(user && "/account") || "/login") Account
                         ul.dropdown-hover.dropdown-menu#account(role="menu")
                             if user
                                 li#account
