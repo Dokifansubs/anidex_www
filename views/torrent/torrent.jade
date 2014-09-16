@@ -1,4 +1,4 @@
-extends layout
+extends ../layout
 block content
     if torrent
         .container.container-width
@@ -15,7 +15,7 @@ block content
                                             th Uploader:
                                             td
                                                 a(href='/users/#{torrent.user_id}') #{torrent.username}
-                                        if torrent.group_id
+                                        if torrent.group_id > 0
                                             tr
                                                 th Group:
                                                 td
@@ -27,6 +27,9 @@ block content
                                         tr
                                             th Date:
                                             td #{torrent.created}
+                                        tr
+                                            th Type:
+                                            td #{torrent.category_name}
                                         tr
                                             th File size:
                                             td #{torrent.size}
@@ -45,45 +48,15 @@ block content
                                         tr
                                             th Download:
                                             td
-                                                a.glyphicon.glyphicon-save(href="http://anidex.moe/")
-                                                span &nbsp;
-                                                a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
-                            td(width='400px;')
-                                table
-                                    tbody
-                                        tr
-                                            th Name:
-                                            td ???
-                                        tr
-                                            th Type:
-                                            td #{torrent.category_name}
-                                        tr
-                                            th Status:
-                                            td ???
-                                        tr
-                                            th Aired:
-                                            td ???
-                                        tr
-                                            th Episodes:
-                                            td ???
-                                        tr
-                                            th Genres:
-                                            td ???
-                                        tr
-                                            th Description:
-                                            td ???
-                                        tr
-                                            th Ext. Link:
-                                            td ???
-
-                            td(width='*')
-                                img(src='http://cdn.myanimelist.net/images/anime/11/61039.jpg')
-
+                                                a.glyphicon.glyphicon-save(href='/download/#{torrent.torrent_id}')
+                                                //-span &nbsp;
+                                                //-a.glyphicon.glyphicon-magnet(href='http://anidex.moe/')
+        //-
             .box
                 .header
                     h5 Files&nbsp;
-                        a(onclick="hide();") (show/hide)
-                table.tor#files(style="display: none;")
+                        a(onclick='hide();') (show/hide)
+                table.tor#files(style='display: none;')
                     tbody
                         tr
                             td
@@ -110,6 +83,7 @@ block content
     else
         .container
             p invalid ID.
+//-
     script.
         function hide() {
             $('#files').toggle();

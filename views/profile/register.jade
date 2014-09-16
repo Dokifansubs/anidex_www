@@ -1,0 +1,32 @@
+extends ../layout
+block content
+    .container.login-box
+        if error
+            .alert.alert-danger.alert-dismissible(role='alert')
+                button.close(data-dismiss='alert', type='button')
+                    span(aria-hidden='true') &times;
+                    span.sr-only Close
+                strong Error!&nbsp;
+                | #{error}
+        if message
+            .alert.alert-success.alert-dismissible(role='alert')
+                button.close(data-dismiss='alert', type='button')
+                    span(aria-hidden='true') &times;
+                    span.sr-only Close
+                strong Success!&nbsp;
+                | #{message}
+        script.
+            var RecaptchaOptions = {
+                theme: 'clean'
+            }
+        form(action='/register' method='post')
+            input.form-control(type='text' placeholder='Username' name='username')
+            input.form-control(type='text' placeholder='E-Mail' name='email')
+            input.form-control(type='password' placeholder='Password' name='password')
+            input.form-control(type='password' placeholder='Confirm Password' name='cpassword')
+            script(src='http://www.google.com/recaptcha/api/challenge?k=#{public_key}')
+            noscript
+                iframe(src='http://www.google.com/recaptcha/api/noscript?k=#{public_key}' style='height:300px; width: 500px; frameborder: 0;')
+                    textarea(name='recaptcha_challenge_field' rows='3' cols='40')
+                    input(type='hidden' name='recaptcha_response_field' value='manual_challenge')
+            button(type='submit').btn.btn-primary Register
