@@ -1,17 +1,16 @@
+'use strict';
+
 /**
  * AniDex front end.
  * Copyright (c) 2014 Doki Enterprises
 **/
 
 var express = require('express');
-var http = require('http');
 var ServerConfig = require('./conf/server.json');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var colors = require('colors');
 var flash = require('connect-flash');
 
-var database = require('./lib/repositories/database');
 
 var app = module.exports = express();
 
@@ -36,7 +35,7 @@ if (app.get('env') === 'development') {
 var passHandler = require('./lib/helpers/passport');
 passport.use(new LocalStrategy(passHandler.login));
 passport.serializeUser(passHandler.serialize);
-passport.deserializeUser(passHandler.deserialize)
+passport.deserializeUser(passHandler.deserialize);
 
 /*
  * Routes handlers
@@ -80,5 +79,5 @@ app.post('/register', profile.registerForm);
 
 // Start the server
 app.listen(app.get('port'), function() {
-    console.log("Express server listening on port " + app.get('port'));
+    console.log('Express server listening on port ' + app.get('port'));
 });
