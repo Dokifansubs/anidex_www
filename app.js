@@ -37,6 +37,9 @@ passport.use(new LocalStrategy(passHandler.login));
 passport.serializeUser(passHandler.serialize);
 passport.deserializeUser(passHandler.deserialize);
 
+var perfomance = require('./lib/helpers/perfomance');
+app.use(perfomance.benchmark);
+
 /*
  * Routes handlers
  */
