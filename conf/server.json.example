@@ -1,5 +1,6 @@
 {
     "domain"	: "localhost",
+    "port":		: 80,
 	"trackers"	: [],
     "session"	: {
         "secret"	: "super-sekrit"
