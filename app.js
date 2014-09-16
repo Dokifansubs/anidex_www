@@ -42,12 +42,9 @@ passport.deserializeUser(passHandler.deserialize)
 /*
  * Routes handlers
  */
-var home = require('./lib/request-handlers/home')
-home.init(database);
-app.get('/', home.index);
-
 var torrents = require('./lib/request-handlers/torrents');
 torrents.init(database);
+app.get('/', torrents.search);
 app.get('/torrents/:id', torrents.single);
 //app.get('/upload', torrents.upload);
 app.get('/upload', passHandler.ensureAuthenticated, torrents.upload);
