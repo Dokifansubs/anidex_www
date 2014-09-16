@@ -606,23 +606,23 @@ select.upload-select {
 }
 
 .torrentList-header--size {
-    text-align: center;
+    text-align: right;
     color: brown;
 }
 
 .torrentList-header--age {
-    text-align: center;
+    text-align: right;
 }
 
 .torrentList-header--seeders {
-    text-align: center;
+    text-align: right;
     color: green;
     width: 50px;
     min-width: 50px;
 }
 
 .torrentList-header--leechers {
-    text-align: center;
+    text-align: right;
     color: red;
     width: 50px;
     min-width: 50px;
@@ -630,7 +630,7 @@ select.upload-select {
 
 .torrentList-header--completed {
     color: purple;
-    text-align: center;
+    text-align: right;
     width: 50px;
     min-width: 50px;
 }
@@ -656,27 +656,27 @@ select.upload-select {
 }
 
 .torrentList-item--size {
-    text-align: center;
+    text-align: right;
     color: brown;
 }
 
 .torrentList-item--age {
-    text-align: center;
+    text-align: right;
 }
 
 .torrentList-item--seeders {
-    text-align: center;
+    text-align: right;
     color: green;
 }
 
 .torrentList-item--leechers {
-    text-align: center;
+    text-align: right;
     color: red;
 }
 
 .torrentList-item--completed {
     color: purple;
-    text-align: center;
+    text-align: right;
 }
 
 .torrentList tr:last-child .torrentList-item:first-child {
