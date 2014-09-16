@@ -42,36 +42,36 @@ block content
                     option Non-English
                     option Raws
         .box.box-anidex.tleft
-            table.Table.table-hov
-                tr.Header
-                    th.tor-cat-title.tleft Cat.
-                    th.tor-d DL
-                    th.tor-name Name
-                    th.tor-size Size
-                    th.tor-age Age
-                    th.tor-s S
-                    th.tor-l L
-                    th.tor-c.tright C
+            table.torrentList
+                tr.torrentList-header
+                    th.torrentList-header.torrentList-header--category.tleft Cat.
+                    th.torrentList-header.torrentList-header--download DL
+                    th.torrentList-header.torrentList-header--name Name
+                    th.torrentList-header.torrentList-header--size Size
+                    th.torrentList-header.torrentList-header--age Age
+                    th.torrentList-header.torrentList-header--seeders S
+                    th.torrentList-header.torrentList-header--leechers L
+                    th.torrentList-header.torrentList-header--completed.tright C
                 if torrents.length > 0
                     each torrent, i in torrents
                         - var rowclass = 'even'
                         //- var rowclass = (i % 2 == 0) ? 'odd' : 'even'
-                        tr.Row
-                            td.brown(class=(i === torrents.length - 1) ? 'bleft' : '') #{torrent.category_name}
-                            td.center
+                        tr
+                            td.torrentList-item.torrentList-item--category(class=(i === torrents.length - 1) ? 'bleft' : '') #{torrent.category_name}
+                            td.torrentList-item.torrentList-item--download
                                 a.glyphicon.glyphicon-save(href='/download/#{torrent.torrent_id}')
-                            td.tor-name
+                            td.torrentList-item.torrentList-item--name
                                 a(href='/torrents/#{torrent.torrent_id}' style='color: #2F4F70') #{torrent.filename}
                                 if torrent.comments > 0
                                     span.badge.pull-right(rel='tooltip' title='Comments' data-placement='left') #{torrent.comments}
                                 //-span &nbsp;
                                 //-a.glyphicon.glyphicon-magnet(href='http://anidex.moe/')
-                            td.brown.center #{torrent.size}
-                            td.center #{torrent.age}
-                            td.green.center #{torrent.complete}
-                            td.red.center #{torrent.incomplete}
-                            td.purple.center(class=(i === torrents.length - 1) ? 'bright' : '') #{torrent.downloaded}
+                            td.torrentList-item.torrentList-item--size #{torrent.size}
+                            td.torrentList-item.torrentList-item--age #{torrent.age}
+                            td.torrentList-item.torrentList-item--seeders #{torrent.complete}
+                            td.torrentList-item.torrentList-item--leechers #{torrent.incomplete}
+                            td.torrentList-item.torrentList-item--completed #{torrent.downloaded}
                 else
-                    tr.Row
-                        td.tor-empty(colspan='8' style='text-align: center;') No results found
+                    tr
+                        td.torrentList-item(colspan='8') No results found
 
