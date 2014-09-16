@@ -15,7 +15,7 @@ var database = require('./lib/repositories/database');
 
 var app = module.exports = express();
 
-app.set('port', 80);
+app.set('port', ServerConfig.port || 80);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.bodyParser({uploadDir: __dirname + '/public/torrents'}));
@@ -34,7 +34,6 @@ if (app.get('env') === 'development') {
 
 // Configure passport handling
 var passHandler = require('./lib/helpers/passport');
-passHandler.init(database);
 passport.use(new LocalStrategy(passHandler.login));
 passport.serializeUser(passHandler.serialize);
 passport.deserializeUser(passHandler.deserialize)
@@ -42,12 +41,8 @@ passport.deserializeUser(passHandler.deserialize)
 /*
  * Routes handlers
  */
-var home = require('./lib/request-handlers/home')
-home.init(database);
-app.get('/', home.index);
-
 var torrents = require('./lib/request-handlers/torrents');
-torrents.init(database);
+app.get('/', torrents.search);
 app.get('/torrents/:id', torrents.single);
 //app.get('/upload', torrents.upload);
 app.get('/upload', passHandler.ensureAuthenticated, torrents.upload);
@@ -59,12 +54,10 @@ app.get('/advupload', passHandler.ensureAuthenticated ,torrents.advUpload);
 app.get('/download/:id', torrents.downloadFile);
 
 var groups = require('./lib/request-handlers/groups');
-groups.init(database);
 app.get('/groups', groups.list);
 app.get('/groups/:id', groups.detail);
 
 var profile = require('./lib/request-handlers/profile');
-profile.init(database);
 app.get('/register', profile.register);
 app.get('/login', profile.login);
 app.get('/logout', profile.logout);
@@ -72,7 +65,6 @@ app.get('/verify-account', profile.verify);
 app.post('/update-password', passHandler.ensureAuthenticated, profile.updatePassword);
 
 var management = require('./lib/request-handlers/management');
-management.init(database);
 // TODO: Add authentication middleware.
 app.get('/account', passHandler.ensureAuthenticated, management.user);
 app.get('/account-group/:id', passHandler.ensureAuthenticated, management.group);
