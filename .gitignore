@@ -36,7 +36,6 @@ cheatsheet
 *.sql
 
 # Hide visual studio project and solution files
-*.njsproj
 *.sln
 
 # Do not include shitty NodeTools analysis file
