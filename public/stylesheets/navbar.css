@@ -1,0 +1,184 @@
+.navbar-header {
+    float: left;
+    display: table;
+    content: " ";
+    margin-right: 0px;
+    margin-left: 0px;
+    clear: both;
+}
+
+.navbar {
+    line-height: 20px;
+    position: fixed;
+    margin-bottom: 20px;
+    min-height: 50px;
+    top: 0;
+    right: 0;
+    list-style-type: none;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #FFF 0px, #F8F8F8 100%);
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, .15) inset, 0px 1px 5px rgba(0, 0, 0, 0.075);
+    border: 1px solid transparent;
+    border-width: 0px 0px 1px;
+    border-color: #E7E7E7;
+    display: table;
+    content: " ";
+    z-index: 1030;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.navbar-brand {
+    float: left;
+    display: table;
+    content: " ";
+    margin: 0px;
+    font-size: 18px;
+    margin-left: -15px;
+    padding: 15px;
+    line-height: 20px;
+    color: #999;
+}
+
+nav {
+    display: block;
+    content: " ";
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow: visible;
+    width: auto;
+    height: 50px;
+    max-height: 50px;
+    padding: 0px;
+}
+
+.nav {
+    margin: 0px;
+    float: left;
+    list-style-type: none;
+    list-style-position: outside;
+    padding-left: 0px;
+}
+
+.nav > li {
+    float: left;
+}
+.nav > li > a {
+    display: block;
+    line-height: 20px;
+    position: relative;
+    padding: 15px;
+    font-size: 14px;
+    color: #999;
+}
+
+.nav > li > a:hover {
+    background-color: #EEE;
+    /*background-image: linear-gradient(to top, #FFF 0px, #B3E8FF 50%);*/
+}
+
+.input-group {
+    display: inline-table;
+    position: relative;
+    vertical-align: middle;
+    border-collapse: separate;
+}
+
+.btn.search {
+    background: url('/images/search.png') no-repeat scroll 0 0 transparent;
+    background-position: center;
+    background-size: 28px 28px;
+    height: 34px;
+    width: 34px;
+    border-left: 0px;
+    background-color: #FFF;
+    border-color: #CCC;
+}
+
+.btn.magnet {
+    background: url('/images/magnet.png') no-repeat scroll 0 0 transparent;
+    background-position: center;
+    background-size: 24px 24px;
+    height: 30px;
+    width: 30px;
+    border: 0px;
+    padding: 7px 12px;
+}
+
+.btn.btn-category {
+    height: 34px;
+    width: 34px;
+    border-color: #CCC;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: #FFF;
+    margin: 0px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid;
+    margin-left: -1px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.navbar-form {
+    margin-bottom: 8px;
+    margin-right: -15px;
+    margin-top: 8px;
+    margin-left: 0px;
+    padding: 0px 15px;
+}
+
+.navbar-form .form-control {
+    vertical-align: middle;
+    border: 1px solid;
+    border-color: #CCC;
+    border-right: 0px;
+}
+
+.input-group .form-control {
+    margin-bottom: 0px;
+}
+
+.form-control {
+    vertical-align: middle;
+    display: inline-block;
+    padding: 6px 12px 6px 12px;
+    height: 34px;
+    width: 300px;
+}
+
+/*
+.container {
+    margin: 0px auto;
+    padding: 0px 15px;
+    display: table;
+    content: " ";
+}
+*/
+
+.navbar-nav {
+    float: left;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar-right {
+    float: right;
+}

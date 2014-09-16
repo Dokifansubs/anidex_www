@@ -1,12 +1,12 @@
 nav.navbar.navbar-default.navbar-fixed-top
         .container
             .navbar-header
-                button.navbar-toggle.collapsed(data-target='.bs-navbar-collapse' data-toggle='collapse' type='button')
+                button.navbar-toggle.collapsed(data-target=".bs-navbar-collapse" data-toggle="collapse" type="button")
                     span.icon-bar
                     span.icon-bar
                     span.icon-bar
                 a.navbar-brand(href='/') #{title}
-            .navbar-collapse.bs-navbar-collapse.collapse(role='navigation' style='overflow-y: scroll;')
+            .navbar-collapse.bs-navbar-collapse.collapse(role="navigation" style="overflow-y: scroll;")
                 ul.nav.navbar-nav
                     li#upload
                         a(href='/upload') Upload
@@ -20,8 +20,8 @@ nav.navbar.navbar-default.navbar-fixed-top
                         a(href='/rss') RSS
                 ul.nav.navbar-nav.navbar-right
                     li.dropdown
-                        a.dropdown-toggle(href=(user && '/account') || '/login') Account
-                        ul.dropdown-hover.dropdown-menu#account(role='menu')
+                        a.dropdown-toggle(href="#" data-toggle="dropdown") Account
+                        ul.dropdown-hover.dropdown-menu#account(role="menu")
                             if user
                                 li#account
                                     a(href='/account') Settings
@@ -32,7 +32,7 @@ nav.navbar.navbar-default.navbar-fixed-top
                                     a(href='/register') Register
                                 li#login
                                     a.login(href='/login') Login
-                form.nav.navbar-nav.navbar-right.navbar-form(role='search' action='/')
+                form.nav.navbar-nav.navbar-right.navbar-form(role='search' action="/")
                     .input-group.input-group-sm
                         input.form-control(placeholder='Search', name='q', id='srch-term', type='text')
                         .input-group-btn

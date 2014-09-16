@@ -1,0 +1,13 @@
+extends layout
+block content
+    .container.container-upload
+            .alert.alert-info.alert(role='alert').center
+                strong Tracker Announce URL
+                div http://anidex.moe:6969/announce
+            form
+                .row
+                    button.btn.btn-success.btn-xs.pull-right(type='button')
+                        span.glyphicon.glyphicon-plus-sign
+                include uploadField
+                include uploadField
+                button.btn.btn-primary.btn-sm.pull-right(type='submit') Submit

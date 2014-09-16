@@ -1,4 +1,4 @@
-extends ../layout
+extends layout
 block content
     .container.container-width
         .alert.alert-info.alert-dismissible(role='alert').center
@@ -45,8 +45,8 @@ block content
             table.Table.table-hov
                 tr.Header
                     th.tor-cat-title.tleft Cat.
-                    th.tor-d DL
                     th.tor-name Name
+                    th.tor-d DL
                     th.tor-size Size
                     th.tor-age Age
                     th.tor-s S
@@ -58,20 +58,20 @@ block content
                         //- var rowclass = (i % 2 == 0) ? 'odd' : 'even'
                         tr.Row
                             td.brown(class=(i === torrents.length - 1) ? 'bleft' : '') #{torrent.category_name}
-                            td.center
-                                a.glyphicon.glyphicon-save(href='/download/#{torrent.torrent_id}')
                             td.tor-name
-                                a(href='/torrents/#{torrent.torrent_id}' style='color: #2F4F70') #{torrent.filename}
+                                a(href='/torrents/#{torrent.torrent_id}' style="color: #2F4F70") #{torrent.filename}
                                 if torrent.comments > 0
-                                    span.badge.pull-right(rel='tooltip' title='Comments' data-placement='left') #{torrent.comments}
-                                //-span &nbsp;
-                                //-a.glyphicon.glyphicon-magnet(href='http://anidex.moe/')
+                                    span.badge.pull-right(rel="tooltip" title="Comments" data-placement="left") #{torrent.comments}
+                            td.center
+                                a.glyphicon.glyphicon-save(href="http://anidex.moe/")
+                                span &nbsp;
+                                a.glyphicon.glyphicon-magnet(href="http://anidex.moe/")
                             td.brown.center #{torrent.size}
-                            td.center #{torrent.age}
+                            td.center #{torrent.created}
                             td.green.center #{torrent.complete}
                             td.red.center #{torrent.incomplete}
                             td.purple.center(class=(i === torrents.length - 1) ? 'bright' : '') #{torrent.downloaded}
                 else
                     tr.Row
-                        td.tor-empty(colspan='8' style='text-align: center;') No results found
+                        td.tor-empty(colspan="8" style="text-align: center;") No results found
 
