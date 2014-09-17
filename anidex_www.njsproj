@@ -16,6 +16,9 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+    <Content Include=".jshintrc" />
     <Content Include="bower.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
@@ -24,22 +27,13 @@
     <Content Include="conf\email.json.example" />
     <Content Include="conf\mysql.json.example" />
     <Content Include="conf\server.json.example" />
-    <Content Include="views\account.jade" />
-    <Content Include="views\advUpload.jade" />
     <Content Include="views\categories.jade" />
     <Content Include="views\footer.jade" />
     <Content Include="views\group.jade" />
     <Content Include="views\groups.jade" />
     <Content Include="views\header.jade" />
-    <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
-    <Content Include="views\login.jade" />
     <Content Include="views\navbar.jade" />
-    <Content Include="views\register.jade" />
-    <Content Include="views\torrent.jade" />
-    <Content Include="views\upload.jade" />
-    <Content Include="views\uploadField.jade" />
-    <Content Include="views\verify-account.jade" />
     <Compile Include="lib\helpers\passport.js" />
     <Compile Include="lib\repositories\database.js" />
     <Compile Include="lib\repositories\email.js" />
@@ -63,6 +57,15 @@
     <Content Include="public\stylesheets\bootstrap.min.css" />
     <Content Include="public\stylesheets\category.css" />
     <Content Include="public\stylesheets\navbar.css" />
+    <Content Include="views\profile\account.jade" />
+    <Content Include="views\profile\login.jade" />
+    <Content Include="views\profile\register.jade" />
+    <Content Include="views\profile\verify-account.jade" />
+    <Content Include="views\torrent\advUpload.jade" />
+    <Content Include="views\torrent\torrent.jade" />
+    <Content Include="views\torrent\torrents.jade" />
+    <Content Include="views\torrent\upload.jade" />
+    <Content Include="views\torrent\uploadField.jade" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="cheatsheet" />
@@ -81,6 +84,8 @@
     <Folder Include="public\torrents" />
     <Folder Include="views" />
     <Folder Include="views\partials" />
+    <Folder Include="views\profile\" />
+    <Folder Include="views\torrent\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
