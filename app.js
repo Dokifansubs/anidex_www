@@ -92,6 +92,10 @@ app.post('/login', passport.authenticate('local', {
 
 app.post('/register', profile.registerForm);
 
+app.get('/loaderio-094ab3c6cfc055608e961c10e670e233', function(req, res) {
+  res.send('loaderio-094ab3c6cfc055608e961c10e670e233');
+});
+
 
 // Start the server
 app.listen(app.get('port'), function() {
