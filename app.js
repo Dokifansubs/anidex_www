@@ -11,6 +11,10 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
 
+if (process.env.NODE_ENV === 'production') {
+    var session = require('express-session');
+    var redisStore = require('connect-redis')(session); 
+}
 
 var app = module.exports = express();
 
@@ -19,7 +23,16 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.bodyParser({uploadDir: __dirname + '/public/torrents'}));
 app.use(express.cookieParser());
-app.use(express.session(ServerConfig.session));
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(session({
+        store: new redisStore(ServerConfig.session.redis || {}),
+        secret: ServerConfig.session.secret
+    }));    
+} else {
+    app.use(express.session({secret: ServerConfig.session.secret}));
+}
+
 app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(passport.session());
