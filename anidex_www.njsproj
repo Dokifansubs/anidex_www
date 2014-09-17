@@ -23,9 +23,6 @@
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Compile Include="app.js" />
-    <Content Include="conf\captcha.json.example" />
-    <Content Include="conf\email.json.example" />
-    <Content Include="conf\mysql.json.example" />
     <Content Include="conf\server.json.example" />
     <Content Include="views\categories.jade" />
     <Content Include="views\footer.jade" />
@@ -49,14 +46,11 @@
     <Compile Include="public\js\bootstrap.js" />
     <Compile Include="public\js\bootstrap.min.js" />
     <Compile Include="public\js\upload.js" />
-    <Content Include="public\stylesheets\adv-upload.css" />
     <Content Include="public\stylesheets\anidex.css" />
     <Content Include="public\stylesheets\bootstrap-theme.css" />
     <Content Include="public\stylesheets\bootstrap-theme.min.css" />
     <Content Include="public\stylesheets\bootstrap.css" />
     <Content Include="public\stylesheets\bootstrap.min.css" />
-    <Content Include="public\stylesheets\category.css" />
-    <Content Include="public\stylesheets\navbar.css" />
     <Content Include="views\profile\account.jade" />
     <Content Include="views\profile\login.jade" />
     <Content Include="views\profile\register.jade" />
