@@ -10,8 +10,8 @@ var ServerConfig = require('./conf/server.json');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
-
-
+var session = require('express-session');
+var SessionStore = require('express-mysql-session');
 var app = module.exports = express();
 
 app.set('port', ServerConfig.port || 80);
@@ -19,7 +19,12 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.bodyParser({uploadDir: __dirname + '/public/torrents'}));
 app.use(express.cookieParser());
-app.use(express.session(ServerConfig.session));
+//app.use(express.session(ServerConfig.session));
+app.use(session({
+    key: 'session_cookie_name',
+    secret: 'session_cookie_secret',
+    store: new SessionStore(ServerConfig.mysql)
+}));
 app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(passport.session());

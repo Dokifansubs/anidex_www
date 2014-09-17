@@ -31,7 +31,10 @@
         "validator": "3.17.0",
         "read-torrent": "1.0.0",
         "parse-torrent": "*",
-        "request": "2.40.0"
+        "request": "2.40.0",
+		"strong-cluster-connect-store": "*",
+		"express-session": "*",
+		"express-mysql-session": "*"
     },
     "engines": {
         "node": "0.10.22",
