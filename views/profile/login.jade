@@ -1,13 +1,13 @@
 extends ../layout
 block content
     .login-box
-        if error
+        if message.error
             .alert.alert-danger.alert-dismissible(role='alert')
                 button.close(data-dismiss='alert', type='button')
                     span(aria-hidden='true') &times;
                     span.sr-only Close
                 strong Error!&nbsp;
-                | #{error}
+                | #{message.error}
         form(action='/login' method='post')
             input.form-input(type='text' name='username' placeholder='Username')
             input.form-input(type='password' name='password' placeholder='Password')

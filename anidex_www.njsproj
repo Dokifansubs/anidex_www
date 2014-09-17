@@ -36,7 +36,6 @@
     <Compile Include="lib\repositories\email.js" />
     <Compile Include="lib\repositories\user.js" />
     <Compile Include="lib\request-handlers\groups.js" />
-    <Compile Include="lib\request-handlers\home.js" />
     <Compile Include="lib\request-handlers\management.js" />
     <Compile Include="lib\request-handlers\profile.js" />
     <Compile Include="lib\request-handlers\torrents.js" />
