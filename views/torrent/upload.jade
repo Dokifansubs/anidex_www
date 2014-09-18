@@ -11,7 +11,7 @@ block content
                     span.sr-only Close
                 strong Error!&nbsp;
                 | #{message.error}
-        if message.info
+        if message.info            
             .alert.alert-success.alert-dismissible(role='alert')
                 button.close(data-dismiss='alert', type='button')
                     span(aria-hidden='true') &times;
@@ -20,6 +20,8 @@ block content
                 | #{message.info.message}
                 a(href='#{message.info.link}') #{message.info.link}
         form(method='post' action='/upload' enctype='multipart/form-data')
+            if group_id
+                input(type='hidden', name='group_id', value='#{group_id}')
             .row
                 button.btn.btn-success.btn-xs.pull-right(type='button').disabled
                     span.glyphicon.glyphicon-plus-sign

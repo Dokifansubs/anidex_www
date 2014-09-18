@@ -60,7 +60,8 @@ var torrents = require('./lib/request-handlers/torrents');
 app.get('/', torrents.search);
 app.get('/torrents/:id', torrents.single);
 //app.get('/upload', torrents.upload);
-app.get('/upload', passHandler.ensureAuthenticated, torrents.upload);
+app.get('/upload', passHandler.ensureAuthenticated, torrents.uploadSelect);
+app.get('/upload/:id', passHandler.ensureAuthenticated, torrents.upload);
 app.post('/upload', torrents.uploadFile);
 app.post('/parse', torrents.parseFile);
 /*
