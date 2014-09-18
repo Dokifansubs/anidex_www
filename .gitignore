@@ -35,6 +35,9 @@ cheatsheet
 # Do not include database files.
 *.sql
 
+# Do not include torrent files.
+*.btf
+
 # Hide visual studio project and solution files
 *.sln
 

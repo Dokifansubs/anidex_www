@@ -1,0 +1,28 @@
+﻿extends ../layout
+block content
+    .container
+        if message.error
+            .alert.alert-danger.alert-dismissible(role='alert')
+                button.close(data-dismiss='alert', type='button')
+                    span(aria-hidden='true') &times;
+                    span.sr-only Close
+                strong Error!&nbsp;
+                | #{message.error}
+        if message.info
+            .alert.alert-success.alert-dismissible(role='alert')
+                button.close(data-dismiss='alert', type='button')
+                    span(aria-hidden='true') &times;
+                    span.sr-only Close
+                strong Success!&nbsp;
+                | #{message.info[0].message}
+                a(href='#{message.info[0].link}') #{message.info[0].link}
+    .login-box
+        h1 Individual
+        hr
+        a.btn.btn-default.btn-block(href='/upload/individual') Individual
+        if user.groups
+            h1 Groups
+            hr
+            for group in user.groups
+                a.btn.btn-default.btn-block(href='/upload/#{group.group_id}') #{group.group_name}
+        
