@@ -11,6 +11,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
 var torrent_helpers = require('./lib/api/tracker-helpers');
+var orm = require('orm');
+var Models = require('./lib/helpers/models.js');
 
 if (process.env.NODE_ENV === 'production') {
     var session = require('express-session');
@@ -40,6 +42,12 @@ app.use(passport.session());
 app.use(flash());
 app.use(require('stylus').middleware({ src: __dirname + '/public' }));
 app.use(express.static(__dirname + '/public'));
+app.use(orm.express('mysql://' + ServerConfig.mysql.user + ':' + ServerConfig.mysql.password + '@' + ServerConfig.mysql.host + '/' + ServerConfig.mysql.database, {
+    define: function (db, models, next) {
+        models.torrents = db.define('torrent', Models.torrent);
+        next();
+    }
+}));
 
 if (app.get('env') === 'development') {
     app.use(express.errorHandler());
