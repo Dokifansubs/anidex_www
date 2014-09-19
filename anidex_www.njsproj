@@ -31,6 +31,9 @@
     <Content Include="views\header.jade" />
     <Content Include="views\layout.jade" />
     <Content Include="views\navbar.jade" />
+    <Compile Include="lib\api\torrent-listing.js" />
+    <Compile Include="lib\api\tracker-helpers.js" />
+    <Compile Include="lib\helpers\models.js" />
     <Compile Include="lib\helpers\passport.js" />
     <Compile Include="lib\repositories\database.js" />
     <Compile Include="lib\repositories\email.js" />
@@ -67,6 +70,7 @@
     <Folder Include="cheatsheet" />
     <Folder Include="conf" />
     <Folder Include="lib" />
+    <Folder Include="lib\api\" />
     <Folder Include="lib\helpers" />
     <Folder Include="lib\repositories" />
     <Folder Include="lib\request-handlers" />
