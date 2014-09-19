@@ -10,6 +10,7 @@ var ServerConfig = require('./conf/server.json');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
+var torrent_helpers = require('./lib/api/tracker-helpers');
 
 if (process.env.NODE_ENV === 'production') {
     var session = require('express-session');
@@ -97,6 +98,7 @@ app.get('/loaderio-094ab3c6cfc055608e961c10e670e233', function(req, res) {
   res.send('loaderio-094ab3c6cfc055608e961c10e670e233');
 });
 
+app.get('/whitelist', torrent_helpers.whitelist);
 
 // Start the server
 app.listen(app.get('port'), function() {
