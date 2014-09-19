@@ -59,7 +59,9 @@
     <Content Include="views\torrent\torrents.jade" />
     <Content Include="views\torrent\upload.jade" />
     <Content Include="views\torrent\uploadField.jade" />
-    <Content Include="views\torrent\uploadSelect.jade" />
+    <Content Include="views\torrent\uploadSelect.jade">
+      <Publish>False</Publish>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="cheatsheet" />
