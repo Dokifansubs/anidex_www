@@ -1,17 +1,15 @@
 extends ../layout
-block content
-    .container.container-upload
-        .alert.alert-info.alert(role='alert').center
-            strong Tracker Announce URL
-            div http://anidex.moe:6969/announce        
-        include ../errors/error
-        form(method='post' action='/upload' enctype='multipart/form-data')
-            if group_id
-                input(type='hidden', name='group_id', value='#{group_id}')
-            .row
-                button.btn.btn-success.btn-xs.pull-right(type='button').disabled
-                    span.glyphicon.glyphicon-plus-sign
-            include uploadField
-            button.btn.btn-primary.btn-sm.pull-right(type='submit') Submit
+block content    
+    .alert.alert-info.alert(role='alert').center
+        strong Tracker Announce URL
+        div http://anidex.moe:6969/announce
+    form(method='post' action='/upload' enctype='multipart/form-data')
+        if group_id
+            input(type='hidden', name='group_id', value='#{group_id}')
+        .row
+            button.btn.btn-success.btn-xs.pull-right(type='button').disabled
+                span.glyphicon.glyphicon-plus-sign
+        include uploadField
+        button.btn.btn-primary.btn-sm.pull-right(type='submit') Submit
 block scripts
     script(src='/js/upload.js')
