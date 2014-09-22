@@ -1,7 +1,9 @@
 include header
 body
     include navbar
-    block content
+    .container
+        include errors/error
+        block content
     .container(style='clear: both;')
         hr
         include footer

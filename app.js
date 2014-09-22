@@ -87,12 +87,17 @@ app.get('/register', profile.register);
 app.get('/login', profile.login);
 app.get('/logout', profile.logout);
 app.get('/verify-account', profile.verify);
+app.get('/forgot-password', profile.forgotPassword);
+app.get('/recover-password', profile.recoverPassword);
+app.post('/register', profile.registerForm);
 app.post('/update-password', passHandler.ensureAuthenticated, profile.updatePassword);
+app.post('/forgot-password', profile.setRecoverPassword);
+app.post('/recover-password', profile.updateRecoverPassword);
 
 var management = require('./lib/request-handlers/management');
-// TODO: Add authentication middleware.
 app.get('/account', passHandler.ensureAuthenticated, management.user);
-app.get('/account-group/:id', passHandler.ensureAuthenticated, management.group);
+app.get('/account/:page', passHandler.ensureAuthenticated, management.user);
+app.get('/account-group/:id/:page', passHandler.ensureAuthenticated, management.group);
 
 app.post('/login', passport.authenticate('local', {
     successRedirect: '/',
@@ -100,7 +105,6 @@ app.post('/login', passport.authenticate('local', {
     failureFlash: true })
 );
 
-app.post('/register', profile.registerForm);
 
 app.get('/loaderio-094ab3c6cfc055608e961c10e670e233', function(req, res) {
   res.send('loaderio-094ab3c6cfc055608e961c10e670e233');

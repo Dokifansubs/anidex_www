@@ -1,17 +1,13 @@
 extends ../layout
 block content
     .login-box
-        if message.error
-            .alert.alert-danger.alert-dismissible(role='alert')
-                button.close(data-dismiss='alert', type='button')
-                    span(aria-hidden='true') &times;
-                    span.sr-only Close
-                strong Error!&nbsp;
-                | #{message.error}
         form(action='/login' method='post')
             input.form-input(type='text' name='username' placeholder='Username')
             input.form-input(type='password' name='password' placeholder='Password')
-            .checkbox
-                input#rmbm(type='checkbox' name='rememberme')
-                label(for='rmbm') Remember me
-            button.anibtn.anibtn-default(type='submit') Login
+            .checkbox            
+                label
+                    input(type='checkbox' name='rememberme') 
+                    | Remember me
+            button.btn.btn-primary.btn-block(type='submit') Login
+        a(href='/forgot-password') Forgot password?
+        a.pull-right(href='/register') Sign up

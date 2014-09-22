@@ -20,11 +20,14 @@
     <Content Include=".gitignore" />
     <Content Include=".jshintrc" />
     <Content Include="bower.json" />
+    <Content Include="doc\database\model.mwb" />
+    <Content Include="doc\database\model.mwb.bak" />
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Compile Include="app.js" />
     <Content Include="conf\server.json.example" />
     <Content Include="views\categories.jade" />
+    <Content Include="views\errors\error.jade" />
     <Content Include="views\footer.jade" />
     <Content Include="views\group.jade" />
     <Content Include="views\groups.jade" />
@@ -53,8 +56,13 @@
     <Content Include="public\stylesheets\bootstrap-theme.min.css" />
     <Content Include="public\stylesheets\bootstrap.css" />
     <Content Include="public\stylesheets\bootstrap.min.css" />
-    <Content Include="views\profile\account.jade" />
+    <Content Include="views\profile\forgot-password.jade" />
+    <Content Include="views\profile\account\groups.jade" />
+    <Content Include="views\profile\account\menu.jade" />
+    <Content Include="views\profile\account\settings.jade" />
+    <Content Include="views\profile\account\torrents.jade" />
     <Content Include="views\profile\login.jade" />
+    <Content Include="views\profile\recover-password.jade" />
     <Content Include="views\profile\register.jade" />
     <Content Include="views\profile\verify-account.jade" />
     <Content Include="views\torrent\advUpload.jade" />
@@ -69,6 +77,8 @@
   <ItemGroup>
     <Folder Include="cheatsheet" />
     <Folder Include="conf" />
+    <Folder Include="doc\" />
+    <Folder Include="doc\database\" />
     <Folder Include="lib" />
     <Folder Include="lib\api\" />
     <Folder Include="lib\helpers" />
@@ -83,8 +93,10 @@
     <Folder Include="public\stylesheets" />
     <Folder Include="public\torrents" />
     <Folder Include="views" />
+    <Folder Include="views\errors\" />
     <Folder Include="views\partials" />
     <Folder Include="views\profile\" />
+    <Folder Include="views\profile\account\" />
     <Folder Include="views\torrent\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />

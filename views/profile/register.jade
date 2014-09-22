@@ -1,20 +1,6 @@
 extends ../layout
 block content
-    .container.login-box
-        if message.error
-            .alert.alert-danger.alert-dismissible(role='alert')
-                button.close(data-dismiss='alert', type='button')
-                    span(aria-hidden='true') &times;
-                    span.sr-only Close
-                strong Error!&nbsp;
-                | #{message.error}
-        if message.info
-            .alert.alert-success.alert-dismissible(role='alert')
-                button.close(data-dismiss='alert', type='button')
-                    span(aria-hidden='true') &times;
-                    span.sr-only Close
-                strong Success!&nbsp;
-                | #{message.info}
+    .register-box
         script.
             var RecaptchaOptions = {
                 theme: 'clean'
@@ -29,4 +15,4 @@ block content
                 iframe(src='http://www.google.com/recaptcha/api/noscript?k=#{public_key}' style='height:300px; width: 500px; frameborder: 0;')
                     textarea(name='recaptcha_challenge_field' rows='3' cols='40')
                     input(type='hidden' name='recaptcha_response_field' value='manual_challenge')
-            button(type='submit').btn.btn-primary Register
+            button(type='submit').btn.btn-primary.btn-block Register

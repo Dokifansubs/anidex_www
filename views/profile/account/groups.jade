@@ -1,0 +1,11 @@
+﻿extends menu
+block admin-content
+    if user.groups
+        table
+            tr
+                th Group name                
+            each group, i in user.groups
+                tr
+                    td #{group.group_name}
+    else
+        p You are not in any groups.

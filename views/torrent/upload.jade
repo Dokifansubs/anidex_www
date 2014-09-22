@@ -4,21 +4,7 @@ block content
         .alert.alert-info.alert(role='alert').center
             strong Tracker Announce URL
             div http://anidex.moe:6969/announce        
-        if message.error
-            .alert.alert-danger.alert-dismissible(role='alert')
-                button.close(data-dismiss='alert', type='button')
-                    span(aria-hidden='true') &times;
-                    span.sr-only Close
-                strong Error!&nbsp;
-                | #{message.error}
-        if message.info            
-            .alert.alert-success.alert-dismissible(role='alert')
-                button.close(data-dismiss='alert', type='button')
-                    span(aria-hidden='true') &times;
-                    span.sr-only Close
-                strong Success!&nbsp;
-                | #{message.info.message}
-                a(href='#{message.info.link}') #{message.info.link}
+        include ../errors/error
         form(method='post' action='/upload' enctype='multipart/form-data')
             if group_id
                 input(type='hidden', name='group_id', value='#{group_id}')
