@@ -650,12 +650,12 @@ select.upload-select {
 
 .torrentList-header--manage {
     width: 30px;
-    min-width: 30px;    
+    min-width: 30px;
 }
 
 .torrentList-header--delete {
     width: 30px;
-    min-width: 30px;    
+    min-width: 30px;
 }
 
 .torrentList-item {
@@ -718,4 +718,8 @@ select.upload-select {
 
 .torrentList tr:last-child .torrentList-item:last-child {
     border-bottom-right-radius: 5px;
+}
+
+.settings_option {
+    text-align: right;
 }

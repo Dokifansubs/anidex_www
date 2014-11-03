@@ -1,14 +1,14 @@
 extends menu
-block admin-content    
+block admin-content
     .col-xs-12.col-lg-12
         .col-xs-12
             // Placeholder, would like to put user's gravatar here. Together with perhaps other publicly visible info.
             img.media-object(alt='64x64' data-src='holder.js/64x64' style='width: 64px; height: 64px;' src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+')
-        .col-xs-2
+        .col-xs-2.settings_option
             strong Username:
-        .col-xs-10                    
-            p #{user.username}                    
-        .col-xs-2
+        .col-xs-10
+            p #{user.username}
+        .col-xs-2.settings_option
             strong Change password:
         .col-xs-10
             form(action='/update-password' method='post')
@@ -21,7 +21,7 @@ block admin-content
                         button.btn.btn-primary(type='submit') Change
             </br>
             </br>
-        .col-xs-2
+        .col-xs-2.settings_option
             strong Change email:
         .col-xs-10
             form
@@ -33,7 +33,7 @@ block admin-content
                     .input-group-btn
                         .btn-group
                             button.btn.btn-default(type='submit') Change
-        .col-xs-2
+        .col-xs-2.settings_option
             strong TT API key:
         .col-xs-10
             form
@@ -44,7 +44,7 @@ block admin-content
                             button.btn.btn-default(type='submit') Change
         .col-xs-12
             hr
-        .col-xs-2
+        .col-xs-2.settings_option
             strong Default Language:
         .col-xs-10
             // TODO: Auto-fill with available languages from database.
@@ -53,20 +53,20 @@ block admin-content
                 option English
                 option Non-English
                 option Raws
-        .col-xs-2
+        .col-xs-2.settings_option
             strong Default Category:
         .col-xs-10
             // TODO: Auto-fill with available categories from database.
             select.form-control.upload-select(name='category')
                 for cat in categories
                     option(value='#{cat.category_id}') #{cat.category_name}
-        .col-xs-2
+        .col-xs-2.settings_option
             strong Default Rating:
         .col-xs-10
             // Upload torrents as R18+ by default or not
             input(type='checkbox')
             label 18+
-        .col-xs-2
+        .col-xs-2.settings_option
             strong Default TTAPI:
         .col-xs-10
             input(type='checkbox')
