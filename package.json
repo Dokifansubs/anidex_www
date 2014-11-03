@@ -33,7 +33,8 @@
         "parse-torrent": "*",
         "request": "2.40.0",		
 		"express-session": "*",
-		"orm": "2.1.19"
+		"orm": "2.1.19",
+		"less-middleware": "1.0.4" 
     },
     "engines": {
         "node": "0.10.22",

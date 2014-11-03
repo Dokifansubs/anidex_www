@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'production') {
 
 var app = module.exports = express();
 
-app.set('port', ServerConfig.port || 80);
+app.set('port', ServerConfig.port || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.bodyParser({uploadDir: __dirname + '/public/torrents'}));
@@ -29,11 +29,12 @@ app.use(express.cookieParser());
 
 if (process.env.NODE_ENV === 'production') {
     app.use(session({
-        store: new redisStore(ServerConfig.session.redis || {}),
+        store: new redisStore(ServerConfig.session.redis || {}),
         secret: ServerConfig.session.secret
     }));    
 } else {
     app.use(express.session({secret: ServerConfig.session.secret}));
+    app.use(express.logger());
 }
 
 app.use(express.methodOverride());
@@ -68,6 +69,7 @@ app.use(perfomance.benchmark);
 var torrents = require('./lib/request-handlers/torrents');
 app.get('/', torrents.search);
 app.get('/torrents/:id', torrents.single);
+app.get('/torrents', torrents.all);
 //app.get('/upload', torrents.upload);
 app.get('/upload', passHandler.ensureAuthenticated, torrents.uploadSelect);
 app.get('/upload/:id', passHandler.ensureAuthenticated, torrents.upload);
