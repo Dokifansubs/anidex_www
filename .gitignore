@@ -37,7 +37,7 @@ cheatsheet
 
 # Do not include torrent files.
 *.btf
-/public/torrent/*
+public/torrent
 
 # Hide visual studio project and solution files
 *.sln
