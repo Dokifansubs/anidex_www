@@ -5,18 +5,18 @@
  * Copyright (c) 2014 Doki Enterprises
 **/
 
-var express = require('express');
-var ServerConfig = require('./conf/server.json');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var flash = require('connect-flash');
+var express         = require('express');
+var ServerConfig    = require('./conf/server.json');
+var passport        = require('passport');
+var LocalStrategy   = require('passport-local').Strategy;
+var flash           = require('connect-flash');
 var torrent_helpers = require('./lib/api/tracker-helpers');
-var orm = require('orm');
-var Models = require('./lib/helpers/models.js');
+var orm             = require('orm');
+var Models          = require('./lib/helpers/models.js');
 
 if (process.env.NODE_ENV === 'production') {
-    var session = require('express-session');
-    var redisStore = require('connect-redis')(session); 
+    var session     = require('express-session');
+    var redisStore  = require('connect-redis')(session);
 }
 
 var app = module.exports = express();
@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(session({
         store: new redisStore(ServerConfig.session.redis || {}),
         secret: ServerConfig.session.secret
-    }));    
+    }));
 } else {
     app.use(express.session({secret: ServerConfig.session.secret}));
 }
