@@ -5,14 +5,17 @@
  * Copyright (c) 2014 Doki Enterprises
 **/
 
-var express         = require('express');
-var ServerConfig    = require('./conf/server.json');
-var passport        = require('passport');
-var LocalStrategy   = require('passport-local').Strategy;
-var flash           = require('connect-flash');
-var torrent_helpers = require('./lib/api/tracker-helpers');
-var orm             = require('orm');
-var Models          = require('./lib/helpers/models.js');
+var express				= require('express');
+var ServerConfig		= require('./conf/server.json');
+var passport			= require('passport');
+var LocalStrategy		= require('passport-local').Strategy;
+var RememberMeStrategy	= require('passport-remember-me').Strategy;
+var flash				= require('connect-flash');
+var torrent_helpers		= require('./lib/api/tracker-helpers');
+var orm					= require('orm');
+var Models				= require('./lib/helpers/models.js');
+var utils				= require('./lib/helpers/utils.js');
+var Token				= require('./lib/helpers/token.js');
 
 if (process.env.NODE_ENV === 'production') {
     var session     = require('express-session');
@@ -39,6 +42,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(passport.authenticate('remember-me'));
 app.use(flash());
 app.use(require('stylus').middleware({ src: __dirname + '/public' }));
 app.use(express.static(__dirname + '/public'));
@@ -56,6 +60,23 @@ if (app.get('env') === 'development') {
 // Configure passport handling
 var passHandler = require('./lib/helpers/passport');
 passport.use(new LocalStrategy(passHandler.login));
+passport.use(new RememberMeStrategy(
+	function(token, done) {
+		Token.consume(token, function (err, user) {
+			if (err) { return done(err); }
+			if (!user) { return done(null, false); }
+			return done(null, user);
+		});
+	},
+	function(user, done) {
+		var token = utils.generateToken(64);
+		Token.save(token, { userId: user.id }, function(err) {
+			if (err) { return done(err); }
+			return done(null, token);
+		});
+	}
+));
+
 passport.serializeUser(passHandler.serialize);
 passport.deserializeUser(passHandler.deserialize);
 
@@ -99,12 +120,22 @@ app.get('/account', passHandler.ensureAuthenticated, management.user);
 app.get('/account/:page', passHandler.ensureAuthenticated, management.user);
 app.get('/account-group/:id/:page', passHandler.ensureAuthenticated, management.group);
 
-app.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true })
+app.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }), 
+	function(req, res, next) {
+		// issue a remember me cookie if the option was checked
+		if (!req.body.rememberme) { return next(); }
+		
+		var token = utils.randomString(64);
+		Token.save(token, { userId: req.user.id }, function(err) {
+			if (err) { return done(err); }
+			res.cookie('rememberme', token, { path: '/', httpOnly: true, maxAge: 214748364700 });
+			return next();
+		});
+	},
+	function(req, res) {
+		res.redirect('/');
+	}
 );
-
 
 app.get('/loaderio-094ab3c6cfc055608e961c10e670e233', function(req, res) {
   res.send('loaderio-094ab3c6cfc055608e961c10e670e233');
