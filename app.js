@@ -39,24 +39,6 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.session({secret: ServerConfig.session.secret}));
 }
 
-app.use(express.methodOverride());
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(passport.authenticate('remember-me'));
-app.use(flash());
-app.use(require('stylus').middleware({ src: __dirname + '/public' }));
-app.use(express.static(__dirname + '/public'));
-app.use(orm.express('mysql://' + ServerConfig.mysql.user + ':' + ServerConfig.mysql.password + '@' + ServerConfig.mysql.host + '/' + ServerConfig.mysql.database, {
-    define: function (db, models, next) {
-        models.torrents = db.define('torrent', Models.torrent);
-        next();
-    }
-}));
-
-if (app.get('env') === 'development') {
-    app.use(express.errorHandler());
-}
-
 // Configure passport handling
 var passHandler = require('./lib/helpers/passport');
 passport.use(new LocalStrategy(passHandler.login));
@@ -76,6 +58,24 @@ passport.use(new RememberMeStrategy(
 		});
 	}
 ));
+
+app.use(express.methodOverride());
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.authenticate('remember-me'));
+app.use(flash());
+app.use(require('stylus').middleware({ src: __dirname + '/public' }));
+app.use(express.static(__dirname + '/public'));
+app.use(orm.express('mysql://' + ServerConfig.mysql.user + ':' + ServerConfig.mysql.password + '@' + ServerConfig.mysql.host + '/' + ServerConfig.mysql.database, {
+    define: function (db, models, next) {
+        models.torrents = db.define('torrent', Models.torrent);
+        next();
+    }
+}));
+
+if (app.get('env') === 'development') {
+    app.use(express.errorHandler());
+}
 
 passport.serializeUser(passHandler.serialize);
 passport.deserializeUser(passHandler.deserialize);
