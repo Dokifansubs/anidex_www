@@ -475,23 +475,5 @@ exports.updatePassword = function (id, password, callback) {
     });
 };
 
-var executeCreateQuery = function(query) {
-	 pool.getConnection(function(err, connection) {
-		  connection.query(query, function(err) {
-				connection.release(); 
-		  });
-	 });
-};
-
-var init = function() {
-	 executeCreateQuery(Queries.users());
-	 executeCreateQuery(Queries.groups());
-	 executeCreateQuery(Queries.user_group());
-	 executeCreateQuery(Queries.torrent());
-	 executeCreateQuery(Queries.categories());
-	 executeCreateQuery(Queries.peers());
-	 executeCreateQuery(Queries.sessions());
-};
-
 pool = mysql.createPool(MySQLConf);
 init();
