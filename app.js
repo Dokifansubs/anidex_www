@@ -1,49 +1,52 @@
 'use strict';
 
 var path				= require('path');
+var http				= require('http');
 var express				= require('express');
+var session				= require('express-session');
+var errorHandler		= require('express-error-handler');
 var redis				= require('redis');
 var passport			= require('passport');
 var LocalStrategy		= require('passport-local').Strategy;
 var RememberMeStrategy	= require('passport-remember-me').Strategy;
 var flash				= require('connect-flash');
 
+GLOBAL.APP		= module.exports = express();
+GLOBAL.APPROOT	= path.resolve(__dirname);
+GLOBAL.REDIS	= redis.createClient();
+
 var ServerConfig		= require(APPROOT + '/conf/server.json');
 var perfomance			= require(APPROOT + '/libs/perfomance');
+var server				= http.createServer(APP);
 
-app.set('port', ServerConifg.port || 3000);
-
-GLOBAL.APP = module.exports = express();
-GLOBAL.APPROOT = path.resolve(__dirname);
-GLOBAL.REDIS = redis.createClient();
+APP.set('port', ServerConfig.port || 3000);
 
 if (process.env.NODE_ENV === 'production') {
-	var session = require('express-session');
     var redisStore = require('connect-redis')(session);
-    app.use(session({
+    APP.use(session({
         store: new redisStore(ServerConfig.session.redis || {}),
         secret: ServerConfig.session.secret
     }));    
 } else {
-    app.use(express.session({secret: ServerConfig.session.secret}));
-	app.use(express.errorHandler());
+    APP.use(session({secret: ServerConfig.session.secret}));
 }
 
-app.use(express.bodyParser({uploadDir: APPROOT + '/public/torrents'}));
-app.use(express.cookieParser());
-app.use(express.methodOverride());
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-app.use(express.static(__dirname + '/public'));
+APP.use(passport.initialize());
+APP.use(passport.session());
+APP.use(flash());
+APP.use(express.static(APPROOT + '/public'));
+APP.use(errorHandler({server: server}));
+APP.use(perfomance.benchmark);
 
-app.use(perfomance.benchmark);
+APP.get('/', function(req, res) {
+	res.send('Anidex');
+});
 
-app.get('/loaderio-094ab3c6cfc055608e961c10e670e233', function(req, res) {
+APP.get('/loaderio-094ab3c6cfc055608e961c10e670e233', function(req, res) {
   res.send('loaderio-094ab3c6cfc055608e961c10e670e233');
 });
 
 // Start the server
-app.listen(app.get('port'), function() {
-    console.log('Express server listening on port ' + app.get('port'));
+server.listen(APP.get('port'), function() {
+    console.log('Express server listening on port ' + APP.get('port'));
 });
