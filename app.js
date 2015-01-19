@@ -1,18 +1,18 @@
 'use strict';
 
-var path				= require('path');
-var http				= require('http');
-var jade				= require('jade');
-var express				= require('express');
-var session				= require('express-session');
-var errorHandler		= require('express-error-handler');
-var redis				= require('redis');
-var passport			= require('passport');
-var LocalStrategy		= require('passport-local').Strategy;
-var RememberMeStrategy	= require('passport-remember-me').Strategy;
-var flash				= require('connect-flash');
+var path                = require('path');
+var http                = require('http');
+var jade                = require('jade');
+var express             = require('express');
+var session             = require('express-session');
+var errorHandler        = require('express-error-handler');
+var redis               = require('redis');
+var passport            = require('passport');
+var LocalStrategy       = require('passport-local').Strategy;
+var RememberMeStrategy  = require('passport-remember-me').Strategy;
+var flash               = require('connect-flash');
 
-GLOBAL.APP		= module.exports = express();
+GLOBAL.APP      = module.exports = express();
 GLOBAL.APPROOT	= path.resolve(__dirname);
 GLOBAL.REDIS	= redis.createClient();
 
