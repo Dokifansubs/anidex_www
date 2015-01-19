@@ -2,6 +2,7 @@
 
 var path				= require('path');
 var http				= require('http');
+var jade				= require('jade');
 var express				= require('express');
 var session				= require('express-session');
 var errorHandler		= require('express-error-handler');
@@ -20,6 +21,9 @@ var perfomance			= require(APPROOT + '/libs/perfomance');
 var server				= http.createServer(APP);
 
 APP.set('port', ServerConfig.port || 3000);
+APP.set('views', APPROOT + '/app');
+APP.set('view engine', 'jade');
+APP.engine('jade', jade.__express);
 
 if (process.env.NODE_ENV === 'production') {
     var redisStore = require('connect-redis')(session);
@@ -39,7 +43,11 @@ APP.use(errorHandler({server: server}));
 APP.use(perfomance.benchmark);
 
 APP.get('/', function(req, res) {
-	res.send('Anidex');
+	res.render('components/home/homeView', {});
+});
+
+APP.get('/login', function(req, res) {
+	res.render('components/login/loginView', {});
 });
 
 APP.get('/loaderio-094ab3c6cfc055608e961c10e670e233', function(req, res) {
