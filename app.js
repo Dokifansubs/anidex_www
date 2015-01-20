@@ -12,6 +12,8 @@ var LocalStrategy       = require('passport-local').Strategy;
 var RememberMeStrategy  = require('passport-remember-me').Strategy;
 var flash               = require('connect-flash');
 
+var globals     = require(APPROOT + '/libs/helpers/globals');
+
 GLOBAL.APP      = module.exports = express();
 GLOBAL.APPROOT	= path.resolve(__dirname);
 GLOBAL.REDIS	= redis.createClient();

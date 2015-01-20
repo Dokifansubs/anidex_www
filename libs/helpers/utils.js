@@ -1,5 +1,7 @@
 'use strict';
 
+var bcrypt = require('bcrypt');
+
 exports.randomString = function(len) {
   var buf = []
     , chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -15,3 +17,12 @@ exports.randomString = function(len) {
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+exports.encryptPassword = function(password, done) {
+  bcrypt.genSalt(10, function(err, salt) {
+    // TODO: Handle errors.
+    bcrypt.hash(password, salt, function(err, hash) {
+      done(err, hash);
+    });
+  });
+};
