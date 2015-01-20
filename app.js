@@ -20,6 +20,7 @@ GLOBAL.REDIS	= redis.createClient();
 
 var ServerConfig		= require(APPROOT + '/conf/server.json');
 var perfomance			= require(APPROOT + '/libs/perfomance');
+var api_router          = require(APPROOT + '/api/router');
 var server				= http.createServer(APP);
 
 APP.set('port', ServerConfig.port || 3000);

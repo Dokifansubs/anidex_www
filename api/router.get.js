@@ -2,10 +2,6 @@
 
 var database = require(APPROOT + '/api/libs/database/database.js');
 
-exports.home = function(req, res) {
-	res.json({'message': 'Welcome to AniDex API'});
-};
-
 exports.torrents = function(req, res) {
 	var options = {
 		'limit':		0,
