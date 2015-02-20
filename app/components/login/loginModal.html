@@ -1,0 +1,20 @@
+<div class="modal-header">
+	 <h3 class="modal-title">Login</h3>
+</div>
+<div class="modal-body">
+	 <div ng-show="modal.error" class="alert alert-danger">{{modal.error}}</div>
+	 <form ng-submit="login()" role="form" name="loginForm" novalidate>
+		  <p><input class="form-control" type="text" id="username" placeholder="Username" ng-model="username" required></p>
+		  <input class="form-control" type="password" id="password" placeholder="Password" ng-model="password" required>
+		  <div class="checkbox">
+				<label>
+					 <input type="checkbox" id="rememberme" ng-model="rememberme"> Remember me
+				</label>
+		  </div>
+		  <button type="submit" class="btn btn-primary form-control" ng-disabled="loginForm.$invalid || dataLoading">Login</button>
+	 </form>	 
+</div>
+<div class="modal-footer">	 
+	 <button class="btn btn-default pull-left">Register</button>
+	 <button class="btn btn-danger" ng-click="cancel()">Cancel</button>	 
+</div>

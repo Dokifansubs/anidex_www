@@ -1,0 +1,11 @@
+<nav class="navbar navbar-default">
+	 <div class="container-fluid">
+		  <div class="navbar-header">
+				<a class="navbar-brand" href="#">AniDex</a>
+		  </div>
+		  <div class="collapse navbar-collapse" ng-controller="LoginController">
+				<button type="button" class="btn btn-default navbar-btn navbar-right" ng-hide="user">Login</button>
+				<p class="navbar-text navbar-right" ng-show="user">Logged in as {{user.name}}</p>
+		  </div>
+	 </div>
+</nav>
