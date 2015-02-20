@@ -1,6 +1,6 @@
 {
     "name":			  "anidex_www",
-    "version":		  "2.0.1",
+    "version":		  "2.0.2",
     "description":  "Front end for AniDex tracker",
 	 "author": {
         "name":	  "Orillion",
@@ -40,6 +40,6 @@
     },
 	"scripts": {
 		  "prestart":		"npm install",
-		  "start":			"node app.js"
+		  "start": "http-server -a 0.0.0.0 -p 8383 -c-1"
 	 }
 }
