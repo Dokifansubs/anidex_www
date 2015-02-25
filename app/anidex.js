@@ -1,109 +1,97 @@
 (function () {
-var app = angular.module('anidex', ['ui.bootstrap', 'ngCookies', 'ngResource']);
-    app.config(function ($routeProvider, $locationProvider, $httpProvider) {
-    var checkLoggedIn = function ($q, $timeout, $http, $location, $rootScope) {
-    var deferred = $q.defer();
-        $http.get('/authCheck').success(function (user) {
-    if (user !== '0') {
-    $timeout(deferred.resolve, 0);
-    } else {
-    $rootScope.message = 'You need to log in.';
-        $timeout(function () {
-        deferred.reject();
-        }, 0);
-        $location.url('/login');
-    }
-    });
-        return deferred.promise;
+  var app = angular.module('anidex', ['ui.bootstrap', 'nav', 'ui.router', 'login']);
+
+  app.constant('address', 'http://localhost');
+  
+  /*
+   * Intercept HTTP StatusCodes, firing correct event.
+   */
+  app.factory('AuthInterceptor', function ($rootScope, $q, AUTH_EVENTS) {
+    return {
+      responseError: function (response) {
+        $rootScope.$broadcast({
+          401: AUTH_EVENTS.notAuthenticated,
+          403: AUTH_EVENTS.notAuthorized,
+          419: AUTH_EVENTS.sessionTimeout,
+          440: AUTH_EVENTS.sessionTimeout
+        }[response.status], response);
+        return $q.reject(response);
+      }
     };
-        $httpProvider.responseInterceptors.push(function ($q, $location) {
-        return function (promise) {
-        return promise.then(
-            function (response) {
-            return response;
-            },
-            function (response) {
-            if (response.status === 401) {
-            $location.url('/login');
-            }
-            return $q.reject(response);
-            }
-        );
-        };
-        });
+  });
+
+  app.controller('ApplicationController', function ($scope, $rootScope, AUTH_EVENTS, USER_ROLES, AuthenticationServices) {
+    $scope.currentUser = null;
+    $scope.userRoles = USER_ROLES;
+    $scope.isAuthorized = AuthenticationServices.isAuthorized;
+    $scope.isLoginPage = false;
+
+    $scope.setCurrentUser = function (user) {
+      $scope.currentUser = user;
+    };
+    
+    /*
+     * Login in user automatically in case a cookie is set.
+     */
+    AuthenticationServices.autoLogin().then(function (user) {
+      if (user !== null) {
+        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);        
+      }
+      $scope.setCurrentUser(user);
+    });
+  });
+  
+  /*
+   * Configure states (routes) for website.
+   */
+  app.config(function ($stateProvider, USER_ROLES) {
+    $stateProvider.state('dashboard', {
+      url: '/main',
+      templateUrl: '/index.html',
+      data: {
+        authorizedRoles: [USER_ROLES.all]
+      }
     });
     
-    app.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', function ($http, $cookieStore, $rootScope) {
-    var service = {};
-        service.Login = function (username, password, done) {
-        $http.post('/auth', {username: username, password: password})
-            .success(function (data, status, headers, config) {
-            done(data);
-            })
-            .error(function (data, status, headers, config) {
-            console.log(status);
-                done(data);
-            });
-        };
-        service.SetCredentials = function (username, password) {
-        $rootScope.globals = {
-        currentUser: {
-        username: username
+    /*
+     * TODO: Implement
+    $stateProvider.state('upload', {
+      url: '/upload',
+      templateUrl: '/upload.html',
+      data: {
+        authorizedRoles: [USER_ROLES.editor, USER_ROLES.admin]
+      }
+    });
+    */
+  });
+  
+  /*
+   * Run once on page initialisation.
+   * (Can't take $scope as argument)
+   */
+  app.run(function ($rootScope, AUTH_EVENTS, AuthenticationServices) {
+    $rootScope.$on('$stateChangeStart', function (event, next) {
+      var authorizedRoles = next.data.authorizedRoles;
+
+      if (!AuthenticationServices.isAuthorized(authorizedRoles)) {
+        event.preventDefault();
+
+        if (AuthenticationServices.isAuthenticated()) {
+          // User is not allowed.
+          $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
+        } else {
+          // User is not logged in.
+          $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
         }
-        };
-            $cookieStore.put('globals', $rootScope.globals);
-        };
-        service.ClearCredentials = function () {
-        $rootScope.globals = {};
-            $cookieStore.remove('globals');
-        };
-        return service;
-    }]);
-    app.controller('ModalController', ['$scope', '$rootScope', 'AuthenticationService', '$modal', '$log', function ($scope, $rootScope, AuthenticationService, $modal, $log) {
-    $scope.user = {
-    user: 'name',
-        password: null
-    };
-        $scope.open = function () {
-        var modalInstance = $modal.open({
-        templateUrl: '/components/login/loginModal.html',
-            controller: 'ModalInstanceController',
-            size: 'sm',
-            backdrop: true,
-            windowClass: 'modal',
-            resolve: {
-            user: function () {
-            return $scope.user;
-            }
-            }
-        });
-            modalInstance.result.then(function () {
+      }
+    });
+  });
 
-            }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
-            });
-        };
-    }]);
-    app.controller('ModalInstanceController', ['$scope', 'AuthenticationService', '$log', '$modalInstance', function ($scope, AuthenticationService, $log, $modalInstance) {
-
-    AuthenticationService.ClearCredentials();
-        $scope.login = function () {
-        $scope.dataLoading = true;
-            AuthenticationService.Login($scope.username, $scope.password, function (response) {
-            console.log(response);
-                if (response.success) {
-            $log.info('Authentication success.');
-                AuthenticationService.SetCredentials($scope.username, $scope.password);
-                $modalInstance.close('cancel');
-            } else {
-            $log.info('Authentication failure.');
-                $scope.error = response.message;
-            }
-            $scope.dataLoading = false;
-            });
-        };
-        $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
-        };
-    }]);
-    })();
+  app.config(function ($httpProvider) {
+    $httpProvider.interceptors.push([
+      '$injector', function ($injector) {
+        return $injector.get('AuthInterceptor');
+      }
+    ]);
+  });
+})();

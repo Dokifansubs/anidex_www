@@ -2,5 +2,9 @@
 	 "elements": {
 		  "top-bar": {}
 	 },
-	 "attributes": {}
+	 "attributes": {
+		  "login-dialog": {
+				"context": "div"
+		  }
+	 }
 }
