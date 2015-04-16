@@ -15,7 +15,7 @@ var torrent_helpers		= require('./lib/api/tracker-helpers');
 var orm					= require('orm');
 var Models				= require('./lib/helpers/models.js');
 var utils				= require('./lib/helpers/utils.js');
-var Token				= require('./lib/helpers/token.js');
+//var Token				= require('./lib/helpers/token.js');
 
 if (process.env.NODE_ENV === 'production') {
     var session     = require('express-session');
@@ -94,6 +94,7 @@ app.get('/upload', passHandler.ensureAuthenticated, torrents.uploadSelect);
 app.get('/upload/:id', passHandler.ensureAuthenticated, torrents.upload);
 app.post('/upload', torrents.uploadFile);
 app.post('/parse', torrents.parseFile);
+app.post('/delete', torrents.deleteFile);
 /*
 app.get('/advupload', passHandler.ensureAuthenticated ,torrents.advUpload);
 */
@@ -120,11 +121,11 @@ app.get('/account', passHandler.ensureAuthenticated, management.user);
 app.get('/account/:page', passHandler.ensureAuthenticated, management.user);
 app.get('/account-group/:id/:page', passHandler.ensureAuthenticated, management.group);
 
-app.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }), 
+app.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
 	function(req, res, next) {
 		// issue a remember me cookie if the option was checked
 		if (!req.body.rememberme) { return next(); }
-		
+
 		var token = utils.randomString(64);
 		Token.save(token, { userId: req.user.id }, function(err) {
 			if (err) { return done(err); }
