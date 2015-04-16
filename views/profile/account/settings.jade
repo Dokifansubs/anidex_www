@@ -13,12 +13,12 @@ block admin-content
         .col-xs-10
             form(action='/update-password' method='post')
                 .form-group
-                    input.form-control(type='password' name='opass' placeholder='Current password')
-                    input.form-control(type='password' name='npass' placeholder='New password')
-                    input.form-control(type='password' name='cpass' placeholder='Confirm new password')
+                    input.form-control(type='password' name='opass' placeholder='Current password' disabled)
+                    input.form-control(type='password' name='npass' placeholder='New password' disabled)
+                    input.form-control(type='password' name='cpass' placeholder='Confirm new password' disabled)
                     .btn-group.pull-right
-                        button.btn.btn-default(type='button') Clear
-                        button.btn.btn-primary(type='submit') Change
+                        button.btn.btn-default(type='button').disabled Clear
+                        button.btn.btn-primary(type='submit').disabled Change
             </br>
             </br>
         .col-xs-2.settings_option
@@ -27,28 +27,28 @@ block admin-content
             form
                 .input-group.form-group
                     if user
-                        input.form-control(type='text' name='email' value=user.email)
+                        input.form-control(type='text' name='email' value=user.email disabled)
                     else
-                        input.form-control(type='text' name='email')
+                        input.form-control(type='text' name='email' disabled)
                     .input-group-btn
                         .btn-group
-                            button.btn.btn-default(type='submit') Change
+                            button.btn.btn-default(type='submit').disabled Change
         .col-xs-2.settings_option
             strong TT API key:
         .col-xs-10
             form
                 .input-group.form-group
-                    input.form-control(type='text' name='ttapikey')
+                    input.form-control(type='text' name='ttapikey' disabled)
                     .input-group-btn
                         .btn-group
-                            button.btn.btn-default(type='submit') Change
+                            button.btn.btn-default(type='submit').disabled Change
         .col-xs-12
             hr
         .col-xs-2.settings_option
             strong Default Language:
         .col-xs-10
             // TODO: Auto-fill with available languages from database.
-            select.form-control.upload-select
+            select.form-control.upload-select(disabled)
                 option All languages
                 option English
                 option Non-English
@@ -57,16 +57,16 @@ block admin-content
             strong Default Category:
         .col-xs-10
             // TODO: Auto-fill with available categories from database.
-            select.form-control.upload-select(name='category')
+            select.form-control.upload-select(name='category' disabled)
                 for cat in categories
                     option(value='#{cat.category_id}') #{cat.category_name}
         .col-xs-2.settings_option
             strong Default Rating:
         .col-xs-10
             // Upload torrents as R18+ by default or not
-            input(type='checkbox')
+            input(type='checkbox' disabled)
             label 18+
         .col-xs-2.settings_option
             strong Default TTAPI:
         .col-xs-10
-            input(type='checkbox')
+            input(type='checkbox' disabled)
