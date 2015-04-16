@@ -196,3 +196,5 @@ UpgradeLog*.htm
 *.bim_*.settings
 # Microsoft Fakes
 FakesAssemblies/
+nbproject/private/private.properties
+nbproject/private/private.xml
