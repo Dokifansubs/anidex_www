@@ -15,7 +15,7 @@ var torrent_helpers		= require('./lib/api/tracker-helpers');
 var orm					= require('orm');
 var Models				= require('./lib/helpers/models.js');
 var utils				= require('./lib/helpers/utils.js');
-//var Token				= require('./lib/helpers/token.js');
+var Token				= require('./lib/helpers/token.js');
 
 if (process.env.NODE_ENV === 'production') {
     var session     = require('express-session');
